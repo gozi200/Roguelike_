@@ -1,0 +1,6 @@
+ID,name,x,y,width,height,level,hit_point,noble_phantasm,hunger_point,experience_point,attack,defence,power,activity,trun_count,graphic_handle,graphic_handle_pass
+int,string,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,char*
+0,アルトリア,0,0,1,1,1,15,0,0,0,10,10,8,1,0,Arturia,Picture/Actor/Player/Arturia.png
+1,エドモン,0,0,1,1,1,15,0,0,0,10,10,8,1,0,Edomon,Picture/Actor/Player/Edomon.png
+2,沖田,0,0,1,1,1,15,0,0,0,10,10,8,1,0,Okita,Picture/Actor/Player/Okita.png
+3,ジャンヌ,0,0,1,1,1,15,0,0,0,10,10,8,1,0,Jeanne,Picture/Actor/Player/Jeanne.png

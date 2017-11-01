@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{b296cbf7-b06b-4b80-b314-e7d7a253839b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System">
+      <UniqueIdentifier>{b384e348-a9ac-4041-bcdc-08b97e4988cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor_Base">
+      <UniqueIdentifier>{4e528651-9f6a-479f-aaae-1c4f90998017}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor_Base\Actor">
+      <UniqueIdentifier>{27fb725a-2bf9-4182-af31-2507e0e9e0e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor_Base\Actor\Enemy">
+      <UniqueIdentifier>{569085bd-de37-41fd-8cfe-e75cb87f2d72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor_Base\Item">
+      <UniqueIdentifier>{ac5de146-0a79-47e1-95c6-f37bf44d93cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor_Base\Actor\Ally">
+      <UniqueIdentifier>{7c25c8f3-5bd6-49db-ab8c-e6fe461f0d50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor_Base\Actor\Ally\Player">
+      <UniqueIdentifier>{0dc6106b-3bab-46be-ad70-363d7c6923c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor_Base\Actor\Ally\Partner">
+      <UniqueIdentifier>{9976395f-1a4e-4c26-8603-3dac92910ad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Dungeon_Base">
+      <UniqueIdentifier>{af3c24b6-5b37-47ac-800f-498d9770eefe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game">
+      <UniqueIdentifier>{919a04b5-cd05-4250-9bc7-bbe699b1bde7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor_Base\Item\Equipment">
+      <UniqueIdentifier>{3b683abd-f197-4026-9d45-c590ae5a4d8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor_Base\Item\Equipment\Weapon">
+      <UniqueIdentifier>{13e0f8cb-4765-419e-9e17-25a477e7c02b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor_Base\Item\Equipment\Shield">
+      <UniqueIdentifier>{f3cb3cdb-ca5f-44a9-9491-3a3285d4866b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor_Base\Item\Equipment\Accessorie">
+      <UniqueIdentifier>{955d7cc0-966e-41aa-b4c1-c83c18ca0191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CSV">
+      <UniqueIdentifier>{5e7dc0bb-29a6-473c-891f-cb71e4fa86ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CSV\Equipment">
+      <UniqueIdentifier>{91e6aa10-f951-429e-9569-bd1fab923deb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CSV\Item">
+      <UniqueIdentifier>{99e6b1bd-9fbb-4efb-8e1e-68f163d93c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CSV\Stage">
+      <UniqueIdentifier>{cf3560fa-0ad0-4785-9e55-ff6d757ece42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CSV\Actor">
+      <UniqueIdentifier>{dde00485-736d-450b-94fa-b44cfc32aa78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Scene">
+      <UniqueIdentifier>{f5f039bb-0ab0-4b42-bb65-f00e1321ac25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Factory">
+      <UniqueIdentifier>{8763e050-185d-4613-ad70-fbbc9da84d5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\System">
+      <UniqueIdentifier>{7d037b44-a1df-4e44-b2fe-4ad6f7082b88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor_Base">
+      <UniqueIdentifier>{637155a1-ab5c-4d87-81bc-4c7f3476f933}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor_Base\Actor">
+      <UniqueIdentifier>{1bdbaafb-3362-4d99-9776-329270a72418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor_Base\Actor\Ally">
+      <UniqueIdentifier>{002de22f-3a15-48c0-b2c6-eb399e9679f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor_Base\Actor\Ally\Partner">
+      <UniqueIdentifier>{d75eaac4-26ce-4eac-8ac9-77ea8d9333a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor_Base\Actor\Ally\Player">
+      <UniqueIdentifier>{1dd0cd32-9246-495c-82ee-e66c396c994f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor_Base\Actor\Enemy">
+      <UniqueIdentifier>{923a3e7a-578c-442e-93b2-5bf91484c094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor_Base\Item">
+      <UniqueIdentifier>{6b2bbe7b-b492-46e8-b052-0d9d08eb3c87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor_Base\Item\Equipment">
+      <UniqueIdentifier>{0b22b70b-c489-4ee0-8116-ab30a8e0fba7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor_Base\Item\Equipment\Weapon">
+      <UniqueIdentifier>{d82c6ef7-456b-4935-b042-0cb307fe5219}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor_Base\Item\Equipment\Shield">
+      <UniqueIdentifier>{8a3552de-99ac-4b08-85ae-bbd2a70ecf7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor_Base\Item\Accessorie">
+      <UniqueIdentifier>{e69e6c9a-97d9-4ba0-9efc-323023029386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\State">
+      <UniqueIdentifier>{fbddf55b-2c57-471e-abea-464ccacce78d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Game">
+      <UniqueIdentifier>{89ac0214-5d70-4b3f-87d5-464e272c51cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Map">
+      <UniqueIdentifier>{9760d7a5-4420-480b-9a9f-0b4d153e10b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Map\Dungeon">
+      <UniqueIdentifier>{44c6105c-7284-416c-8850-16850bda42c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\CSV">
+      <UniqueIdentifier>{9859955c-a6c9-47fb-b3b1-ee0e5bcbc9a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\CSV\Item">
+      <UniqueIdentifier>{4cfe8ce8-499b-4581-a201-11922d7a5217}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\CSV\Stage">
+      <UniqueIdentifier>{444a2d7d-9f97-4c55-ac2c-e29560e67b1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\CSV\Euqipment">
+      <UniqueIdentifier>{386b2741-1743-4064-83c2-5bbb713afd2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\CSV\Actor">
+      <UniqueIdentifier>{b6b188ea-bf5e-49c0-8539-292dd16bf855}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Graphic_Handle">
+      <UniqueIdentifier>{05f34263-417f-4b4b-879b-03cf38e8cb66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic_Handle">
+      <UniqueIdentifier>{6d9f5740-f8fc-4d92-ac4b-e7b85a750e6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Graphic_Handle\Stage">
+      <UniqueIdentifier>{cf1aab1d-6fd6-4cd6-b6cd-9324e58942f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic_Handle\Stage">
+      <UniqueIdentifier>{53f55d3c-f520-4cde-94f2-4826cb3a39dd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Result.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial_Stage.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル\Actor_Base\Actor\Ally\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>ソース ファイル\Actor_Base\Actor\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_Key_Controller.cpp">
+      <Filter>ソース ファイル\Actor_Base\Actor\Ally\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Partner.cpp">
+      <Filter>ソース ファイル\Actor_Base\Actor\Ally\Partner</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>ソース ファイル\Actor_Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>ソース ファイル\Actor_Base\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>ソース ファイル\Actor_Base\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor_Manager.cpp">
+      <Filter>ソース ファイル\Actor_Base\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Ally.cpp">
+      <Filter>ソース ファイル\Actor_Base\Actor\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Key_Controller.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Dungeon_Base.cpp">
+      <Filter>ソース ファイル\Dungeon_Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_Scene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_Cui.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>ソース ファイル\Actor_Base\Item\Equipment\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Key_Update.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield.cpp">
+      <Filter>ソース ファイル\Actor_Base\Item\Equipment\Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="Accessorie.cpp">
+      <Filter>ソース ファイル\Actor_Base\Item\Equipment\Accessorie</Filter>
+    </ClCompile>
+    <ClCompile Include="Dungeon01.cpp">
+      <Filter>ソース ファイル\Dungeon_Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Manager.cpp">
+      <Filter>ソース ファイル\Actor_Base\Actor\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Convenient_Function.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Ally_Status1.cpp">
+      <Filter>ソース ファイル\Actor_Base\Actor\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="Accessorie_Data.cpp">
+      <Filter>ソース ファイル\CSV\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield_Data.cpp">
+      <Filter>ソース ファイル\CSV\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon_Data.cpp">
+      <Filter>ソース ファイル\CSV\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="Food_Data.cpp">
+      <Filter>ソース ファイル\CSV\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Pot_Data.cpp">
+      <Filter>ソース ファイル\CSV\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Construction_Data.cpp">
+      <Filter>ソース ファイル\CSV\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Trap_Data.cpp">
+      <Filter>ソース ファイル\CSV\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall_Data.cpp">
+      <Filter>ソース ファイル\CSV\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile_Data.cpp">
+      <Filter>ソース ファイル\CSV\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Data.cpp">
+      <Filter>ソース ファイル\CSV\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Partner_Data.cpp">
+      <Filter>ソース ファイル\CSV\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_Data.cpp">
+      <Filter>ソース ファイル\CSV\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Stage</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Scene_Manager.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Result.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial_Stage.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Ally\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_Key_Contloroller.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Ally\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor_State.h">
+      <Filter>ヘッダーファイル\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Wait_State.h">
+      <Filter>ヘッダーファイル\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor_Abstract_Factory.h">
+      <Filter>ヘッダーファイル\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor_Factory.h">
+      <Filter>ヘッダーファイル\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Partner.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Ally\Partner</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>ヘッダーファイル\Actor_Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor_Manager.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Ally.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>ヘッダーファイル\Actor_Base\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Key_Controller.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Default_Player_Status.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Ally\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Default_Partner_Status.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Ally\Partner</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Dungeon_Base.h">
+      <Filter>ヘッダーファイル\Map\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Partner_Status.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Ally\Partner</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_Scene.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>ヘッダーファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_Cui.h">
+      <Filter>ヘッダーファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>ヘッダーファイル\Actor_Base\Item\Equipment\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Key_Update.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield.h">
+      <Filter>ヘッダーファイル\Actor_Base\Item\Equipment\Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="Accessorie.h">
+      <Filter>ヘッダーファイル\Actor_Base\Item\Accessorie</Filter>
+    </ClInclude>
+    <ClInclude Include="Dungeon01.h">
+      <Filter>ヘッダーファイル\Map\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Item_Type.h">
+      <Filter>ヘッダーファイル\Actor_Base\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Database.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Manager.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Move_Direction_Check.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Convenient_Function.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Ally_Status1.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Status1.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Accessorie_Data.h">
+      <Filter>ヘッダーファイル\CSV\Euqipment</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield_Data.h">
+      <Filter>ヘッダーファイル\CSV\Euqipment</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon_Data.h">
+      <Filter>ヘッダーファイル\CSV\Euqipment</Filter>
+    </ClInclude>
+    <ClInclude Include="Food_Data.h">
+      <Filter>ヘッダーファイル\CSV\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Pot_Data.h">
+      <Filter>ヘッダーファイル\CSV\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Construction_Data.h">
+      <Filter>ヘッダーファイル\CSV\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Trap_Data.h">
+      <Filter>ヘッダーファイル\CSV\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall_Data.h">
+      <Filter>ヘッダーファイル\CSV\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile_Judge.h">
+      <Filter>ヘッダーファイル\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile_Data.h">
+      <Filter>ヘッダーファイル\CSV\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Data.h">
+      <Filter>ヘッダーファイル\CSV\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_Data.h">
+      <Filter>ヘッダーファイル\CSV\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Partner_Data.h">
+      <Filter>ヘッダーファイル\CSV\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Stage</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

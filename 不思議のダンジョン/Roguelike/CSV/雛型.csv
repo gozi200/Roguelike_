@@ -1,0 +1,2 @@
+ID,name,x,y,width,height,graphic_handle,graphic_handle_pass
+int,string,int,int,int,int,int,char*

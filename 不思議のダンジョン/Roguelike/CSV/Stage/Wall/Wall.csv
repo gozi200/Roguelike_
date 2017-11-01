@@ -1,0 +1,4 @@
+ID,name,width,height,graphic_handle
+int,string,int,int,int
+1,Grass,5,5,0
+2,Cave,5,5,0
