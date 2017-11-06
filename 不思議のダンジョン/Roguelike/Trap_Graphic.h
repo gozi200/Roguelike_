@@ -3,12 +3,12 @@
 #include<vector>
 
 /*//////////////////////////
-床の画像を配列に格納するクラス
+罠の画像を配列に格納するクラス
 *///////////////////////////
 
-class Tile_Graphic {
+class Trap_Graphic {
 public:
-	std::vector<char*> Tile_graphic;
+	std::vector<char*> trap_graphic;
 
 	void Load();
 };

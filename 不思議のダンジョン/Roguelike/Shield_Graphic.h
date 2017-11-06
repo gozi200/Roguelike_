@@ -3,12 +3,12 @@
 #include<vector>
 
 /*//////////////////////////
-床の画像を配列に格納するクラス
+縦の画像を配列に格納するクラス
 *///////////////////////////
 
-class Tile_Graphic {
+class Shield_Graphic {
 public:
-	std::vector<char*> Tile_graphic;
+	std::vector<char*> shield_graphic;
 
 	void Load();
 };

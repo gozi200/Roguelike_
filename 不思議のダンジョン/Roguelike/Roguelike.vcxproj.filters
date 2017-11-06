@@ -121,12 +121,6 @@
     <Filter Include="ヘッダーファイル\Game">
       <UniqueIdentifier>{89ac0214-5d70-4b3f-87d5-464e272c51cf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダーファイル\Map">
-      <UniqueIdentifier>{9760d7a5-4420-480b-9a9f-0b4d153e10b3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダーファイル\Map\Dungeon">
-      <UniqueIdentifier>{44c6105c-7284-416c-8850-16850bda42c6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダーファイル\CSV">
       <UniqueIdentifier>{9859955c-a6c9-47fb-b3b1-ee0e5bcbc9a3}</UniqueIdentifier>
     </Filter>
@@ -153,6 +147,36 @@
     </Filter>
     <Filter Include="ソース ファイル\Graphic_Handle\Stage">
       <UniqueIdentifier>{53f55d3c-f520-4cde-94f2-4826cb3a39dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Graphic_Handle\Actor">
+      <UniqueIdentifier>{0623c293-cdb3-4d2a-b19b-362097ccc6d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Graphic_Handle\Equipment">
+      <UniqueIdentifier>{0d58aec3-444c-46c6-9daa-63e8d0eeb08a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Graphic_Handle\Item">
+      <UniqueIdentifier>{10df04c3-b579-4423-930f-0de3c3c07b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Map_Making">
+      <UniqueIdentifier>{9760d7a5-4420-480b-9a9f-0b4d153e10b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Map_Making\Dungeon">
+      <UniqueIdentifier>{44c6105c-7284-416c-8850-16850bda42c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic_Handle\Actor">
+      <UniqueIdentifier>{0811b823-06fc-4ba1-b33a-525cc26c4738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic_Handle\Item">
+      <UniqueIdentifier>{4c497882-0132-43d4-92cc-af8fa080e235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphic_Handle\Equipment">
+      <UniqueIdentifier>{d0304ba8-a524-419e-975c-7eee88a9e919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Function">
+      <UniqueIdentifier>{e95fde3f-7fb4-4572-ace7-4837ceefe07b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Function">
+      <UniqueIdentifier>{5e2cba20-efd0-4865-a6ce-7b943a4f8539}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -234,9 +258,6 @@
     <ClCompile Include="Enemy_Manager.cpp">
       <Filter>ソース ファイル\Actor_Base\Actor\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Convenient_Function.cpp">
-      <Filter>ソース ファイル\System</Filter>
-    </ClCompile>
     <ClCompile Include="Ally_Status1.cpp">
       <Filter>ソース ファイル\Actor_Base\Actor\Ally</Filter>
     </ClCompile>
@@ -281,6 +302,42 @@
     </ClCompile>
     <ClCompile Include="Wall_Graphic.cpp">
       <Filter>ソース ファイル\Graphic_Handle\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Accessorie_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="Construction_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Food_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Partner_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Pot_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="Trap_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon_Graphic.cpp">
+      <Filter>ソース ファイル\Graphic_Handle\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="Convenient_Function.cpp">
+      <Filter>ソース ファイル\Function</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile_Function.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -357,7 +414,7 @@
       <Filter>ヘッダーファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="Dungeon_Base.h">
-      <Filter>ヘッダーファイル\Map\Dungeon</Filter>
+      <Filter>ヘッダーファイル\Map_Making\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Partner_Status.h">
       <Filter>ヘッダーファイル\Actor_Base\Actor\Ally\Partner</Filter>
@@ -384,7 +441,7 @@
       <Filter>ヘッダーファイル\Actor_Base\Item\Accessorie</Filter>
     </ClInclude>
     <ClInclude Include="Dungeon01.h">
-      <Filter>ヘッダーファイル\Map\Dungeon</Filter>
+      <Filter>ヘッダーファイル\Map_Making\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Item_Type.h">
       <Filter>ヘッダーファイル\Actor_Base\Item</Filter>
@@ -397,9 +454,6 @@
     </ClInclude>
     <ClInclude Include="Move_Direction_Check.h">
       <Filter>ヘッダーファイル\Actor_Base\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="Convenient_Function.h">
-      <Filter>ヘッダーファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="Ally_Status1.h">
       <Filter>ヘッダーファイル\Actor_Base\Actor\Ally</Filter>
@@ -432,7 +486,7 @@
       <Filter>ヘッダーファイル\CSV\Stage</Filter>
     </ClInclude>
     <ClInclude Include="Tile_Judge.h">
-      <Filter>ヘッダーファイル\Map</Filter>
+      <Filter>ヘッダーファイル\Map_Making</Filter>
     </ClInclude>
     <ClInclude Include="Tile_Data.h">
       <Filter>ヘッダーファイル\CSV\Stage</Filter>
@@ -451,6 +505,42 @@
     </ClInclude>
     <ClInclude Include="Wall_Graphic.h">
       <Filter>ヘッダーファイル\Graphic_Handle\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Partner_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Accessorie_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="Food_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Pot_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Construction_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Trap_Graphic.h">
+      <Filter>ヘッダーファイル\Graphic_Handle\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Convenient_Function.h">
+      <Filter>ヘッダーファイル\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile_Function.h">
+      <Filter>ヘッダーファイル\Function</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

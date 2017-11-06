@@ -47,6 +47,7 @@ const int ITEM_MAX = 500; //アイテムが同時に出現できる数　ひとまず
 
 #pragma region ダンジョンに関する定数
 //とりあえずはここに
+
 const int DUNGEON_WIDTH = 50; //ダンジョンの横マスの数
 
 const int DUNGEON_HEIGHT = 50; //ダンジョンの縦マスの数
@@ -56,6 +57,8 @@ const int RECTANGLE = 100; //ひとまずの値 矩形、長方形
 const int MAX_RECTANGLE = 10; //区画の最大値
 
 const int MIN_ROOM_SIZE = 4; //最小の部屋のサイズ
+
+#pragma endregion
 
 //区画情報構造体 関数化------------------------------------------------
 typedef struct tagDUNGEON_RECTANGLE {
@@ -75,6 +78,27 @@ typedef struct tagDUNGEON_RECTANGLE {
 
 #pragma endregion
 
+#pragma region 各要素の呼び出し用ID
+
+#pragma region 床のID
+
+const int TILE_GRASS = 1;
+
+const int TILE_CAVE = 2;
+
+#pragma endregion
+
+
+#pragma region 壁のID
+
+const int WALL_GRASS = 1;
+
+const int WALL_CAVE = 2;
+
+#pragma endregion
+
+
+#pragma endregion
 
 #pragma region ゲームの設定に関する定数
 

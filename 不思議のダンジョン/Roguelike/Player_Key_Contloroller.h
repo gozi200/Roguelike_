@@ -16,5 +16,5 @@ public:
 
 	bool Attack(); //操作キャラクターを攻撃させる
 
-	bool Projectile_Weapon(); //飛び道具の意 矢などの使用
+	bool ProjecTile_Weapon(); //飛び道具の意 矢などの使用
 };

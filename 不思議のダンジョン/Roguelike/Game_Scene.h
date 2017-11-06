@@ -11,7 +11,7 @@ class Game_Scene: public Scene {
 public:
 	Game_Cui* game = nullptr;
 
-	Tile_Data tile_data;
+	Tile_Data Tile_data;
 
 	Game_Scene(Scene_Manager* Manager);
 

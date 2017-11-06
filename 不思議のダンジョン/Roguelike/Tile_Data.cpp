@@ -1,21 +1,24 @@
 #include"Tile_Data.h"
 
 Tile_Data::Tile_Data() {
-	tile_graphic.Load();
+	Tile_graphic.Load();
 }
 
 Tile_Data::~Tile_Data() {}
 
+//開くファイルのパスを指定する
 void Tile_Data::Set_File_Pass(const std::string & open_file_pass) {
 	file_pass = open_file_pass;
 }
 
+//指定されたパスにあるファイルを開き、読み込む　TODO: Load_Fileとか作る？
 bool Tile_Data::Open_File() {
 	auto ifs = std::ifstream();
 	ifs.open(file_pass);
 
 	Convenient_Function* convenient_function = new Convenient_Function;
 
+	//ファイルが開けなかったらfalse
 	if (!ifs.is_open()) {
 		return false;
 	}
@@ -23,28 +26,33 @@ bool Tile_Data::Open_File() {
 	std::string line;
 	std::getline(ifs, line); //csvファイルの使わない行を読み飛ばす
 	std::getline(ifs, line); //同上
+	ifs.clear(); //読み飛ばしたデータを破棄する
 
-	ifs.clear();
-
+	//それぞれの要素にcsvデータを読み込む
+	int i = 0;
 	while (!std::getline(ifs, line).eof()) {
-		SETTING_TILE_DATA data;
+		SETTING_Tile_DATA data;
 		auto values = convenient_function->Split(line, ","); //','で区切って読み込む
 		data.ID = std::stoi(values[0]); //ナンバー
 		data.name = values[1];
 		data.width = std::stoi(values[2]); //画像(横幅)	
 		data.height = std::stoi(values[3]); //画像(縦幅)
-		//load
-		data.graphic_handle = std::stoi(values[4]); //画像ファイル
-		
-		Load_Graph();
+		//load		
+		auto hoge = LoadGraph(Tile_graphic.Tile_graphic[i++]);
+		data.graphic_handle = hoge;
+		//Load_Graph();
 
-		set_tile_data.push_back(data); //１行ごとに配列に追加していく
+		set_Tile_data.push_back(data); //１行ごとに配列に追加していく
 	}
 }
 
 //画像ファイルに画像データのあるパスを読み込ませる
 void Tile_Data::Load_Graph() {
-	for (auto& data : set_tile_data) { //TODO: 番号に合った画像を入れる
-		data.graphic_handle = LoadGraph(tile_graphic.tile_graphic[0]);
+	for (auto& data : set_Tile_data) { //TODO: 番号に合った画像を入れる
+		data.graphic_handle = LoadGraph(Tile_graphic.Tile_graphic[0]);
+
+		if (data.graphic_handle == -1) {
+			OutputDebugString("失敗");
+		}
 	}
 }

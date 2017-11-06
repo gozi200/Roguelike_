@@ -25,7 +25,7 @@ public:
 	
 	int height; //ダンジョンの高さ　部屋？
 
-	Tile_Judge* tile_judge;// = new Tile_Judge; //タイルが床なのか何なのかを判断
+	Tile_Judge* Tile_judge;// = new Tile_Judge; //タイルが床なのか何なのかを判断
 
 	Player *player; //プレイヤー
 

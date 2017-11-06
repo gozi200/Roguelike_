@@ -11,12 +11,9 @@
 #include<cstdlib>
 #include<algorithm>
 
-/*////////////////////////////////
-床の画像を管理するクラス(階段も含む)
-*/////////////////////////////////
-
-struct SETTING_TILE_DATA {
-	int ID; //ナンバー
+//床に持たせる情報を設定する
+struct SETTING_Tile_DATA {
+	int ID; //ナンバー　TODO: いる？
 	std::string name;
 	int x; //x軸座標
 	int y; //y軸座標
@@ -25,16 +22,20 @@ struct SETTING_TILE_DATA {
 	int graphic_handle; //画像データを格納する
 };
 
+/*////////////////////////////////
+床の画像を管理するクラス(階段も含む)
+*/////////////////////////////////
+
 class Tile_Data {
 /*////////
 メンバ変数
 */////////
 public:
-	Tile_Graphic tile_graphic;
+	Tile_Graphic Tile_graphic;
 
 	std::string file_pass;
 
-	std::vector<SETTING_TILE_DATA> set_tile_data;
+	std::vector<SETTING_Tile_DATA> set_Tile_data;
 
 /*////////
 メンバ関数
@@ -46,9 +47,14 @@ public:
 	//デストラクタ
 	~Tile_Data();
 
-	void Set_File_Pass(const std::string & open_file_path);
+	/*開くファイルのパスを指定
+	　@param open_file_pass 開くファイルを指定
+	*/
+	void Set_File_Pass(const std::string & open_file_pass);
 
+	//ファイルを開く
 	bool Open_File();
 
+	//画像を読み込む
 	void Load_Graph();
 };

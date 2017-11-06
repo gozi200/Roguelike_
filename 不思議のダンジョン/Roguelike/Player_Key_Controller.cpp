@@ -40,7 +40,7 @@ bool Player_Key_Controller::Attack() { //キャラクターの攻撃
 	return false;
 }
 
-bool Player_Key_Controller::Projectile_Weapon() { //飛び道具の使用
+bool Player_Key_Controller::ProjecTile_Weapon() { //飛び道具の使用
 	if (CheckHitKey(KEY_INPUT_LBRACKET)) { //'['キー
 		return true;
 	}

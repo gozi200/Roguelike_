@@ -4,12 +4,12 @@ Dungeon_Base::Dungeon_Base() {
 	width = DUNGEON_WIDTH; //define定数使用
 	height = DUNGEON_HEIGHT; //define定数使用
 	rectangle_count = 0;
-	tile_judge = new Tile_Judge(); //タイルが床なのか何なのかを判断
+	Tile_judge = new Tile_Judge(); //タイルが床なのか何なのかを判断
 }
 
 //デストラクタ
 Dungeon_Base::~Dungeon_Base() {
-	delete tile_judge;
+	delete Tile_judge;
 }
 
 bool Dungeon_Base::Alloc(int set_x, int set_y) {
@@ -17,7 +17,7 @@ bool Dungeon_Base::Alloc(int set_x, int set_y) {
 }
 
 Tile_Judge* Dungeon_Base::Get_Tile(int set_x, int set_y) {
-	if (tile_judge == NULL) {
+	if (Tile_judge == NULL) {
 		return NULL;
 	}
 
@@ -25,7 +25,7 @@ Tile_Judge* Dungeon_Base::Get_Tile(int set_x, int set_y) {
 		return NULL;
 	}
 
-	return &tile_judge[set_x + set_y * width];
+	return &Tile_judge[set_x + set_y * width];
 }
 
 int Dungeon_Base::Get_Rectangle_Count() {

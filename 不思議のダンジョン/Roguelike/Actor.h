@@ -29,7 +29,7 @@ protected:
 
 	int Speed; //1ƒ^[ƒ“‚ÉˆÚ“®‚Å‚«‚é”
 
-	int chage_state;
+	int change_state;
 
 	char* name;
 
