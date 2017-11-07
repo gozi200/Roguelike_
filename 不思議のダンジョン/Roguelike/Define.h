@@ -8,7 +8,7 @@
 
 #pragma region 画面サイズ
 
-const int WINDOW_X = 1280; //画面サイズ(横)
+const int WINDOW_X = 1170; //画面サイズ(横) 
 
 const int WINDOW_Y = 720; //画面サイズ(縦)
 
@@ -82,9 +82,13 @@ typedef struct tagDUNGEON_RECTANGLE {
 
 #pragma region 床のID
 
-const int TILE_GRASS = 1;
+const int UP_STAIRS = 1;
 
-const int TILE_CAVE = 2;
+const int DOWN_STAIRS = 2;
+
+const int TILE_GRASS = 3;
+
+const int TILE_CAVE = 4;
 
 #pragma endregion
 

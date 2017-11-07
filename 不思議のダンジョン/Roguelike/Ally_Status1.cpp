@@ -16,6 +16,10 @@ void Ally_Status::Set_Position(int set_x, int set_y) {
 
 }
 
+void Ally_Status::Get_Position(int * px, int * py, DIRECTION * dir)
+{
+}
+
 void Ally_Status::Set_Parameter(Enemy_Database* set_record, Item* set_drop_item) {
 
 }

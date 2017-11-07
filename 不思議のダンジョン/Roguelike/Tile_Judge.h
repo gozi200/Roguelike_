@@ -8,6 +8,8 @@ public:
 
 	bool is_down_stairs; //下り階段ならtrue
 
+	bool is_drop_item; //アイテムが落ちているか
+
 	Tile_Judge() {};
 
 	~Tile_Judge() {};

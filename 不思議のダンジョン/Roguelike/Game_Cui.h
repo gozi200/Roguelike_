@@ -21,11 +21,15 @@ class Game_Cui : public Game {
 *////////
 public:
 	 const Tile_Judge* tile_judge; 
+	 const Tile_Judge* tile_down;
 	 Tile_Function* tile_function;
 
-	 Tile_Data Tile_data;
 	 Wall_Data wall_data;
 
+	 int x, y; //画面
+	 int mx, my; //マップ
+	 int cx, cy; //キャラ
+	 int dx, dy; //ダンジョン
 	 int loop_count = 0; //ループ回数を数える
 
 /*////////
