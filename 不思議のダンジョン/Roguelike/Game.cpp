@@ -3,12 +3,15 @@
 #include"Key_Update.h"
 
 //コンストラクタ
-//Game::Game() {}
+Game::Game() {
+	dungeon_base = new Dungeon_Base;
+	dungeon01 = new Dungeon01;
+}
 
 //デストラクタ
 Game::~Game() {
-	delete dungeon_base;
-	delete dungeon01;
+	//delete dungeon_base;
+	//delete dungeon01;
 }
 
 void Game::Init() {

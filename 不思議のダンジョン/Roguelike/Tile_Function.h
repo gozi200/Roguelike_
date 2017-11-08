@@ -21,7 +21,9 @@ public:
 
 	/*°‚Ì‰æ‘œ‚ğ•`‰æ‚·‚é
 	@@param call_ID ID‚É‡‚Á‚½‰æ‘œ‚ğŒÄ‚Ô
+	  @param x •`‰æ‚·‚éêŠ‚Ìx²
+	  @param y •`‰æ‚·‚éêŠ‚Ìy²
 	*/
-	void Draw_Tile(int call_ID);
+	void Draw_Tile(int call_ID,int x,int y);
 
 };

@@ -21,7 +21,9 @@ const double PI = 3.14159265358979323846; //円周率
 #pragma endregion
 
 #pragma region アクターに関する定数
-//それぞれのDefault_Statusクラスに書く？
+const int ACTOR_SIZE_X = 90; //キャラクターのサイズ(横)
+
+const int ACTOR_SIZE_Y = 90; //キャラうたーのサイズ(縦)
 
 const int ENERGY = 1; //１ターンに行動できる数
 
@@ -96,8 +98,10 @@ const int TILE_CAVE = 4;
 #pragma region 壁のID
 
 const int WALL_GRASS = 1;
+const int CORNER_WALL_GRASS = 2;
 
-const int WALL_CAVE = 2;
+const int WALL_CAVE = 3;
+const int CORNER_WALL_CAVE = 4;
 
 #pragma endregion
 

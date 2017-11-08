@@ -168,6 +168,7 @@
     <ClCompile Include="Tutorial_Stage.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Wall_Data.cpp" />
+    <ClCompile Include="Wall_Function.cpp" />
     <ClCompile Include="Wall_Graphic.cpp" />
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="Weapon_Data.cpp" />
@@ -237,6 +238,7 @@
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Wait_State.h" />
     <ClInclude Include="Wall_Data.h" />
+    <ClInclude Include="Wall_Function.h" />
     <ClInclude Include="Wall_Graphic.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="Weapon_Data.h" />

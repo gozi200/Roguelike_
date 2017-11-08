@@ -12,7 +12,7 @@
 #include<algorithm>
 
 //床に持たせる情報を設定する
-struct SETTING_Tile_DATA {
+struct SETTING_TILE_DATA {
 	int ID; //ナンバー　TODO: いる？
 	std::string name;
 	int x; //x軸座標
@@ -31,11 +31,11 @@ class Tile_Data {
 メンバ変数
 */////////
 public:
-	Tile_Graphic Tile_graphic;
+	Tile_Graphic tile_graphic;
 
 	std::string file_pass;
 
-	std::vector<SETTING_Tile_DATA> set_Tile_data;
+	std::vector<SETTING_TILE_DATA> set_tile_data;
 
 /*////////
 メンバ関数

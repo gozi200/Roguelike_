@@ -2,12 +2,9 @@
 
 Dungeon01::Dungeon01() {
 	Player* player;
-
 }
 
-Dungeon01::~Dungeon01() {
-
-}
+Dungeon01::~Dungeon01() {}
 
 void Dungeon01::Make(Player* set_player, int set_floor) {
 	rectangle_count = 0; //区画の数をリセット
@@ -16,8 +13,8 @@ void Dungeon01::Make(Player* set_player, int set_floor) {
 
 	//初期化(一旦すべて壁にする)
 	int x, y;
-	for (x = 0; x < width; ++x) {
-		for (y = 0; y < height; ++y) {
+	for (y = 0; y < height; ++y) {
+		for (x = 0; x < width; ++x) {
 			Get_Tile(x, y)->is_wall = true;
 		}
 	}
@@ -27,7 +24,16 @@ void Dungeon01::Make(Player* set_player, int set_floor) {
 	Create_Rectangle(0, 0, width - 1, height - 1);
 
 	//↑で定めた区画を細分化していく
-	Split_Rectangle(random->random_number ? true : false);
+	Split_Rectangle(random->Dungeon_Random(2) ? true : false); //↑の初期化からtile_judge->is_wallが全部true?
+
+	//部屋を作る
+	Create_Room();
+
+	//部屋同士をつなげる
+	Connect_Room();
+
+	//各部屋にエネミーを配置
+	//Enemy_Array(floor);
 }
 
 DUNEON_RECTANGLE* Dungeon01::Create_Rectangle(int set_left, int set_top, int set_right, int set_bottom) {
@@ -63,7 +69,6 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 		}
 
 		int a, b, ab, p;
-
 		//左端のA点を求める
 		a = MIN_ROOM_SIZE + 3;
 
@@ -98,7 +103,7 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 			return;
 		}
 
-		int a, b, ab, p; //TODO: ヘッダーに書いたらだめ？
+		int a, b, ab, p;
 
 		a = MIN_ROOM_SIZE + 3;
 		b = RECTANGLE_HEIGHT(*rectangle) - MIN_ROOM_SIZE - 4;
@@ -136,7 +141,7 @@ void Dungeon01::Create_Room() {
 		RECT* rectangle = &dungeon_rectangle[i].rect; //区画情報
 		RECT* room = &dungeon_rectangle[i].room; //↓で作る部屋情報
 
-	//矩形の大きさを計算
+		//矩形の大きさを計算
 		w = RECTANGLE_WIDTH(*rectangle) - 3;
 		h = RECTANGLE_HEIGHT(*rectangle) - 3;
 
@@ -145,14 +150,14 @@ void Dungeon01::Create_Room() {
 		ch = h - MIN_ROOM_SIZE;
 
 		//部屋の大きさを決定する
-		sw = random->Dungeon_Random(cw); //TODO: random
-		sh = random->Dungeon_Random(ch); //TODO: random
+		sw = random->Dungeon_Random(cw);
+		sh = random->Dungeon_Random(ch);
 		rw = w - sw;
 		rh = h - sh;
 
 		//部屋の位置を決定する
-		rx = random->Dungeon_Random(sw) + 2; //TODO: random
-		ry = random->Dungeon_Random(sh) + 2; //TODO: random
+		rx = random->Dungeon_Random(sw) + 2;
+		ry = random->Dungeon_Random(sh) + 2;
 
 		//求めた結果から部屋の情報を設定
 		room->left = rectangle->left + rx;
@@ -161,7 +166,7 @@ void Dungeon01::Create_Room() {
 		room->bottom = room->top + rh;
 
 		//部屋を作る
-		Fill_Rectangle( //p114参照
+		Fill_Rectangle(
 			room->left,
 			room->top,
 			room->right,
@@ -172,7 +177,7 @@ void Dungeon01::Create_Room() {
 		if (i == 0) {
 			int x, y;
 			Random_Room_Point(i, &x, &y);
-			Get_Tile(x, y)->is_up_stairs = true;
+			Get_Tile(x, y)->is_down_stairs = true;
 			down_stairs_x = x;
 			down_stairs_y = y;
 		}
@@ -197,9 +202,9 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 	room_A = &dungeon_rectangle[set_room_A].room;
 	room_B = &dungeon_rectangle[set_room_B].room;
 
-	/*/////////////////////////////////////////////////////////
-	区画同士が、上下か左右のどちらでつながっているかで処理を分ける
-	*/////////////////////////////////////////////////////////
+/*/////////////////////////////////////////////////////////
+区画同士が、上下か左右のどちらでつながっているかで処理を分ける
+*/////////////////////////////////////////////////////////
 
 	//上下で繋がっているかの確認
 	if (rect_A->bottom == rect_B->top || rect_A->top == rect_B->bottom) {
@@ -263,4 +268,3 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 		Fill_V_Line(y1, y2, x, false); //縦道を作る
 	}
 }
-

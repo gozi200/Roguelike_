@@ -3,13 +3,13 @@
 Dungeon_Base::Dungeon_Base() {
 	width = DUNGEON_WIDTH; //define定数使用
 	height = DUNGEON_HEIGHT; //define定数使用
-	rectangle_count = 0;
-	Tile_judge = new Tile_Judge(); //タイルが床なのか何なのかを判断
+	rectangle_count = 0; 
+	tile_judge = new Tile_Judge();
 }
 
 //デストラクタ
 Dungeon_Base::~Dungeon_Base() {
-	delete Tile_judge;
+	delete tile_judge;
 }
 
 bool Dungeon_Base::Alloc(int set_x, int set_y) {
@@ -17,7 +17,7 @@ bool Dungeon_Base::Alloc(int set_x, int set_y) {
 }
 
 Tile_Judge* Dungeon_Base::Get_Tile(int set_x, int set_y) {
-	if (Tile_judge == NULL) {
+	if (tile_judge == NULL) {
 		return NULL;
 	}
 
@@ -25,8 +25,9 @@ Tile_Judge* Dungeon_Base::Get_Tile(int set_x, int set_y) {
 		return NULL;
 	}
 
-	return &Tile_judge[set_x + set_y * width];
+	return &tile_judge[set_x + set_y * width];
 }
+
 
 int Dungeon_Base::Get_Rectangle_Count() {
 	return 0;
@@ -40,23 +41,38 @@ bool Dungeon_Base::is_Move(int set_x, int set_y) {
 	return true;
 }
 
-void Dungeon_Base::Fill_Rectangle(int left, int top, int right, int bottom, bool is_wall) {
-
+void Dungeon_Base::Fill_Rectangle(int set_left, int set_top, int set_right, int set_bottom, bool set_is_wall) {
+	for (int y = set_top; y < set_bottom; ++y) {
+		for (int x = set_left; x < set_right; ++x) {
+			Get_Tile(x, y)->is_wall = set_is_wall;
+		}
+	}
 };
 
-void Dungeon_Base::Fill_H_Line(int left, int right, int y, bool is_wall) { //TODO: Hってなに？
-
+void Dungeon_Base::Fill_H_Line(int set_left, int set_right, int set_y, bool set_is_wall) {
+	for (int y = 0; y < set_y; ++y) { //y = rect->topなので、rect->bottomまで欲しいけど…
+		for (int x = set_left; x < set_right; ++x) {
+			Get_Tile(x, y)->is_wall = set_is_wall;
+		}
+	}
 };
 
-void Dungeon_Base::Fill_V_Line(int top, int bottom, int x, bool is_wall) {
-
+void Dungeon_Base::Fill_V_Line(int set_top, int set_bottom, int set_x, bool set_is_wall) {
+	for (int x = 0; x < set_x; ++x) { 
+		for (int y = set_top; y < set_bottom; ++y) {
+			Get_Tile(x, y)->is_wall = set_is_wall;
+		}
+	}
 };
 
-void Dungeon_Base::Random_Room_Point(int index, int *px, int *py) {
+void Dungeon_Base::Random_Room_Point(int index, int *set_x, int *set_y) {
+	RECT* room = &dungeon_rectangle[index].room;
 
+	*set_x = room->left + random.Dungeon_Random(RECTANGLE_WIDTH(*room));
+	*set_y = room->top + random.Dungeon_Random(RECTANGLE_HEIGHT(*room));
 };
 
-bool Dungeon_Base::Chekc_Move(int ax, int ay, int bx, int by) {
+bool Dungeon_Base::Chekc_Move(int set_ax, int set_ay, int set_bx, int set_by) {
 	return true;
 };
 
@@ -68,7 +84,7 @@ int Dungeon_Base::Get_Enemy_Count() {
 	return 0;
 };
 
-Enemy* Dungeon_Base::Get_Point_Enemy(int x, int y) {
+Enemy* Dungeon_Base::Get_Point_Enemy(int set_x, int set_y) {
 	return 0;
 };
 
@@ -119,7 +135,7 @@ int Dungeon_Base::Attack(Player* set_player, Player* set_target) {
 	return 0;
 }
 
-bool Dungeon_Base::Make_Enemy(int ai, Enemy** enemy) {
+bool Dungeon_Base::Make_Enemy(int ai, Enemy* enemy) {
 	return true;
 };
 

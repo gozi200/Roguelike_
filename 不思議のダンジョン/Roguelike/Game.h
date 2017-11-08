@@ -20,8 +20,8 @@ class Game {
 */////////
 public:
 	Player player; //プレイヤーのデータ
-	Dungeon_Base* dungeon_base = new Dungeon_Base;
-	Dungeon01* dungeon01 = new Dungeon01; //TODO: newはどこに？
+	Dungeon_Base* dungeon_base;
+	Dungeon01* dungeon01;
 
 	int floor; //現在の階層
 
@@ -37,9 +37,7 @@ private:
 */////////
 public:
 	//コンストラクタ
-	Game() {
-
-	}
+	Game();
 
 	//デストラクタ
 	virtual ~Game();

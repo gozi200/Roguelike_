@@ -8,7 +8,7 @@
 
 class Tile_Graphic {
 public:
-	std::vector<char*> Tile_graphic;
+	std::vector<char*> tile_graphic;
 
 	void Load();
 };

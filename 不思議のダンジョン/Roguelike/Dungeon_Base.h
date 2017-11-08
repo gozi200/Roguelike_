@@ -4,6 +4,7 @@
 #include"Enemy.h"
 #include"Player.h"
 #include"Define.h"
+#include"Random.h"
 #include"Vector2D.h"
 #include"Tile_Judge.h"
 #include"Enemy_Database.h"
@@ -19,13 +20,15 @@ class Dungeon_Base {
 public:
 	DUNEON_RECTANGLE dungeon_rectangle[MAX_RECTANGLE]; //rectangleは矩形の意味 ここでは区画情報のこと
 
+	Random random;
+
 	int rectangle_count; //区画数
 
 	int width; //ダンジョンの幅 部屋？
 	
 	int height; //ダンジョンの高さ　部屋？
 
-	Tile_Judge* Tile_judge;// = new Tile_Judge; //タイルが床なのか何なのかを判断
+	Tile_Judge* tile_judge;// = new Tile_Judge; //タイルが床なのか何なのかを判断
 
 	Player *player; //プレイヤー
 
@@ -66,13 +69,13 @@ public:
 	//指定場所が移動可能か判断(trueなら移動可能)
 	bool is_Move(int x, int y);
 
-	//指定矩形を壁化道にする(right,bottomのマスは塗らない)
+	//指定矩形を壁か道にする(right,bottomのマスは塗らない)
 	void Fill_Rectangle(int left, int top, int right, int bottom, bool is_wall);
 
-	//指定の横マスを壁化道にする
-	void Fill_H_Line(int left, int right, int y, bool is_wall); //TODO: Hってなに？
+	//指定の横マスを壁か道にする
+	void Fill_H_Line(int left, int right, int y, bool is_wall); //Hってなに？
 
-	//指定の縦マスを壁化道にする
+	//指定の縦マスを壁か道にする
 	void Fill_V_Line(int top, int bottom, int x, bool is_wall); //同上
 
 	//指定した部屋内の適当な座標を取得
@@ -109,7 +112,7 @@ public:
 	int Attack(Player* player, Player* target);
 
 	//IDからエネミークラスを作成
-	bool Make_Enemy(int ai, Enemy** enemy);
+	bool Make_Enemy(int ai, Enemy* enemy);
 
 	//エネミーのベーステーブルからパラメータをセット
 	void Set_Enemy_Parameter(Enemy* enemy, Enemy_Database* enemy_data);

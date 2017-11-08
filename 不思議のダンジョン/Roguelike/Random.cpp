@@ -1,9 +1,8 @@
 #include"Random.h"
 
-#include<iostream>
-#include<random>
 
-Random::Random() {
+//Random::Random() : engine(std::random_device()()) {
+Random::Random() : engine(10){
 
 }
 
@@ -12,11 +11,9 @@ Random::~Random() {
 }
 
 int Random::Dungeon_Random(int bet) {
-	std::random_device seed_gen;
-
-	std::mt19937 engine(seed_gen());
-
 	std::uint32_t random = engine();
 
-	return random % bet;
+	auto uid = std::uniform_int_distribution<int>(0, bet);
+	return uid(engine);
+	//return random % bet;
 }

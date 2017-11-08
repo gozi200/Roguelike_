@@ -26,6 +26,8 @@ bool Wall_Data::Open_File() {
 
 	ifs.clear();
 
+	//それぞれの要素にcsvデータを読み込む
+	int count = 0;
 	while (!std::getline(ifs, line).eof()) {
 		SETTING_WALL_DATA data;
 		auto values = convenient_function->Split(line, ","); //','で区切って読み込む
@@ -33,17 +35,13 @@ bool Wall_Data::Open_File() {
 		data.name = values[1];
 		data.width = std::stoi(values[2]); //画像(横幅)	
 		data.height = std::stoi(values[3]); //画像(縦幅)
-											//load
-		data.graphic_handle = std::stoi(values[4]); //画像ファイル
+		
+		//load
+		auto graphic_handle = LoadGraph(wall_graphic.wall_graphic[count++]);
+		data.graphic_handle = graphic_handle;
 
-		Load_Graph();
+		//Load_Graph();
 
 		set_wall_data.push_back(data); //１行ごとに配列に追加していく
-	}
-}
-
-void Wall_Data::Load_Graph() {
-	for (auto& data : set_wall_data) { //TODO: 番号に合った画像を入れる
-		data.graphic_handle = LoadGraph(wall_graphic.wall_graphic[0]);
 	}
 }

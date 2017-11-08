@@ -12,6 +12,9 @@ class Dungeon01 : public Dungeon_Base {
 public:
 	Random* random = new Random;
 
+	int a, b, ab, p;
+	int x, y;
+
 /*////////
 ƒƒ“ƒoŠÖ”
 */////////

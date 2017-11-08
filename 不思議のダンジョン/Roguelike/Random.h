@@ -1,4 +1,5 @@
 #pragma once
+#include<random>
 
 #include"Define.h"
 
@@ -7,7 +8,7 @@ public:
 /*////////
 ƒƒ“ƒo•Ï”
 */////////
-	int random_number; //Š„‚èo‚³‚ê‚é—”
+
 
 /*////////
 ƒƒ“ƒoŠÖ”
@@ -21,4 +22,6 @@ public:
 
 	int Dungeon_Random(int bet);
 
+private:
+	std::mt19937 engine;
 };

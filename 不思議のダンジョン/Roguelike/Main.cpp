@@ -4,11 +4,11 @@
 #include"Scene_Manager.h"
 
 
-/////キーの入力状態を更新する
+//キーの入力状態を更新する
 int Update_Key(char* key) {
 	char tmpKey[KEY_NUMBER]; //現在のキーの入力状態を収納
 
-							 /////全てのキーの入力状態を得る
+	//全てのキーの入力状態を得る
 	GetHitKeyStateAll(tmpKey);
 
 	for (int i = 0; i < KEY_NUMBER; ++i) {

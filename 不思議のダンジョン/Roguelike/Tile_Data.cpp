@@ -1,7 +1,7 @@
 #include"Tile_Data.h"
 
 Tile_Data::Tile_Data() {
-	Tile_graphic.Load();
+	tile_graphic.Load();
 }
 
 Tile_Data::~Tile_Data() {}
@@ -29,30 +29,18 @@ bool Tile_Data::Open_File() {
 	ifs.clear(); //読み飛ばしたデータを破棄する
 
 	//それぞれの要素にcsvデータを読み込む
-	int i = 0;
+	int count = 0;
 	while (!std::getline(ifs, line).eof()) {
-		SETTING_Tile_DATA data;
+		SETTING_TILE_DATA data;
 		auto values = convenient_function->Split(line, ","); //','で区切って読み込む
 		data.ID = std::stoi(values[0]); //ナンバー
 		data.name = values[1];
 		data.width = std::stoi(values[2]); //画像(横幅)	
 		data.height = std::stoi(values[3]); //画像(縦幅)
 		//load		
-		auto hoge = LoadGraph(Tile_graphic.Tile_graphic[i++]);
-		data.graphic_handle = hoge;
-		//Load_Graph();
+		auto graphic_handle = LoadGraph(tile_graphic.tile_graphic[count++]); //例外
+		data.graphic_handle = graphic_handle;
 
-		set_Tile_data.push_back(data); //１行ごとに配列に追加していく
-	}
-}
-
-//画像ファイルに画像データのあるパスを読み込ませる
-void Tile_Data::Load_Graph() {
-	for (auto& data : set_Tile_data) { //TODO: 番号に合った画像を入れる
-		data.graphic_handle = LoadGraph(Tile_graphic.Tile_graphic[0]);
-
-		if (data.graphic_handle == -1) {
-			OutputDebugString("失敗");
-		}
+		set_tile_data.push_back(data); //１行ごとに配列に追加していく
 	}
 }

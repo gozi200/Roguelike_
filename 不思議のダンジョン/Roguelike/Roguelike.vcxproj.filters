@@ -337,7 +337,10 @@
       <Filter>ソース ファイル\Function</Filter>
     </ClCompile>
     <ClCompile Include="Tile_Function.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Function</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall_Function.cpp">
+      <Filter>ソース ファイル\Function</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -540,6 +543,9 @@
       <Filter>ヘッダーファイル\Function</Filter>
     </ClInclude>
     <ClInclude Include="Tile_Function.h">
+      <Filter>ヘッダーファイル\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall_Function.h">
       <Filter>ヘッダーファイル\Function</Filter>
     </ClInclude>
   </ItemGroup>
