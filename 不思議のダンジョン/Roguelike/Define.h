@@ -108,6 +108,7 @@ const int CORNER_WALL_CAVE = 4;
 
 #pragma endregion
 
+
 #pragma region ƒQ[ƒ€‚Ìİ’è‚ÉŠÖ‚·‚é’è”
 
 const int MAX_SCORE = 1000000;
@@ -115,6 +116,7 @@ const int MAX_SCORE = 1000000;
 const int TILE_NUMBER = 2; //°‚Ìí—Ş(‘Œ´A“´ŒA‚È‚Ç) TODO: ‚Æ‚è‚ ‚¦‚¸
 
 #pragma endregion
+
 
 #pragma region ‚»‚Ì‘¼
 

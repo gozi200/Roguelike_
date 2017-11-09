@@ -11,9 +11,11 @@ Random::~Random() {
 }
 
 int Random::Dungeon_Random(int bet) {
-	std::uint32_t random = engine();
+	std::random_device rd;
+	std::mt19937 mt(rd());
+	//std::uint32_t random = engine(rd());
 
 	auto uid = std::uniform_int_distribution<int>(0, bet);
-	return uid(engine);
+	return uid(mt);
 	//return random % bet;
 }

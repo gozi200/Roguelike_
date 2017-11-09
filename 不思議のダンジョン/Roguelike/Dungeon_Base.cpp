@@ -43,26 +43,26 @@ bool Dungeon_Base::is_Move(int set_x, int set_y) {
 
 void Dungeon_Base::Fill_Rectangle(int set_left, int set_top, int set_right, int set_bottom, bool set_is_wall) {
 	for (int y = set_top; y < set_bottom; ++y) {
-		for (int x = set_left; x < set_right; ++x) {
+		for (int x = set_left; x < set_right; ++x) {++
 			Get_Tile(x, y)->is_wall = set_is_wall;
 		}
 	}
 };
 
 void Dungeon_Base::Fill_H_Line(int set_left, int set_right, int set_y, bool set_is_wall) {
-	for (int y = 0; y < set_y; ++y) { //y = rect->topÇ»ÇÃÇ≈ÅArect->bottomÇ‹Ç≈ó~ÇµÇ¢ÇØÇ«Åc
-		for (int x = set_left; x < set_right; ++x) {
-			Get_Tile(x, y)->is_wall = set_is_wall;
-		}
-	}
+	//for (int y = 0; y < set_y; ++y) {
+	//	for (int x = set_left; x < set_right; ++x) {
+	//		Get_Tile(x, y)->is_wall = set_is_wall;
+	//	}
+	//}
 };
 
 void Dungeon_Base::Fill_V_Line(int set_top, int set_bottom, int set_x, bool set_is_wall) {
-	for (int x = 0; x < set_x; ++x) { 
-		for (int y = set_top; y < set_bottom; ++y) {
-			Get_Tile(x, y)->is_wall = set_is_wall;
-		}
-	}
+	//for (int x = 0; x < set_x; ++x) { 
+	//	for (int y = set_top; y < set_bottom; ++y) {
+	//		Get_Tile(x, y)->is_wall = set_is_wall;
+	//	}
+	//}
 };
 
 void Dungeon_Base::Random_Room_Point(int index, int *set_x, int *set_y) {
