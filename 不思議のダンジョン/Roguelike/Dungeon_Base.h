@@ -24,9 +24,9 @@ public:
 
 	int rectangle_count; //区画数
 
-	int width; //ダンジョンの幅 部屋？
+	int width; //ダンジョンの幅 
 	
-	int height; //ダンジョンの高さ　部屋？
+	int height; //ダンジョンの高さ
 
 	Tile_Judge* tile_judge;// = new Tile_Judge; //タイルが床なのか何なのかを判断
 

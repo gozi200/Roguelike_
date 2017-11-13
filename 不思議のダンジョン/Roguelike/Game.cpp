@@ -10,8 +10,8 @@ Game::Game() {
 
 //デストラクタ
 Game::~Game() {
-	//delete dungeon_base;
-	//delete dungeon01;
+	delete dungeon_base;
+	delete dungeon01;
 }
 
 void Game::Init() {

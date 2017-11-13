@@ -21,8 +21,8 @@ class Game_Cui : public Game {
 ƒƒ“ƒo•Ï”
 *////////
 public:
-	 const Tile_Judge* tile_judge; 
-	 const Tile_Judge* tile_down;
+	 //const Tile_Judge* tile_judge; 
+	 //const Tile_Judge* tile_down;
 	 Tile_Function* tile_function;
 	 Wall_Function* wall_function;
 

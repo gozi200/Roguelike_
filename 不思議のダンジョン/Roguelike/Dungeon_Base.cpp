@@ -13,7 +13,8 @@ Dungeon_Base::~Dungeon_Base() {
 }
 
 bool Dungeon_Base::Alloc(int set_x, int set_y) {
-	return true;
+
+	return false;
 }
 
 Tile_Judge* Dungeon_Base::Get_Tile(int set_x, int set_y) {
@@ -22,10 +23,11 @@ Tile_Judge* Dungeon_Base::Get_Tile(int set_x, int set_y) {
 	}
 
 	if (set_x < 0 || set_x >= width || set_y < 0 || set_y >= height) {
+		OutputDebugString("Get_Tile()でNULL");
 		return NULL;
 	}
 
-	return &tile_judge[set_x + set_y * width];
+	return &tile_judge[set_x + set_y * height]; //参考書はwidth
 }
 
 
@@ -41,14 +43,16 @@ bool Dungeon_Base::is_Move(int set_x, int set_y) {
 	return true;
 }
 
+//部屋の範囲のみ壁フラグをfalseに　//TODO: コメントしてもなぜか出現する床がある 
 void Dungeon_Base::Fill_Rectangle(int set_left, int set_top, int set_right, int set_bottom, bool set_is_wall) {
-	for (int y = set_top; y < set_bottom; ++y) {
-		for (int x = set_left; x < set_right; ++x) {++
-			Get_Tile(x, y)->is_wall = set_is_wall;
-		}
-	}
+	//for (int y = set_top; y < set_bottom; ++y) {
+	//	for (int x = set_left; x < set_right; ++x) {
+	//		Get_Tile(x, y)->is_wall = set_is_wall;
+	//	}
+	//}
 };
 
+	
 void Dungeon_Base::Fill_H_Line(int set_left, int set_right, int set_y, bool set_is_wall) {
 	//for (int y = 0; y < set_y; ++y) {
 	//	for (int x = set_left; x < set_right; ++x) {
@@ -94,13 +98,13 @@ Enemy* Dungeon_Base::Get_Mob_From_Index(int index) {
 };
 
 void Dungeon_Base::Enemy_Array(int set_floor) {
-	int i, x, y;
+	int x, y;
 
 	//それぞれの部屋に１体配置する
 	//０番目はプレイヤーのいる部屋なので、配置しない
-	for (i = 1; i < rectangle_count; ++i) {
-		Enemy* p_enemy; //メンバ変数との重複を避ける
-		Vector2D position;
+	for (int i = 1; i < rectangle_count; ++i) {
+		Enemy* p_enemy; //メンバ変数と名前の重複を避ける
+		//Vector2D position;
 
 		//エネミーのオブジェクトを作成
 		p_enemy = Get_Enemy(set_floor);
@@ -110,7 +114,6 @@ void Dungeon_Base::Enemy_Array(int set_floor) {
 
 			//エネミーを配置
 			p_enemy->Set_Position(x, y);
-
 
 			//エネミー配置情報の取得
 			m_enemy[enemy_count] = p_enemy;

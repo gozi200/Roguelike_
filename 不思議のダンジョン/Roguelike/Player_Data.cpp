@@ -1,7 +1,6 @@
 #include"Player_Data.h"
 
 Player_Data::Player_Data(const std::string & openFilePath) : file_pass(openFilePath) {
-	Convenient_Function* convenient_function = new Convenient_Function;
 
 	auto ifs = std::ifstream();
 	ifs.open(file_pass);
@@ -13,7 +12,7 @@ Player_Data::Player_Data(const std::string & openFilePath) : file_pass(openFileP
 	std::string line;
 
 	while (std::getline(ifs, line)) {
-		auto values = convenient_function->Split(line, ",");
+		auto values = Convenient_Function::Split(line, ",");
 
 		player_data.ID = std::stoi(values[0]);
 		player_data.name = values[1];

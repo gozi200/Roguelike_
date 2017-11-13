@@ -2,13 +2,15 @@
 
 class Tile_Judge {
 public:
-	bool is_wall; //壁だったらtrue
+	//番号で判断する？
 
-	bool is_up_stairs; //上り階段ならtrue
+	bool is_wall = false; //壁だったらtrue
 
-	bool is_down_stairs; //下り階段ならtrue
+	bool is_up_stairs = false; //上り階段ならtrue
 
-	bool is_drop_item; //アイテムが落ちているか
+	bool is_down_stairs = false; //下り階段ならtrue
+
+	//bool is_drop_item = false; //アイテムが落ちているか
 
 	Tile_Judge() {};
 

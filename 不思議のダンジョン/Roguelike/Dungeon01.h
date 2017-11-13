@@ -10,10 +10,12 @@ class Dungeon01 : public Dungeon_Base {
 ƒƒ“ƒo•Ï”
 */////////
 public:
-	Random* random = new Random;
+	Player* player;
+	Random random;
 
 	int a, b, ab, p;
 	int x, y;
+	int i;
 
 /*////////
 ƒƒ“ƒoŠÖ”

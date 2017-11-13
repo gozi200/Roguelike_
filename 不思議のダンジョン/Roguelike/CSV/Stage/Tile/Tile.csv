@@ -1,6 +1,6 @@
 ID,name,whidth,height,graphic_handle
 int,string,int,int,int
-1,Up stairs,90,90,0
-2,Down stairs,90,90,0
-3,Grass,90,90,0
-4,Cave,90,90,0
+1,Up stairs,30,30,0
+2,Down stairs,30,30,0
+3,Grass,30,30,0
+4,Cave,30,30,0

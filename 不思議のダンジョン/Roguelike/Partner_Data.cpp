@@ -1,8 +1,7 @@
 #include"Partner_Data.h"
 
 Partner_Data::Partner_Data(const std::string & openFilePath) : file_pass(openFilePath) {
-	Convenient_Function* convenient_function = new Convenient_Function;
-
+	
 	auto ifs = std::ifstream();
 	ifs.open(file_pass);
 
@@ -13,7 +12,7 @@ Partner_Data::Partner_Data(const std::string & openFilePath) : file_pass(openFil
 	std::string line;
 
 	while (std::getline(ifs, line)) {
-		auto values = convenient_function->Split(line, ",");
+		auto values = Convenient_Function::Split(line, ",");
 
 		partner_data.ID = std::stoi(values[0]);
 		partner_data.name = values[1];
@@ -36,6 +35,10 @@ Partner_Data::Partner_Data(const std::string & openFilePath) : file_pass(openFil
 		Load_Graph();
 	}
 
+}
+
+Partner_Data::Partner_Data() {
+	
 }
 
 void Partner_Data::Load_Graph() {

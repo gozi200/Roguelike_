@@ -2,9 +2,11 @@
 
 Tile_Data::Tile_Data() {
 	tile_graphic.Load();
+
 }
 
-Tile_Data::~Tile_Data() {}
+Tile_Data::~Tile_Data() {
+}
 
 //開くファイルのパスを指定する
 void Tile_Data::Set_File_Pass(const std::string & open_file_pass) {
@@ -16,7 +18,6 @@ bool Tile_Data::Open_File() {
 	auto ifs = std::ifstream();
 	ifs.open(file_pass);
 
-	Convenient_Function* convenient_function = new Convenient_Function;
 
 	//ファイルが開けなかったらfalse
 	if (!ifs.is_open()) {
@@ -32,7 +33,7 @@ bool Tile_Data::Open_File() {
 	int count = 0;
 	while (!std::getline(ifs, line).eof()) {
 		SETTING_TILE_DATA data;
-		auto values = convenient_function->Split(line, ","); //','で区切って読み込む
+		auto values = Convenient_Function::Split(line, ","); //','で区切って読み込む
 		data.ID = std::stoi(values[0]); //ナンバー
 		data.name = values[1];
 		data.width = std::stoi(values[2]); //画像(横幅)	

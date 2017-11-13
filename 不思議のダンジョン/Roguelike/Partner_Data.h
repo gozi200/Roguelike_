@@ -41,7 +41,7 @@ class Partner_Data {
 		Partner_Data(const std::string & open_filepass);
 
 		//デストラクタ
-		Partner_Data() {};
+		Partner_Data();
 
 		void Load_Graph();
 };

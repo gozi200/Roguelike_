@@ -1,10 +1,12 @@
 #include"Dungeon01.h"
 
 Dungeon01::Dungeon01() {
-	Player* player;
+	random = Random();
 }
 
-Dungeon01::~Dungeon01() {}
+Dungeon01::~Dungeon01() {
+	
+}
 
 void Dungeon01::Make(Player* set_player, int set_floor) {
 	rectangle_count = 0; //区画の数をリセット
@@ -12,7 +14,6 @@ void Dungeon01::Make(Player* set_player, int set_floor) {
 	player = set_player;
 
 	//初期化(一旦すべて壁にする)
-	int x, y;
 	for (y = 0; y < height; ++y) {
 		for (x = 0; x < width; ++x) {
 			Get_Tile(x, y)->is_wall = true;
@@ -24,13 +25,13 @@ void Dungeon01::Make(Player* set_player, int set_floor) {
 	Create_Rectangle(0, 0, width - 1, height - 1);
 
 	//↑で定めた区画を細分化していく
-	Split_Rectangle(random->Dungeon_Random(2) ? true : false); //↑の初期化からtile_judge->is_wallが全部true?
-
-	//部屋を作る
-	Create_Room();
-
-	//部屋同士をつなげる
-	Connect_Room();
+	//Split_Rectangle(random->Dungeon_Random(2) ? true : false);
+	//
+	////部屋を作る
+	//Create_Room();
+	//
+	////部屋同士をつなげる
+	//Connect_Room();
 
 	//各部屋にエネミーを配置
 	//Enemy_Array(floor);
@@ -51,8 +52,8 @@ DUNEON_RECTANGLE* Dungeon01::Create_Rectangle(int set_left, int set_top, int set
 }
 
 void Dungeon01::Split_Rectangle(bool set_is_vertical) {
-	DUNEON_RECTANGLE* parent;
-	DUNEON_RECTANGLE* child;
+	DUNEON_RECTANGLE* parent,* child;
+	//DUNEON_RECTANGLE* child;
 	RECT* rectangle;
 
 	//分ける区画情報を取得
@@ -68,7 +69,7 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 			return; //分割できないときは終了
 		}
 
-		int a, b, ab, p;
+		//int a, b, ab, p;
 		//左端のA点を求める
 		a = MIN_ROOM_SIZE + 3;
 
@@ -79,7 +80,7 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 		ab = b - a;
 
 		//a,b間のどこかに決定する
-		p = a + random->Dungeon_Random(ab + 1); //TODO: random
+		p = a + random.Dungeon_Random(ab + 1);
 
 		//新しく右の区画を作成する
 		child = Create_Rectangle(
@@ -103,15 +104,13 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 			return;
 		}
 
-		int a, b, ab, p;
-
 		a = MIN_ROOM_SIZE + 3;
 		b = RECTANGLE_HEIGHT(*rectangle) - MIN_ROOM_SIZE - 4;
 		ab = b - a;
 
-		p = a + random->Dungeon_Random(ab + 1); //TODO: random
+		p = a + random.Dungeon_Random(ab + 1);
 
-		//新しくしたの区画を作成する
+		//新しく区画を作成する
 		child = Create_Rectangle(
 			rectangle->left,
 			rectangle->top + p,
@@ -123,7 +122,7 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 	}
 
 	//次の分割をランダムで決定するために入れ替える
-	if (random->Dungeon_Random(2)) {
+	if (random.Dungeon_Random(2)) {
 		DUNEON_RECTANGLE dungeon_rectangle;
 		dungeon_rectangle = *child;
 		*child = *parent;
@@ -135,7 +134,7 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 }
 
 void Dungeon01::Create_Room() {
-	int i, w, h, cw, ch, sw, sh, rw, rh, rx, ry; //TODO: 内容を理解しコメントをつける w = width, h = height, x = 横座標, y = 縦座標か 
+	int w, h, cw, ch, sw, sh, rw, rh, rx, ry; //TODO: 名前をつける w = width, h = height, x = 横座標, y = 縦座標か 
 
 	for (i = 0; i < rectangle_count; ++i) {
 		RECT* rectangle = &dungeon_rectangle[i].rect; //区画情報
@@ -150,19 +149,19 @@ void Dungeon01::Create_Room() {
 		ch = h - MIN_ROOM_SIZE;
 
 		//部屋の大きさを決定する
-		sw = random->Dungeon_Random(cw);
-		sh = random->Dungeon_Random(ch);
+		sw = random.Dungeon_Random(cw);
+		sh = random.Dungeon_Random(ch);
 		rw = w - sw;
 		rh = h - sh;
 
 		//部屋の位置を決定する
-		rx = random->Dungeon_Random(sw) + 2;
-		ry = random->Dungeon_Random(sh) + 2;
+		rx = random.Dungeon_Random(sw) + 2;
+		ry = random.Dungeon_Random(sh) + 2;
 
 		//求めた結果から部屋の情報を設定
-		room->left = rectangle->left + rx;
-		room->top = rectangle->top + ry;
-		room->right = room->left + rw;
+		room->left   = rectangle->left + rx;
+		room->top    = rectangle->top + ry;
+		room->right  = room->left + rw;
 		room->bottom = room->top + rh;
 
 		//部屋を作る
@@ -170,12 +169,17 @@ void Dungeon01::Create_Room() {
 			room->left,
 			room->top,
 			room->right,
-			room->bottom,
-			false);
+			room->bottom, false);
 
 		//１つ目の部屋なら適当な位置に階段を設置
 		if (i == 0) {
-			int x, y;
+			Random_Room_Point(i, &x, &y);
+			Get_Tile(x, y)->is_up_stairs = true;
+			up_stairs_x = x;
+			up_stairs_y = y;
+		}
+
+		if (i == rectangle_count - 1) {
 			Random_Room_Point(i, &x, &y);
 			Get_Tile(x, y)->is_down_stairs = true;
 			down_stairs_x = x;
@@ -184,11 +188,8 @@ void Dungeon01::Create_Room() {
 	}
 }
 
-
 void Dungeon01::Connect_Room() {
-	int i;
-
-	for (i = 0; i < rectangle_count - 1; ++i) {
+	for (int i = 0; i < rectangle_count - 1; ++i) {
 		Create_Road(i, i + 1);
 	}
 }
@@ -202,50 +203,49 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 	room_A = &dungeon_rectangle[set_room_A].room;
 	room_B = &dungeon_rectangle[set_room_B].room;
 
-/*/////////////////////////////////////////////////////////
-区画同士が、上下か左右のどちらでつながっているかで処理を分ける
-*/////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////////////
+区画同士が、上下か左右のどちらでつながっているかで処理を分け、道をつなぐ
+*////////////////////////////////////////////////////////////////
 
 	//上下で繋がっているかの確認
 	if (rect_A->bottom == rect_B->top || rect_A->top == rect_B->bottom) {
-		int x1, x2, y;
+		int x1, x2;
 
-		x1 = random->Dungeon_Random(RECTANGLE_WIDTH(*room_A)) + room_A->left;
-		x2 = random->Dungeon_Random(RECTANGLE_WIDTH(*room_A)) + room_B->left;
+		x1 = random.Dungeon_Random(RECTANGLE_WIDTH(*room_A)) + room_A->left;
+		x2 = random.Dungeon_Random(RECTANGLE_WIDTH(*room_A)) + room_B->left;
 
 		if (rect_A->top > rect_B->top) {
+		/* B
+		   A
+		   の並びの時
+		*/
 			y = rect_A->top;
-
-			/* B
-			   A
-			   の並びの時
-			*/ 
 			//Aと横道を繋ぐ道を作る
 			Fill_Rectangle(x1, y + 1, x1 + 1, room_A->top, false);
-
-			/* A
-			   B
-			   の並びの時
-			*/
 			//Bと横道を繋ぐ道を作る
 			Fill_Rectangle(x2, room_B->bottom, x2 + 1, y, false);
 		}
 
 		else {
+		/* A
+		   B
+		   の並びの時
+		*/
 			y = rect_B->top;
 			Fill_Rectangle(x1, room_A->bottom, x1 + 1, y, false);
 			Fill_Rectangle(x2, y, x2 + 1, room_B->top, false);
 		}
+
 		//道同士を繋げる横道を作る
 		Fill_H_Line(x1, x2, y, false);
 	}
 
 	//左右でつながっているか
 	else if (rect_A->right == rect_B->left || rect_A->left == rect_B->right) {
-		int y1, y2, x;
+		int y1, y2;
 
-		y1 = random->Dungeon_Random(room_A->bottom - room_A->top) + room_A->top;
-		y2 = random->Dungeon_Random(room_B->bottom - room_B->top) + room_B->top;
+		y1 = random.Dungeon_Random(room_A->bottom - room_A->top) + room_A->top;
+		y2 = random.Dungeon_Random(room_B->bottom - room_B->top) + room_B->top;
 
 		if (rect_A->left > rect_B->left) {
 			/*BA

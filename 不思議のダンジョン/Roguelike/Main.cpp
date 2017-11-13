@@ -61,7 +61,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		int endTime = GetNowCount();
 		WaitTimer(1000 / 60 - (endTime - start_time)); //60FPS
 
-		if (CheckHitKey(KEY_INPUT_DELETE) == 1) break;
+if (CheckHitKey(KEY_INPUT_DELETE) == 1) break;
 	}
 	fclose(stdout);
 	delete scene_manager; //ƒNƒ‰ƒX‚Ì‰ð•ú

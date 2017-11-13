@@ -48,17 +48,18 @@ const int ITEM_MAX = 500; //アイテムが同時に出現できる数　ひとまず
 
 
 #pragma region ダンジョンに関する定数
-//とりあえずはここに
 
-const int DUNGEON_WIDTH = 50; //ダンジョンの横マスの数
+const int DUNGEON_WIDTH = 25; //ダンジョンの横マスの数 //最終は50
 
-const int DUNGEON_HEIGHT = 50; //ダンジョンの縦マスの数
+const int DUNGEON_HEIGHT = 25; //ダンジョンの縦マスの数
 
-const int RECTANGLE = 100; //ひとまずの値 矩形、長方形
+const int RECTANGLE = 50; //ひとまずの値 矩形、長方形 使ってない
 
 const int MAX_RECTANGLE = 10; //区画の最大値
 
 const int MIN_ROOM_SIZE = 4; //最小の部屋のサイズ
+
+const int TILE_SIZE = 30; //TODO: 最終は９０で合わせる
 
 #pragma endregion
 
