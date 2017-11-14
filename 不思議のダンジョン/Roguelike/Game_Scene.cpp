@@ -16,6 +16,6 @@ void Game_Scene::Update() {
 }
 
 void Game_Scene::Render() {
-	DrawFormatString(0, 0, GetColor(0, 0, 0), "ゲーム画面");
-	DrawFormatString(WINDOW_X - 300,WINDOW_Y - 700, GetColor(0, 0, 0), "Rを押すとリザルトへ");
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "ゲーム画面");
+	DrawFormatString(WINDOW_X - 300,300, GetColor(255, 255, 255), "Rを押すとリザルトへ");
 }

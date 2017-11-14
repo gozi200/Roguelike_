@@ -3,18 +3,17 @@
 Dungeon_Base::Dungeon_Base() {
 	width = DUNGEON_WIDTH; //define定数使用
 	height = DUNGEON_HEIGHT; //define定数使用
-	rectangle_count = 0; 
-	tile_judge = new Tile_Judge();
+	rectangle_count = 0;
+	tile_judge = new Tile_Judge[width * height]();
 }
 
 //デストラクタ
 Dungeon_Base::~Dungeon_Base() {
-	delete tile_judge;
+	delete[] tile_judge;
 }
 
 bool Dungeon_Base::Alloc(int set_x, int set_y) {
-
-	return false;
+	return true;
 }
 
 Tile_Judge* Dungeon_Base::Get_Tile(int set_x, int set_y) {
@@ -22,12 +21,12 @@ Tile_Judge* Dungeon_Base::Get_Tile(int set_x, int set_y) {
 		return NULL;
 	}
 
-	if (set_x < 0 || set_x >= width || set_y < 0 || set_y >= height) {
-		OutputDebugString("Get_Tile()でNULL");
+	if (set_x < 0 || set_x >= width || set_y < 0 || set_y >= height) { //ここに入ってしまっている
+		OutputDebugString("Get_Tile()でNULLです");
 		return NULL;
 	}
 
-	return &tile_judge[set_x + set_y * height]; //参考書はwidth
+	return &tile_judge[set_x + set_y * width];
 }
 
 
@@ -43,30 +42,41 @@ bool Dungeon_Base::is_Move(int set_x, int set_y) {
 	return true;
 }
 
-//部屋の範囲のみ壁フラグをfalseに　//TODO: コメントしてもなぜか出現する床がある 
+//部屋の範囲のみ壁フラグをfalseに 
 void Dungeon_Base::Fill_Rectangle(int set_left, int set_top, int set_right, int set_bottom, bool set_is_wall) {
-	//for (int y = set_top; y < set_bottom; ++y) {
-	//	for (int x = set_left; x < set_right; ++x) {
-	//		Get_Tile(x, y)->is_wall = set_is_wall;
-	//	}
-	//}
+	for (int y = set_top; y < set_bottom; ++y) {
+		for (int x = set_left; x < set_right; ++x) {
+			Get_Tile(x, y)->is_wall = set_is_wall;
+		}
+	}
 };
 
-	
+
 void Dungeon_Base::Fill_H_Line(int set_left, int set_right, int set_y, bool set_is_wall) {
-	//for (int y = 0; y < set_y; ++y) {
-	//	for (int x = set_left; x < set_right; ++x) {
-	//		Get_Tile(x, y)->is_wall = set_is_wall;
-	//	}
-	//}
+	if (set_left < set_right) {
+		for (int x = set_left; x <= set_right; ++x) {
+			Get_Tile(x, set_y)->is_wall = set_is_wall;
+		}
+	}
+
+	else {
+		for (int x = set_right; x <= set_left; ++x) {
+			Get_Tile(x, set_y)->is_wall = set_is_wall;
+		}
+	}
 };
 
 void Dungeon_Base::Fill_V_Line(int set_top, int set_bottom, int set_x, bool set_is_wall) {
-	//for (int x = 0; x < set_x; ++x) { 
-	//	for (int y = set_top; y < set_bottom; ++y) {
-	//		Get_Tile(x, y)->is_wall = set_is_wall;
-	//	}
-	//}
+	if (set_top < set_bottom) {
+		for (int y = set_top; y <= set_bottom; ++y) {
+			Get_Tile(set_x, y)->is_wall = set_is_wall;
+		}
+	}
+
+	else
+		for (int y = set_bottom; y <= set_top; ++y) {
+			Get_Tile(set_x, y)->is_wall = set_is_wall;
+		}
 };
 
 void Dungeon_Base::Random_Room_Point(int index, int *set_x, int *set_y) {

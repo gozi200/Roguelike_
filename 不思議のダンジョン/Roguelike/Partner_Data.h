@@ -14,7 +14,7 @@
 
 struct PARTNER_STATUS_DATA {
 	int ID; //ナンバー
-	std::string name;
+	std::string name; //いる？
 	int x; //x軸座標
 	int y; //y軸座標
 	int width; //画像の横幅

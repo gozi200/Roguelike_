@@ -4,14 +4,22 @@
 
 //コンストラクタ
 Game::Game() {
-	dungeon_base = new Dungeon_Base;
-	dungeon01 = new Dungeon01;
+	dungeon_base = new Dungeon01;
+	dungeon01 = dynamic_cast<Dungeon01*>(dungeon_base);
 }
 
 //デストラクタ
 Game::~Game() {
-	delete dungeon_base;
-	delete dungeon01;
+	bool isSameDungeon = dungeon_base == dungeon01;
+
+	if (dungeon_base != nullptr) {
+		delete dungeon_base;
+		dungeon_base = nullptr;
+	}
+	if (!isSameDungeon && dungeon01 != nullptr) {
+		delete dungeon01;
+		dungeon01 = nullptr;
+	}
 }
 
 void Game::Init() {

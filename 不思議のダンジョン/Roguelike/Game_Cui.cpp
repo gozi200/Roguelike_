@@ -2,8 +2,6 @@
 
 //コンストラクタ
 Game_Cui::Game_Cui() { 
-	//tile_judge = new Tile_Judge;
-	//tile_down = new Tile_Judge;
 	tile_function = new Tile_Function;
 	wall_function = new Wall_Function;
 
@@ -12,8 +10,6 @@ Game_Cui::Game_Cui() {
 
 //デストラクタ
 Game_Cui::~Game_Cui() {
-	//delete tile_judge; //例外
-	//delete tile_down; //例外
 	delete tile_function;
 	delete wall_function;
 }
@@ -43,7 +39,7 @@ void Game_Cui::Render() {
 
 	//プレイヤーの位置を画面の中央へ
 	cx = static_cast<int>(DUNGEON_WIDTH / 2) - ACTOR_SIZE_X / 2; //頂点の関係で位置を少しずらす
-	cy = static_cast<int>(DUNGEON_HEIGHT / 2) - ACTOR_SIZE_Y / 2; //同上
+	cy = static_cast<int>(DUNGEON_HEIGHT / 2) - ACTOR_SIZE_Y / 2 + 35; //同上
 
 	//床の描画
 
@@ -82,6 +78,9 @@ void Game_Cui::Render() {
 					wall_function->Draw_Wall(WALL_GRASS, dx, dy); //Define定数使用
 				}
 				continue; //壁であるなら配置するものがないのでループに戻る
+			}
+			else {
+				int a = 0;
 			}
 
 			//昇り階段か

@@ -16,12 +16,12 @@
 *//////////////////////
 
 struct SETTING_WALL_DATA {
-	int ID; //ナンバー
-	std::string name;
-	int x; //x軸座標
-	int y; //y軸座標
-	int width; //画像の横幅
-	int height; //画像の縦幅
+	int ID;				//ナンバー
+	std::string name;	//いる？
+	int x;				//x軸座標
+	int y;				//y軸座標
+	int width;			//画像の横幅
+	int height;			//画像の縦幅
 	int graphic_handle; //画像データを格納する
 };
 

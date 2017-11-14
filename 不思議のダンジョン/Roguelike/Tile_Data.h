@@ -13,12 +13,12 @@
 
 //床に持たせる情報を設定する
 struct SETTING_TILE_DATA {
-	int ID; //ナンバー　TODO: いる？
-	std::string name;
-	int x; //x軸座標
-	int y; //y軸座標
-	int width; //画像の横幅
-	int height; //画像の縦幅
+	int ID;				//ナンバー
+	std::string name;	//いる？
+	int x;				//x軸座標
+	int y;				//y軸座標
+	int width;			//画像の横幅
+	int height;			//画像の縦幅
 	int graphic_handle; //画像データを格納する
 };
 
@@ -54,7 +54,4 @@ public:
 
 	//ファイルを開く
 	bool Open_File();
-
-	//画像を読み込む
-	void Load_Graph();
 };

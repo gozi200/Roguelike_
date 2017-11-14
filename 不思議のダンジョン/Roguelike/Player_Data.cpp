@@ -32,14 +32,7 @@ Player_Data::Player_Data(const std::string & openFilePath) : file_pass(openFileP
 		player_data.turn_point = std::stoi(values[15]);
 		//load
 		player_data.graphic_handle = std::stoi(values[16]);
-		player_data.graphic_handle_pass = const_cast <char*>(values[17].c_str());
 	
-		Load_Graph();
 	}
-
-}
-
-void Player_Data::Load_Graph() {
-	player_data.graphic_handle = LoadGraph(player_data.graphic_handle_pass);
 
 }

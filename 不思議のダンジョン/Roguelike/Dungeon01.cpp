@@ -1,6 +1,6 @@
 #include"Dungeon01.h"
 
-Dungeon01::Dungeon01() {
+Dungeon01::Dungeon01() : Dungeon_Base() {
 	random = Random();
 }
 
@@ -25,13 +25,13 @@ void Dungeon01::Make(Player* set_player, int set_floor) {
 	Create_Rectangle(0, 0, width - 1, height - 1);
 
 	//↑で定めた区画を細分化していく
-	//Split_Rectangle(random->Dungeon_Random(2) ? true : false);
-	//
-	////部屋を作る
-	//Create_Room();
-	//
-	////部屋同士をつなげる
-	//Connect_Room();
+	Split_Rectangle(random.Dungeon_Random(2) ? true : false);
+	
+	//部屋を作る
+	Create_Room();
+	
+	//部屋同士をつなげる
+	Connect_Room();
 
 	//各部屋にエネミーを配置
 	//Enemy_Array(floor);
@@ -52,8 +52,8 @@ DUNEON_RECTANGLE* Dungeon01::Create_Rectangle(int set_left, int set_top, int set
 }
 
 void Dungeon01::Split_Rectangle(bool set_is_vertical) {
-	DUNEON_RECTANGLE* parent,* child;
-	//DUNEON_RECTANGLE* child;
+	DUNEON_RECTANGLE* parent;
+	DUNEON_RECTANGLE* child;
 	RECT* rectangle;
 
 	//分ける区画情報を取得

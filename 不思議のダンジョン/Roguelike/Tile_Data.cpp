@@ -34,12 +34,14 @@ bool Tile_Data::Open_File() {
 	while (!std::getline(ifs, line).eof()) {
 		SETTING_TILE_DATA data;
 		auto values = Convenient_Function::Split(line, ","); //','で区切って読み込む
-		data.ID = std::stoi(values[0]); //ナンバー
+		data.ID = std::stoi(values[0]); 
 		data.name = values[1];
-		data.width = std::stoi(values[2]); //画像(横幅)	
-		data.height = std::stoi(values[3]); //画像(縦幅)
-		//load		
-		auto graphic_handle = LoadGraph(tile_graphic.tile_graphic[count++]); //例外
+
+		data.width = std::stoi(values[2]); 
+		data.height = std::stoi(values[3]);
+
+		//load
+		auto graphic_handle = LoadGraph(tile_graphic.tile_graphic[count++]);
 		data.graphic_handle = graphic_handle;
 
 		set_tile_data.push_back(data); //１行ごとに配列に追加していく
