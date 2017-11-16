@@ -21,29 +21,7 @@ public:
 	int x; //現在位置の座標(横)
 	int y; //現在位置の座標(縦)
 
-#pragma region 味方勢力のステータス
 
-	int level; 
-
-	int hit_point;
-
-	int magic_point; //(仮)
-
-	int hunger_point; //空腹ポイント
-
-	int experience_point; //経験値
-
-	int attack; //素の攻撃力 これに武器の攻撃力を何らかの形で計算する
-
-	int defence; //素の防御力　同上
-
-	int activity; //行動力 ここでは１ターンに行動できる数
-
-	int turn_count; //ターンカウント　
-
-	int graphic_ID; //ID
-
-#pragma endregion
 
 /*////////
 メンバ関数

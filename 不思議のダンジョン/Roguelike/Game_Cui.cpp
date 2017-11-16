@@ -1,7 +1,7 @@
 #include"Game_Cui.h"
 
 //コンストラクタ
-Game_Cui::Game_Cui() { 
+Game_Cui::Game_Cui() {
 	tile_function = new Tile_Function;
 	wall_function = new Wall_Function;
 
@@ -135,26 +135,24 @@ void Game_Cui::Render() {
 			if (dx <= -TILE_SIZE / 2 || dx >= WINDOW_X) {
 				continue;
 			}
-			
+
 			//タイル情報を取得	
 			tile_judge = dungeon01->Get_Tile(x, y);
 
-		//プレイヤーがいるか
-		if (mx == x && my == y) {
-			//プレイヤーを挿入
-		}
+			//プレイヤーがいるか
+			if (mx == x && my == y) {
+				//プレイヤーを挿入
+			}
 
+			//その座標のエネミー情報を取得
+			enemy = (Enemy_Manager*)dungeon_base->Get_Point_Enemy(x, y);
 
+			if (enemy) {
+				//敵を挿入
 			}
 		}
 	}
+}
 
 
 
-		////その座標のエネミー情報を取得
-		//enemy = (Enemy_Manager*)dungeon_base->Get_Point_Enemy(x, y);
-		//
-		//else if (enemy) {
-		//	//敵を挿入
-		//}
-	

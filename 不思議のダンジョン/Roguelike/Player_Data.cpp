@@ -29,7 +29,7 @@ Player_Data::Player_Data(const std::string & openFilePath) : file_pass(openFileP
 		player_data.defence = std::stoi(values[12]);
 		player_data.power = std::stoi(values[13]);
 		player_data.activity = std::stoi(values[14]);
-		player_data.turn_point = std::stoi(values[15]);
+		player_data.turn_count = std::stoi(values[15]);
 		//load
 		player_data.graphic_handle = std::stoi(values[16]);
 	

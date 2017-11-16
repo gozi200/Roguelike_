@@ -2,27 +2,28 @@
 
 #include"Object.h"
 
-/*/////////////////////////
-Objectを継承
+//------------------------
+//Objectを継承
 
-アイテムを管理するクラス
-/////////////////////////*/
+//アイテムを管理するクラス
+//------------------------
 
 //TODO: Equipment(装備品)クラスとtoolクラスで分ける？
 
+enum ITEMTYPE {
+	ITEMTYPE_NONE = 0,		     //なし
+	ITEMTYPE_USEITEM = (1<<1),   //消耗品
+	ITEMTYPE_WEAPON = (1<<2),    //武器
+	ITEMTYPE_SHIELD = (1<<3),    //縦
+	ITEMTYPE_ACCESSORIE = (1<<4),//装飾品
+};
+
+enum USEITEM_CATEGORY {
+	HP_CURE, //HP回復 
+	MP_CURE, //MP回復
+};
+
 class Item : public Object {
-protected:
-	int NUMBER; //アイテムのID
-
 public:
-	//毎フレーム呼び出す処理を書く
-	virtual void Update() = 0;
-
-	/*スポーンしたアイテムを配置
-	*@param x x座標
-	*@param y y座標
-	*/
-	virtual void Arrange(Vector2D position) = 0;
-
-	void Render(); //いる？
+	ITEMTYPE type;
 };

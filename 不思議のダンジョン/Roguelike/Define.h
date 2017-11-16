@@ -37,6 +37,8 @@ const int COLLISION = 20; //いうならばキャラの大きさ　ひとまず
 
 const int MAX_ENEMY = 500; //エネミーの量 ひとまず
 
+const int MAX_STOCK_ITEM = 30;
+
 #pragma endregion
 
 
