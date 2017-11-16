@@ -137,7 +137,7 @@
     <ClCompile Include="Enemy_Data.cpp" />
     <ClCompile Include="Food_Data.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Game_Cui.cpp" />
+    <ClCompile Include="Game_Gui.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
     <ClCompile Include="Key_Update.cpp" />
     <ClCompile Include="Key_Controller.cpp" />
@@ -202,7 +202,7 @@
     <ClInclude Include="Enemy_Manager.h" />
     <ClInclude Include="Enemy_Status1.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Game_Cui.h" />
+    <ClInclude Include="Game_Gui.h" />
     <ClInclude Include="Game_Scene.h" />
     <ClInclude Include="Item_Type.h" />
     <ClInclude Include="Enemy_Database.h" />

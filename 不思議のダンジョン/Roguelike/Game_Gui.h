@@ -16,7 +16,7 @@
 テキストベース版のゲーム基本クラス
 /*/////////////////////////////
 
-class Game_Cui : public Game {
+class Game_Gui : public Game {
 /*///////
 メンバ変数
 *////////
@@ -36,9 +36,9 @@ public:
 メンバ関数
 *////////
 	 //コンストラクタ/
-	 Game_Cui();
+	 Game_Gui();
 	 //デストラクタ
-	~Game_Cui();
+	~Game_Gui();
 
 	//ゲームの実行
 	int Run();

@@ -1,7 +1,7 @@
-#include"Game_Cui.h"
+#include"Game_Gui.h"
 
 //コンストラクタ
-Game_Cui::Game_Cui() {
+Game_Gui::Game_Gui() {
 	tile_function = new Tile_Function;
 	wall_function = new Wall_Function;
 
@@ -9,12 +9,12 @@ Game_Cui::Game_Cui() {
 }
 
 //デストラクタ
-Game_Cui::~Game_Cui() {
+Game_Gui::~Game_Gui() {
 	delete tile_function;
 	delete wall_function;
 }
 
-int Game_Cui::Run() {
+int Game_Gui::Run() {
 	//ゲームの初期化
 	Game::Init();
 
@@ -28,12 +28,12 @@ int Game_Cui::Run() {
 }
 
 //コンソールの初期化
-void Game_Cui::Console_Init() {
+void Game_Gui::Console_Init() {
 
 }
 
 //初めに描画を行う
-void Game_Cui::Render() {
+void Game_Gui::Render() {
 	//プレイヤーの座標を取得
 	player.Get_Position(&mx, &my);
 

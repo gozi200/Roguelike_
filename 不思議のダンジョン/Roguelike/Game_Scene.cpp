@@ -3,7 +3,7 @@
 #include"Game_Scene.h"
 
 Game_Scene::Game_Scene(Scene_Manager * Manager) : Scene(Manager) {
-	game = new Game_Cui();	
+	game = new Game_Gui();	
 }
 
 void Game_Scene::Update() {

@@ -240,9 +240,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game_Cui.cpp">
-      <Filter>ソース ファイル\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Weapon.cpp">
       <Filter>ソース ファイル\Actor_Base\Item\Equipment\Weapon</Filter>
     </ClCompile>
@@ -348,6 +345,9 @@
     <ClCompile Include="Wall_Function.cpp">
       <Filter>ソース ファイル\Function</Filter>
     </ClCompile>
+    <ClCompile Include="Game_Gui.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene_Manager.h">
@@ -432,9 +432,6 @@
       <Filter>ヘッダーファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>ヘッダーファイル\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game_Cui.h">
       <Filter>ヘッダーファイル\Game</Filter>
     </ClInclude>
     <ClInclude Include="Weapon.h">
@@ -562,6 +559,9 @@
     </ClInclude>
     <ClInclude Include="Weapon_Seal.h">
       <Filter>ヘッダーファイル\CSV\Euqipment\Seal</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_Gui.h">
+      <Filter>ヘッダーファイル\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
