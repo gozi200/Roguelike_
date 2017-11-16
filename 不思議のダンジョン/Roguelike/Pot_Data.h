@@ -18,8 +18,8 @@ struct SETTING_POT_DATA {
 
 	int x;				//x軸座標
 	int y;				//y軸座標
-	int ask;			//売った時の値段
-	int price;			//買った時の値段
+	int ask;			//売る時の金額
+	int price;			//買う時の金額
 	int damage;			//投げあてたときのダメージ
 
 	int width;			//画像の横幅

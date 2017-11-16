@@ -13,9 +13,9 @@ public:
 	Player* player;
 	Random random;
 
-	int a, b, ab, p;
-	int x, y;
-	int i;
+	//int a, b, ab, p;
+	//int x, y;
+	//int i;
 
 /*////////
 ƒƒ“ƒoŠÖ”

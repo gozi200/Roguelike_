@@ -20,8 +20,8 @@ struct SETTING_FOOD_DATA {
 	int y;				//y軸座標
 	int effect;			//効果値
 	int add_capacity;	//最大値の増加
-	int ask;			//売る時の値段
-	int price;			//買う時の値段
+	int ask;			//売る時の金額
+	int price;			//買う時の金額
 	int damage;			//投げ当てたときののダメージ
 
 	int width;			//画像の横幅

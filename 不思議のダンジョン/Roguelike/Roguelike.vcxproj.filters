@@ -178,6 +178,12 @@
     <Filter Include="ソース ファイル\Function">
       <UniqueIdentifier>{5e2cba20-efd0-4865-a6ce-7b943a4f8539}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダーファイル\CSV\Euqipment\Seal">
+      <UniqueIdentifier>{5e4c30e2-ca59-4203-8324-ef69f8f721f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\CSV\Euqipment\Object">
+      <UniqueIdentifier>{ce25a0d7-9dc7-423e-8fe6-ca12c27fcffb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -464,15 +470,6 @@
     <ClInclude Include="Enemy_Status1.h">
       <Filter>ヘッダーファイル\Actor_Base\Actor\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Accessorie_Data.h">
-      <Filter>ヘッダーファイル\CSV\Euqipment</Filter>
-    </ClInclude>
-    <ClInclude Include="Shield_Data.h">
-      <Filter>ヘッダーファイル\CSV\Euqipment</Filter>
-    </ClInclude>
-    <ClInclude Include="Weapon_Data.h">
-      <Filter>ヘッダーファイル\CSV\Euqipment</Filter>
-    </ClInclude>
     <ClInclude Include="Food_Data.h">
       <Filter>ヘッダーファイル\CSV\Item</Filter>
     </ClInclude>
@@ -547,6 +544,24 @@
     </ClInclude>
     <ClInclude Include="Wall_Function.h">
       <Filter>ヘッダーファイル\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Accessorie_Data.h">
+      <Filter>ヘッダーファイル\CSV\Euqipment\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield_Data.h">
+      <Filter>ヘッダーファイル\CSV\Euqipment\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon_Data.h">
+      <Filter>ヘッダーファイル\CSV\Euqipment\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Accessorie_Seal.h">
+      <Filter>ヘッダーファイル\CSV\Euqipment\Seal</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield_Seal.h">
+      <Filter>ヘッダーファイル\CSV\Euqipment\Seal</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon_Seal.h">
+      <Filter>ヘッダーファイル\CSV\Euqipment\Seal</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

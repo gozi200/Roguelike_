@@ -1,7 +1,7 @@
 #include"Weapon_Data.h"
 
 Weapon_Data::Weapon_Data() {
-	tile_graphic.Load();
+	weapon_graphic.Load();
 
 }
 
@@ -36,12 +36,23 @@ bool Weapon_Data::Open_File() {
 		auto values = Convenient_Function::Split(line, ","); //','で区切って読み込む
 		data.ID = std::stoi(values[0]);
 		data.name = values[1];
-		data.width = std::stoi(values[2]);
-		data.height = std::stoi(values[3]);
+
+		data.ask = std::stoi(values[2]);
+		data.price = std::stoi(values[3]);
+		data.level = std::stoi(values[4]);
+		data.attack = std::stoi(values[5]);
+		data.peculiar_seal = std::stoi(values[6]);
+		data.slot = std::stoi(values[7]);
+		data.damage = std::stoi(values[8]);
+		data.evolution_level = std::stoi(values[9]);
+
+		data.width = std::stoi(values[10]);
+		data.height = std::stoi(values[11]);
+		
 		//load
-		auto graphic_handle = LoadGraph(tile_graphic.weapon_graphic[count++]);
+		auto graphic_handle = LoadGraph(weapon_graphic.weapon_graphic[count++]);
 		data.graphic_handle = graphic_handle;
 
-		set_tile_data.push_back(data); //１行ごとに配列に追加していく
+		set_weapon_data.push_back(data); //１行ごとに配列に追加していく
 	}
 }

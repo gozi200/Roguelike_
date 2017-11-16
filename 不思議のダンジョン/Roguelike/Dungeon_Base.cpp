@@ -42,15 +42,14 @@ bool Dungeon_Base::is_Move(int set_x, int set_y) {
 	return true;
 }
 
-//部屋の範囲のみ壁フラグをfalseに 
+//部屋の範囲+部屋の連結部分のみ壁フラグをfalseに 
 void Dungeon_Base::Fill_Rectangle(int set_left, int set_top, int set_right, int set_bottom, bool set_is_wall) {
 	for (int y = set_top; y < set_bottom; ++y) {
 		for (int x = set_left; x < set_right; ++x) {
-			Get_Tile(x, y)->is_wall = set_is_wall;
+ 			Get_Tile(x, y)->is_wall = set_is_wall;
 		}
 	}
 };
-
 
 void Dungeon_Base::Fill_H_Line(int set_left, int set_right, int set_y, bool set_is_wall) {
 	if (set_left < set_right) {

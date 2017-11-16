@@ -177,6 +177,7 @@
   <ItemGroup>
     <ClInclude Include="Accessorie_Data.h" />
     <ClInclude Include="Accessorie_Graphic.h" />
+    <ClInclude Include="Accessorie_Seal.h" />
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Actor_Abstract_Factory.h" />
     <ClInclude Include="Actor_Factory.h" />
@@ -227,6 +228,7 @@
     <ClInclude Include="Score.h" />
     <ClInclude Include="Shield_Data.h" />
     <ClInclude Include="Shield_Graphic.h" />
+    <ClInclude Include="Shield_Seal.h" />
     <ClInclude Include="Tile_Function.h" />
     <ClInclude Include="Tile_Graphic.h" />
     <ClInclude Include="Tile_Judge.h" />
@@ -243,6 +245,7 @@
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="Weapon_Data.h" />
     <ClInclude Include="Weapon_Graphic.h" />
+    <ClInclude Include="Weapon_Seal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

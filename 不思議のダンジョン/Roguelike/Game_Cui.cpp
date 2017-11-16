@@ -56,6 +56,7 @@ void Game_Cui::Render() {
 		for (x = 0; x < dungeon_base->width - 1; ++x) {
 			dx = x * TILE_SIZE - cx; //タイルの横幅分、横のタイル同士で距離を取る
 			const Tile_Judge *tile_judge;
+			
 			//画面外は無視
 			if (dx < -ACTOR_SIZE_X || dx > WINDOW_X) {
 				continue;

@@ -1,6 +1,6 @@
-ID,name,whidth,height,graphic_handle
-int,string,int,int,int
-1,Up stairs,30,30,0
-2,Down stairs,30,30,0
-3,Grass,30,30,0
-4,Cave,30,30,0
+ID,name,whidth,height
+int,string,int,int
+1,Up stairs,30,30
+2,Down stairs,30,30
+3,Grass,30,30
+4,Cave,30,30

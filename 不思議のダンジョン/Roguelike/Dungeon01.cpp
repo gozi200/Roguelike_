@@ -5,7 +5,7 @@ Dungeon01::Dungeon01() : Dungeon_Base() {
 }
 
 Dungeon01::~Dungeon01() {
-	
+
 }
 
 void Dungeon01::Make(Player* set_player, int set_floor) {
@@ -14,8 +14,8 @@ void Dungeon01::Make(Player* set_player, int set_floor) {
 	player = set_player;
 
 	//‰Šú‰»(ˆê’U‚·‚×‚Ä•Ç‚É‚·‚é)
-	for (y = 0; y < height; ++y) {
-		for (x = 0; x < width; ++x) {
+	for (int y = 0; y < height; ++y) {
+		for (int x = 0; x < width; ++x) {
 			Get_Tile(x, y)->is_wall = true;
 		}
 	}
@@ -26,10 +26,10 @@ void Dungeon01::Make(Player* set_player, int set_floor) {
 
 	//ª‚Å’è‚ß‚½‹æ‰æ‚ğ×•ª‰»‚µ‚Ä‚¢‚­
 	Split_Rectangle(random.Dungeon_Random(2) ? true : false);
-	
+
 	//•”‰®‚ğì‚é
 	Create_Room();
-	
+
 	//•”‰®“¯m‚ğ‚Â‚È‚°‚é
 	Connect_Room();
 
@@ -69,7 +69,7 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 			return; //•ªŠ„‚Å‚«‚È‚¢‚Æ‚«‚ÍI—¹
 		}
 
-		//int a, b, ab, p;
+		int a, b, ab, p;
 		//¶’[‚ÌA“_‚ğ‹‚ß‚é
 		a = MIN_ROOM_SIZE + 3;
 
@@ -103,6 +103,7 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 			//•ªŠ„‚Å‚«‚È‚¢‚Æ‚«‚ÍI—¹
 			return;
 		}
+		int a, b, ab, p;
 
 		a = MIN_ROOM_SIZE + 3;
 		b = RECTANGLE_HEIGHT(*rectangle) - MIN_ROOM_SIZE - 4;
@@ -136,7 +137,7 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 void Dungeon01::Create_Room() {
 	int w, h, cw, ch, sw, sh, rw, rh, rx, ry; //TODO: –¼‘O‚ğ‚Â‚¯‚é w = width, h = height, x = ‰¡À•W, y = cÀ•W‚© 
 
-	for (i = 0; i < rectangle_count; ++i) {
+	for (int i = 0; i < rectangle_count; ++i) {
 		RECT* rectangle = &dungeon_rectangle[i].rect; //‹æ‰æî•ñ
 		RECT* room = &dungeon_rectangle[i].room; //«‚Åì‚é•”‰®î•ñ
 
@@ -159,13 +160,13 @@ void Dungeon01::Create_Room() {
 		ry = random.Dungeon_Random(sh) + 2;
 
 		//‹‚ß‚½Œ‹‰Ê‚©‚ç•”‰®‚Ìî•ñ‚ğİ’è
-		room->left   = rectangle->left + rx;
-		room->top    = rectangle->top + ry;
-		room->right  = room->left + rw;
+		room->left = rectangle->left + rx;
+		room->top = rectangle->top + ry;
+		room->right = room->left + rw;
 		room->bottom = room->top + rh;
 
 		//•”‰®‚ğì‚é
-		Fill_Rectangle(
+		Fill_Rectangle( //ƒ_ƒ“ƒWƒ‡ƒ“‚Ì‘å‚«‚³(width,height‚ÌŠO‚Éæ‚Á‚Ä‚µ‚Ü‚Á‚Ä‚¢‚éB)
 			room->left,
 			room->top,
 			room->right,
@@ -173,6 +174,7 @@ void Dungeon01::Create_Room() {
 
 		//‚P‚Â–Ú‚Ì•”‰®‚È‚ç“K“–‚ÈˆÊ’u‚ÉŠK’i‚ğİ’u
 		if (i == 0) {
+			int x, y;
 			Random_Room_Point(i, &x, &y);
 			Get_Tile(x, y)->is_up_stairs = true;
 			up_stairs_x = x;
@@ -180,6 +182,7 @@ void Dungeon01::Create_Room() {
 		}
 
 		if (i == rectangle_count - 1) {
+			int x, y;
 			Random_Room_Point(i, &x, &y);
 			Get_Tile(x, y)->is_down_stairs = true;
 			down_stairs_x = x;
@@ -203,35 +206,35 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 	room_A = &dungeon_rectangle[set_room_A].room;
 	room_B = &dungeon_rectangle[set_room_B].room;
 
-/*////////////////////////////////////////////////////////////////
-‹æ‰æ“¯m‚ªAã‰º‚©¶‰E‚Ì‚Ç‚¿‚ç‚Å‚Â‚È‚ª‚Á‚Ä‚¢‚é‚©‚Åˆ—‚ğ•ª‚¯A“¹‚ğ‚Â‚È‚®
-*////////////////////////////////////////////////////////////////
+	/*////////////////////////////////////////////////////////////////
+	‹æ‰æ“¯m‚ªAã‰º‚©¶‰E‚Ì‚Ç‚¿‚ç‚Å‚Â‚È‚ª‚Á‚Ä‚¢‚é‚©‚Åˆ—‚ğ•ª‚¯A“¹‚ğ‚Â‚È‚®
+	///////////////////////////////////////////////////////////////*/
 
 	//ã‰º‚ÅŒq‚ª‚Á‚Ä‚¢‚é‚©‚ÌŠm”F
 	if (rect_A->bottom == rect_B->top || rect_A->top == rect_B->bottom) {
-		int x1, x2;
+		int x1, x2, y;
 
 		x1 = random.Dungeon_Random(RECTANGLE_WIDTH(*room_A)) + room_A->left;
-		x2 = random.Dungeon_Random(RECTANGLE_WIDTH(*room_A)) + room_B->left;
+		x2 = random.Dungeon_Random(RECTANGLE_WIDTH(*room_B)) + room_B->left;
 
 		if (rect_A->top > rect_B->top) {
-		/* B
-		   A
-		   ‚Ì•À‚Ñ‚Ì
-		*/
+			/* B
+			   A
+			   ‚Ì•À‚Ñ‚Ì
+			*/
 			y = rect_A->top;
-			//A‚Æ‰¡“¹‚ğŒq‚®“¹‚ğì‚é
-			Fill_Rectangle(x1, y + 1, x1 + 1, room_A->top, false);
-			//B‚Æ‰¡“¹‚ğŒq‚®“¹‚ğì‚é
+			//ABŠÔ‚Ì‰¡“¹‚ğŒq‚®“¹‚ğì‚é
+			Fill_Rectangle(x1, y + 1, x1 + 1 , room_A->top, false);
 			Fill_Rectangle(x2, room_B->bottom, x2 + 1, y, false);
 		}
 
 		else {
-		/* A
-		   B
-		   ‚Ì•À‚Ñ‚Ì
-		*/
+			/* A
+			   B
+			   ‚Ì•À‚Ñ‚Ì
+			*/
 			y = rect_B->top;
+			//ABŠÔ‚Ì‰¡“¹‚ğŒq‚®“¹‚ğì‚é
 			Fill_Rectangle(x1, room_A->bottom, x1 + 1, y, false);
 			Fill_Rectangle(x2, y, x2 + 1, room_B->top, false);
 		}
@@ -242,7 +245,7 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 
 	//¶‰E‚Å‚Â‚È‚ª‚Á‚Ä‚¢‚é‚©
 	else if (rect_A->right == rect_B->left || rect_A->left == rect_B->right) {
-		int y1, y2;
+		int y1, y2, x;
 
 		y1 = random.Dungeon_Random(room_A->bottom - room_A->top) + room_A->top;
 		y2 = random.Dungeon_Random(room_B->bottom - room_B->top) + room_B->top;
@@ -252,6 +255,7 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 			  ‚Ì•À‚Ñ‚Ì‚Æ‚«
 			*/
 			x = rect_A->left;
+			//ABŠÔ‚Ìc“¹‚ğŒq‚®“¹‚ğì‚é
 			Fill_Rectangle(room_B->right, y2, x, y2 + 1, false);
 			Fill_Rectangle(x + 1, y1, room_A->left, y1 + 1, false);
 		}
@@ -261,10 +265,12 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 			  ‚Ì•À‚Ñ‚Ì
 			*/
 			x = rect_B->left;
+			//ABŠÔ‚Ìc“¹‚ğŒq‚®“¹‚ğì‚é
 			Fill_Rectangle(room_A->right, y1, x, y1 + 1, false);
 			Fill_Rectangle(x, y2, room_B->left, y2 + 1, false);
 		}
 
-		Fill_V_Line(y1, y2, x, false); //c“¹‚ğì‚é
+		//“¹“¯m‚ğŒq‚°‚éc“¹‚ğì‚é
+		Fill_V_Line(y1, y2, x, false);
 	}
 }

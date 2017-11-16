@@ -1,5 +1,9 @@
 #pragma once
 
+//---------------------------------
+//床の情報を管理するクラス(階段も含む)
+//---------------------------------
+
 #include"DxLib.h"
 #include"Define.h"
 #include"Tile_Graphic.h"
@@ -21,10 +25,6 @@ struct SETTING_TILE_DATA {
 	int height;			//画像の縦幅
 	int graphic_handle; //画像データを格納する
 };
-
-/*////////////////////////////////
-床の画像を管理するクラス(階段も含む)
-*/////////////////////////////////
 
 class Tile_Data {
 /*////////

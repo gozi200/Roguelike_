@@ -29,7 +29,7 @@ bool Tile_Data::Open_File() {
 	std::getline(ifs, line); //同上
 	ifs.clear(); //読み飛ばしたデータを破棄する
 
-	//それぞれの要素にcsvデータを読み込む
+	//それぞれの要素にcsvデータと画像データを読み込む
 	int count = 0;
 	while (!std::getline(ifs, line).eof()) {
 		SETTING_TILE_DATA data;
