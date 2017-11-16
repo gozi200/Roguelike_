@@ -41,14 +41,17 @@ void Game_Cui::Render() {
 	cx = static_cast<int>(DUNGEON_WIDTH / 2) - ACTOR_SIZE_X / 2; //頂点の関係で位置を少しずらす
 	cy = static_cast<int>(DUNGEON_HEIGHT / 2) - ACTOR_SIZE_Y / 2 + 35; //同上
 
-	//床の描画
+
+	//--------------
+	//地面の描画
+	//--------------
 
 	//ダンジョンの大さを測る(y軸)
 	for (y = 0; y < dungeon_base->height - 1; ++y) {
 		dy = y * TILE_SIZE - cy; //タイルの縦幅分、縦のタイル同士で距離を取る
 
 		//画面外は無視
-		if (dy < -ACTOR_SIZE_Y || dy > WINDOW_Y) {
+		if (dy < -TILE_SIZE / 2 || dy > WINDOW_Y) {
 			continue;
 		}
 
@@ -56,9 +59,9 @@ void Game_Cui::Render() {
 		for (x = 0; x < dungeon_base->width - 1; ++x) {
 			dx = x * TILE_SIZE - cx; //タイルの横幅分、横のタイル同士で距離を取る
 			const Tile_Judge *tile_judge;
-			
+
 			//画面外は無視
-			if (dx < -ACTOR_SIZE_X || dx > WINDOW_X) {
+			if (dx < -TILE_SIZE / 2 || dx > WINDOW_X) {
 				continue;
 			}
 
@@ -107,15 +110,51 @@ void Game_Cui::Render() {
 			}
 		}
 	}
-}
 
-////その座標のエネミー情報を取得
-//enemy = (Enemy_Manager*)dungeon_base->Get_Point_Enemy(x, y);
-//
-//else if (enemy) {
-//	//敵を挿入
-//}
-////プレイヤーがいるか
-//if (mx == x && my == y) {
-//	//プレイヤーを挿入
-//}
+	//-----------------
+	//アクターの描画
+	//-----------------
+
+	for (y = 0; y < dungeon_base->height; ++y) {
+		dy = y * TILE_SIZE - cy;
+
+		//画面外は無視
+		if (dy <= -TILE_SIZE / 2 || dy >= WINDOW_Y) {
+			continue;
+		}
+
+		dy += 120;
+
+		for (x = 0; x < dungeon_base->width; ++x) {
+			const Tile_Judge *tile_judge;
+			Enemy *enemy;
+
+			dx = x * TILE_SIZE - cx;
+
+			//画面外は無視
+			if (dx <= -TILE_SIZE / 2 || dx >= WINDOW_X) {
+				continue;
+			}
+			
+			//タイル情報を取得	
+			tile_judge = dungeon01->Get_Tile(x, y);
+
+		//プレイヤーがいるか
+		if (mx == x && my == y) {
+			//プレイヤーを挿入
+		}
+
+
+			}
+		}
+	}
+
+
+
+		////その座標のエネミー情報を取得
+		//enemy = (Enemy_Manager*)dungeon_base->Get_Point_Enemy(x, y);
+		//
+		//else if (enemy) {
+		//	//敵を挿入
+		//}
+	
