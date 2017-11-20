@@ -2,15 +2,15 @@
 
 //コンストラクタ
 Game_Gui::Game_Gui() {
-	tile_function = new Tile_Function;
-	wall_function = new Wall_Function; 
+	tile = new Tile;
+	wall = new Wall; 
 	dungeon01->Make(&player, floor);
 }
 
 //デストラクタ
 Game_Gui::~Game_Gui() {
-	delete tile_function;
-	delete wall_function;
+	delete tile;
+	delete wall;
 }
 
 int Game_Gui::Run() {
@@ -73,12 +73,12 @@ void Game_Gui::Render() {
 
 				//下に壁がないときは、かど用の壁を描画
 				if (tile_down && tile_down->is_wall == false) {
-					wall_function->Draw_Wall(CORNER_WALL_GRASS, dx, dy); //Define定数使用
+					wall->Draw_Wall(CORNER_WALL_GRASS, dx, dy); //Define定数使用
 				}
 
 				//それ以外の普通の壁を描画
 				else {
-					wall_function->Draw_Wall(WALL_GRASS, dx, dy); //Define定数使用
+					wall->Draw_Wall(WALL_GRASS, dx, dy); //Define定数使用
 				}
 				continue; //壁であるなら配置するものがないのでループに戻る
 			}
@@ -88,12 +88,12 @@ void Game_Gui::Render() {
 
 			//昇り階段か
 			if (tile_judge->is_up_stairs) {
-				tile_function->Draw_Tile(UP_STAIRS, dx, dy); //Define定数使用
+				tile->Draw_Tile(UP_STAIRS, dx, dy); //Define定数使用
 			}
 
 			//下り階段か
 			else if (tile_judge->is_down_stairs) {
-				tile_function->Draw_Tile(DOWN_STAIRS, dx, dy); //Define定数使用
+				tile->Draw_Tile(DOWN_STAIRS, dx, dy); //Define定数使用
 			}
 
 			////アイテムが落ちているか
@@ -103,7 +103,7 @@ void Game_Gui::Render() {
 
 			//それ以外は床
 			else {
-				tile_function->Draw_Tile(TILE_GRASS, dx, dy); //Define定数使用
+				tile->Draw_Tile(TILE_GRASS, dx, dy); //Define定数使用
 
 				//TODO:設定している画面外は壁を挿入
 			}

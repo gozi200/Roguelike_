@@ -13,7 +13,7 @@ public:
 
 	int loop_count = 0; //ループ回数を数える
 
-						//コンストラクタ
+	//コンストラクタ
 	Wall_Function();
 
 	//デストラクタ

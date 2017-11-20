@@ -1,13 +1,13 @@
 #pragma once
 
+#include"Tile.h"
+#include"Wall.h"
 #include"Game.h"
 #include"DxLib.h"
 #include"Define.h"
 #include"Tile_Data.h"
 #include"Wall_Data.h"
 #include"Tile_Judge.h"
-#include"Wall_Function.h"
-#include"Tile_Function.h"
 #include"Enemy_Manager.h"
 
 #include<vector>
@@ -23,8 +23,8 @@ class Game_Gui : public Game {
 public:
 	 //const Tile_Judge* tile_judge; 
 	 //const Tile_Judge* tile_down;
-	 Tile_Function* tile_function;
-	 Wall_Function* wall_function;
+	 Tile* tile;
+	 Wall* wall;
 
 	 int x, y; //‰æ–Ê
 	 int mx, my; //ƒ}ƒbƒv

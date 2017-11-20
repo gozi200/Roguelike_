@@ -159,14 +159,15 @@
     <ClCompile Include="Convenient_Function.cpp" />
     <ClCompile Include="Shield_Data.cpp" />
     <ClCompile Include="Shield_Graphic.cpp" />
+    <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Tile_Data.cpp" />
-    <ClCompile Include="Tile_Function.cpp" />
     <ClCompile Include="Tile_Graphic.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Trap_Data.cpp" />
     <ClCompile Include="Trap_Graphic.cpp" />
     <ClCompile Include="Tutorial_Stage.cpp" />
     <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="Wall.cpp" />
     <ClCompile Include="Wall_Data.cpp" />
     <ClCompile Include="Wall_Function.cpp" />
     <ClCompile Include="Wall_Graphic.cpp" />
@@ -229,7 +230,7 @@
     <ClInclude Include="Shield_Data.h" />
     <ClInclude Include="Shield_Graphic.h" />
     <ClInclude Include="Shield_Seal.h" />
-    <ClInclude Include="Tile_Function.h" />
+    <ClInclude Include="Tile.h" />
     <ClInclude Include="Tile_Graphic.h" />
     <ClInclude Include="Tile_Judge.h" />
     <ClInclude Include="Tile_Data.h" />
@@ -239,6 +240,7 @@
     <ClInclude Include="Tutorial_Stage.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Wait_State.h" />
+    <ClInclude Include="Wall.h" />
     <ClInclude Include="Wall_Data.h" />
     <ClInclude Include="Wall_Function.h" />
     <ClInclude Include="Wall_Graphic.h" />
