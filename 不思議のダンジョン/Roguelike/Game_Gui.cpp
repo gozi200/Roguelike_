@@ -3,8 +3,7 @@
 //コンストラクタ
 Game_Gui::Game_Gui() {
 	tile_function = new Tile_Function;
-	wall_function = new Wall_Function;
-
+	wall_function = new Wall_Function; 
 	dungeon01->Make(&player, floor);
 }
 
@@ -47,21 +46,21 @@ void Game_Gui::Render() {
 	//--------------
 
 	//ダンジョンの大さを測る(y軸)
-	for (y = 0; y < dungeon_base->height - 1; ++y) {
+	for (y = 0; y < dungeon_base->height; ++y) {
 		dy = y * TILE_SIZE - cy; //タイルの縦幅分、縦のタイル同士で距離を取る
 
 		//画面外は無視
-		if (dy < -TILE_SIZE / 2 || dy > WINDOW_Y) {
+		if (dy <= -TILE_SIZE / 2 || dy >= WINDOW_Y) {
 			continue;
 		}
 
 		//ダンジョンの大さを測る(x軸)
-		for (x = 0; x < dungeon_base->width - 1; ++x) {
+		for (x = 0; x < dungeon_base->width; ++x) {
 			dx = x * TILE_SIZE - cx; //タイルの横幅分、横のタイル同士で距離を取る
 			const Tile_Judge *tile_judge;
 
 			//画面外は無視
-			if (dx < -TILE_SIZE / 2 || dx > WINDOW_X) {
+			if (dx <= -TILE_SIZE / 2 || dx >= WINDOW_X) {
 				continue;
 			}
 

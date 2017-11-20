@@ -261,9 +261,6 @@
     <ClCompile Include="Enemy_Manager.cpp">
       <Filter>ソース ファイル\Actor_Base\Actor\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Ally_Status1.cpp">
-      <Filter>ソース ファイル\Actor_Base\Actor\Ally</Filter>
-    </ClCompile>
     <ClCompile Include="Accessorie_Data.cpp">
       <Filter>ソース ファイル\CSV\Equipment</Filter>
     </ClCompile>
@@ -347,6 +344,9 @@
     </ClCompile>
     <ClCompile Include="Game_Gui.cpp">
       <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Ally_Status.cpp">
+      <Filter>ソース ファイル\Actor_Base\Actor\Ally</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -461,9 +461,6 @@
     <ClInclude Include="Move_Direction_Check.h">
       <Filter>ヘッダーファイル\Actor_Base\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="Ally_Status1.h">
-      <Filter>ヘッダーファイル\Actor_Base\Actor\Ally</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy_Status1.h">
       <Filter>ヘッダーファイル\Actor_Base\Actor\Enemy</Filter>
     </ClInclude>
@@ -562,6 +559,9 @@
     </ClInclude>
     <ClInclude Include="Game_Gui.h">
       <Filter>ヘッダーファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Ally_Status.h">
+      <Filter>ヘッダーファイル\Actor_Base\Actor\Ally</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

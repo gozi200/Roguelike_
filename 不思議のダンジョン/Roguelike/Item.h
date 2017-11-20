@@ -26,4 +26,11 @@ enum USEITEM_CATEGORY {
 class Item : public Object {
 public:
 	ITEMTYPE type;
+	char* Unidentifid_Name; //未鑑定時の名前 //TODO: ひとまずはここに
+
+	//コピー
+	void Copy(Item *po); //poって何
+
+	//削除
+	void Erase();
 };

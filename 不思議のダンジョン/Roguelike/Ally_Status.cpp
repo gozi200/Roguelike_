@@ -1,4 +1,4 @@
-#include"Ally_Status1.h"
+#include"Ally_Status.h"
 
 Ally_Status::Ally_Status() {
 	Weapon wepon;

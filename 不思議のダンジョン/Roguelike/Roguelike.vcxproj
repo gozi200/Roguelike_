@@ -129,7 +129,7 @@
     <ClCompile Include="Enemy_Graphic.cpp" />
     <ClCompile Include="Food_Graphic.cpp" />
     <ClCompile Include="Partner_Data.cpp" />
-    <ClCompile Include="Ally_Status1.cpp" />
+    <ClCompile Include="Ally_Status.cpp" />
     <ClCompile Include="Construction_Data.cpp" />
     <ClCompile Include="Dungeon01.cpp" />
     <ClCompile Include="Dungeon_Base.cpp" />
@@ -221,7 +221,7 @@
     <ClInclude Include="Partner_Status.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Player_Key_Contloroller.h" />
-    <ClInclude Include="Ally_Status1.h" />
+    <ClInclude Include="Ally_Status.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Result.h" />
     <ClInclude Include="Scene_Manager.h" />
