@@ -7,7 +7,6 @@
 #include"Vector2D.h"
 #include"Item_Type.h"
 #include"Accessorie.h"
-#include"Enemy_Database.h"
 
 /*----------------------------------
 味方勢力のステータスを管理するクラス
@@ -35,8 +34,8 @@ public:
 	void Set_Position(int x,int y);
 	void Get_Position(int* px, int*py, DIRECTION* dir = NULL);
 
-	//パラメータのセット
-	void Set_Parameter(Enemy_Database* record, Item* drop_item);
+	////パラメータのセット
+	//void Set_Parameter(Enemy_Database* record, Item* drop_item);
 
 	//HIt_Pointの増減(計算した値を返す)
 	int Get_Hit_Point(int hit_point);

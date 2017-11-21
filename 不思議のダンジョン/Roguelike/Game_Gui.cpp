@@ -3,15 +3,17 @@
 //コンストラクタ
 Game_Gui::Game_Gui() {
 	tile = new Tile;
-	wall = new Wall; 
-	dungeon01->Make(&player, floor);
+	wall = new Wall;
+	enemy = new Enemy;
 	player_ = new Player;
+	dungeon01->Make(&player, floor);
 }
 
 //デストラクタ
 Game_Gui::~Game_Gui() {
 	delete tile;
 	delete wall;
+	delete enemy;
 	delete player_;
 }
 
@@ -39,8 +41,8 @@ void Game_Gui::Render() {
 	player.Get_Position(&mx, &my);
 
 	//プレイヤーの位置を画面の中央へ
-	cx = static_cast<int>(WINDOW_X / 2) - ACTOR_SIZE_X; 
-	cy = static_cast<int>(WINDOW_Y / 2) - ACTOR_SIZE_Y / 2; //頂点の関係で位置を少しずらす
+	cx = (mx - 10) * 30; //頂点の関係で位置を少しずらす
+	cy = (my - 7) * 30; 
 
 	//--------------
 	//地面の描画
@@ -111,10 +113,9 @@ void Game_Gui::Render() {
 		}
 	}
 
-	//-----------------
-	//アクターの描画
-	//-----------------
-
+	/*---------------
+	アクターの描画
+	---------------*/
 	for (y = 0; y < dungeon_base->height; ++y) {
 		dy = y * TILE_SIZE - cy;
 
@@ -127,7 +128,7 @@ void Game_Gui::Render() {
 
 		for (x = 0; x < dungeon_base->width; ++x) {
 			const Tile_Judge *tile_judge;
-			Enemy *enemy;
+			Enemy_Manager* enemy_manager;
 
 			dx = x * TILE_SIZE - cx;
 
@@ -145,10 +146,10 @@ void Game_Gui::Render() {
 			}
 
 			//その座標のエネミー情報を取得
-			enemy = (Enemy_Manager*)dungeon_base->Get_Point_Enemy(x, y);
+			enemy_manager = (Enemy_Manager*)dungeon_base->Get_Point_Enemy(x, y);
 
-			if (enemy) {
-				//敵を挿入
+			if (enemy_manager) {
+				enemy->Render(TEST_1, dx + 50, dy + 50); //TODO: テスト中
 			}
 		}
 	}

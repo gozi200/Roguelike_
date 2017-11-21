@@ -20,9 +20,9 @@ void Ally_Status::Get_Position(int * px, int * py, DIRECTION * dir)
 {
 }
 
-void Ally_Status::Set_Parameter(Enemy_Database* set_record, Item* set_drop_item) {
-
-}
+//void Ally_Status::Set_Parameter(Enemy_Database* set_record, Item* set_drop_item) {
+//
+//}
 
 int Ally_Status::Get_Hit_Point(int set_hit_point) {
 	return 0;

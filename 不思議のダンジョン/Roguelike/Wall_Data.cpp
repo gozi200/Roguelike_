@@ -30,19 +30,18 @@ bool Wall_Data::Open_File() {
 	//それぞれの要素にcsvデータを読み込む
 	int count = 0;
 	while (!std::getline(ifs, line).eof()) {
-		SETTING_WALL_DATA data;
+		SETTING_WALL_DATA wall_data;
 		auto values = Convenient_Function::Split(line, ","); //','で区切って読み込む
-		data.ID = std::stoi(values[0]); //ナンバー
-		data.name = values[1];
-		data.width = std::stoi(values[2]); //画像(横幅)	
-		data.height = std::stoi(values[3]); //画像(縦幅)
+	
+		wall_data.ID			 = std::stoi(values[0]); //ナンバー
+		wall_data.name			 = values[1];			 //名前
+		wall_data.width			 = std::stoi(values[2]); //画像(横幅)	
+		wall_data.height		 = std::stoi(values[3]); //画像(縦幅)
 		
 		//load
-		auto graphic_handle = LoadGraph(wall_graphic.wall_graphic[count++]);
-		data.graphic_handle = graphic_handle;
+		auto graphic_handle		 = LoadGraph(wall_graphic.wall_graphic[count++]);
+		wall_data.graphic_handle = graphic_handle;
 
-		//Load_Graph();
-
-		set_wall_data.push_back(data); //１行ごとに配列に追加していく
+		set_wall_data.push_back(wall_data); //１行ごとに配列に追加していく
 	}
 }

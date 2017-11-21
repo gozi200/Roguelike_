@@ -4,7 +4,10 @@
 #include"Wall.h"
 #include"Game.h"
 #include"DxLib.h"
+
+#include"Enemy.h"
 #include"Player.h"
+
 #include"Define.h"
 #include"Tile_Data.h"
 #include"Wall_Data.h"
@@ -13,17 +16,17 @@
 
 #include<vector>
 
-/*/////////////////////////////
-テキストベース版のゲーム基本クラス
-/*/////////////////////////////
-
+/*-------------
+ゲーム基本クラス
+---------------*/
 class Game_Gui : public Game {
-/*///////
+/*-------
 メンバ変数
-*////////
+--------*/
 public:
 	 Tile* tile;
 	 Wall* wall;
+	 Enemy* enemy;
 	 Player* player_;
 
 	 int x, y; //画面
@@ -32,13 +35,13 @@ public:
 	 int dx, dy; //ダンジョン
 	 int loop_count = 0; //ループ回数を数える
 
-/*////////
+/*--------
 メンバ関数
-*////////
+---------*/
 	 //コンストラクタ/
 	 Game_Gui();
 	 //デストラクタ
-	~Game_Gui();
+	 ~Game_Gui();
 
 	//ゲームの実行
 	int Run();

@@ -56,6 +56,13 @@ const int ARTRIA = 1;
 
 #pragma endregion
 
+#pragma region エネミーのID
+
+const int TEST_1 = 1;
+
+#pragma endregion
+
+
 
 #pragma endregion
 

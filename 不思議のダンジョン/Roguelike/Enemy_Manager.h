@@ -1,16 +1,17 @@
 #pragma once
 
 #include"Enemy.h"
-#include"Dungeon_Base.h"
+
+class Dungeon_Base; //インクルードの衝突を避ける
 
 class Enemy_Manager : public Enemy {
-/*////////
+/*---------
 メンバ変数
-*/////////
+---------*/
 
-/*////////
+/*---------
 メンバ関数	
-*/////////
+----------*/
 public:
 	Enemy_Manager(){}
 

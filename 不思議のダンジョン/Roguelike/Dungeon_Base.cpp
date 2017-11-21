@@ -21,8 +21,7 @@ Tile_Judge* Dungeon_Base::Get_Tile(int set_x, int set_y) {
 		return NULL;
 	}
 
-	if (set_x < 0 || set_x >= width || set_y < 0 || set_y >= height) { //ここに入ってしまっている
-		OutputDebugString("Get_Tile()でNULLです");
+	if (set_x < 0 || set_x >= width || set_y < 0 || set_y >= height) {
 		return NULL;
 	}
 
@@ -112,7 +111,7 @@ void Dungeon_Base::Enemy_Array(int set_floor) {
 	//それぞれの部屋に１体配置する
 	//０番目はプレイヤーのいる部屋なので、配置しない
 	for (int i = 1; i < rectangle_count; ++i) {
-		Enemy* p_enemy; //メンバ変数と名前の重複を避ける
+		Enemy_Manager* p_enemy; //メンバ変数と名前の重複を避ける
 		//Vector2D position;
 
 		//エネミーのオブジェクトを作成
@@ -151,11 +150,11 @@ bool Dungeon_Base::Make_Enemy(int ai, Enemy* enemy) {
 	return true;
 };
 
-void Dungeon_Base::Set_Enemy_Parameter(Enemy* enemy, Enemy_Database* enemy_data) {
+//void Dungeon_Base::Set_Enemy_Parameter(Enemy* enemy, Enemy_Database* enemy_data) {
+//
+//};
 
-};
-
-Enemy* Dungeon_Base::Get_Enemy(int set_floor) {
+Enemy_Manager* Dungeon_Base::Get_Enemy(int set_floor) {
 	return 0;
 }
 

@@ -16,6 +16,8 @@ struct Object_Status_Base {
 	int activity;				//行動力(ここでは１ターンに行動できる数)
 	int turn_count;				//経過ターンをカウント
 	int experience_point;		//経験値(一定値ごとにレベルが上がる)
+	int noble_phantasm;			//宝具を撃つためのポイント
+	
 	Item items[MAX_STOCK_ITEM]; //持ち切れるアイテムの数
 								
 					  			

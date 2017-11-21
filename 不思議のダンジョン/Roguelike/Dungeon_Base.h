@@ -6,8 +6,8 @@
 #include"Define.h"
 #include"Random.h"
 #include"Vector2D.h"
+#include"Enemy_Manager.h"
 #include"Tile_Judge.h"
-#include"Enemy_Database.h"
 
 /*///////////////////////////
 ダンジョン作成の元となるクラス
@@ -30,9 +30,9 @@ public:
 
 	Tile_Judge* tile_judge;// = new Tile_Judge; //タイルが床なのか何なのかを判断
 
-	Player *player; //プレイヤー
+	Player* player; //プレイヤー
 
-	Enemy *m_enemy[MAX_ENEMY]; //エネミーへのポインタ ポインタとの重複を避ける
+	Enemy_Manager* m_enemy[MAX_ENEMY]; //エネミーへのポインタ ポインタとの重複を避ける
 
 	int enemy_count; //登録されているエネミーの数
 
@@ -114,10 +114,10 @@ public:
 	//IDからエネミークラスを作成
 	bool Make_Enemy(int ai, Enemy* enemy);
 
-	//エネミーのベーステーブルからパラメータをセット
-	void Set_Enemy_Parameter(Enemy* enemy, Enemy_Database* enemy_data);
+	////エネミーのベーステーブルからパラメータをセット
+	//void Set_Enemy_Parameter(Enemy* enemy, Enemy_Database* enemy_data);
 
 private:
 	//階層にあったエネミーを生成取得
-	Enemy* Get_Enemy(int floor);
+	Enemy_Manager* Get_Enemy(int floor);
 };

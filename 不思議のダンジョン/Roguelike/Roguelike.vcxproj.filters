@@ -431,9 +431,6 @@
     <ClInclude Include="Vector2D.h">
       <Filter>ヘッダーファイル\System</Filter>
     </ClInclude>
-    <ClInclude Include="Default_Player_Status.h">
-      <Filter>ヘッダーファイル\Object\Actor\Ally\Player</Filter>
-    </ClInclude>
     <ClInclude Include="Default_Partner_Status.h">
       <Filter>ヘッダーファイル\Object\Actor\Ally\Partner</Filter>
     </ClInclude>
@@ -470,17 +467,11 @@
     <ClInclude Include="Item_Type.h">
       <Filter>ヘッダーファイル\Object\Item</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_Database.h">
-      <Filter>ヘッダーファイル\Object\Actor\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy_Manager.h">
       <Filter>ヘッダーファイル\Object\Actor\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Move_Direction_Check.h">
       <Filter>ヘッダーファイル\Object\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Status1.h">
-      <Filter>ヘッダーファイル\Object\Actor\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Food_Data.h">
       <Filter>ヘッダーファイル\CSV\Item</Filter>

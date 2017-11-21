@@ -1,6 +1,3 @@
-#include"DxLib.h"
-#include"Define.h"
-#include"Default_Player_Status.h"
 #include"Player.h"
 
 Player::Player() { 
