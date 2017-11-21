@@ -4,6 +4,7 @@
 #include"Wall.h"
 #include"Game.h"
 #include"DxLib.h"
+#include"Player.h"
 #include"Define.h"
 #include"Tile_Data.h"
 #include"Wall_Data.h"
@@ -21,10 +22,9 @@ class Game_Gui : public Game {
 メンバ変数
 *////////
 public:
-	 //const Tile_Judge* tile_judge; 
-	 //const Tile_Judge* tile_down;
 	 Tile* tile;
 	 Wall* wall;
+	 Player* player_;
 
 	 int x, y; //画面
 	 int mx, my; //マップ

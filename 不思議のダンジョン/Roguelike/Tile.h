@@ -9,9 +9,9 @@
 
 class Tile {
 public:
-	Tile_Data Tile_data;
+	Tile_Data tile_data;
 
-	int loop_count = 0; //ループ回数を数える
+	int loop_count; //ループ回数を数える
 
 	//コンストラクタ
 	Tile();
@@ -24,6 +24,6 @@ public:
 	 @param x 描画する場所のx軸
 	 @param y 描画する場所のy軸
 	 */
-	void Draw_Tile(int call_ID, int x, int y);
+	void Render(int call_ID, int x, int y);
 
 };

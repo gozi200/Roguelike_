@@ -199,6 +199,9 @@
     <Filter Include="ヘッダーファイル\Object\Dungeon\Wall">
       <UniqueIdentifier>{ab6697d6-e507-46bf-9c44-04777048fb51}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Object\Dungeon\Wall">
+      <UniqueIdentifier>{aa88c2fd-ecc0-4f5f-9857-a6a05390b4eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -364,7 +367,7 @@
       <Filter>ソース ファイル\Object\Dungeon\Tile</Filter>
     </ClCompile>
     <ClCompile Include="Wall.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Object\Dungeon\Wall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -583,6 +586,9 @@
     </ClInclude>
     <ClInclude Include="Wall.h">
       <Filter>ヘッダーファイル\Object\Dungeon\Wall</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_Status_Base.h">
+      <Filter>ヘッダーファイル\CSV</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,42 +4,15 @@
 #include"Player.h"
 
 Player::Player() { 
+	player_data.Set_File_Pass("CSV/Actor/Player/Player.csv"); //CSVファイルから情報を読み込む
+	player_data.Open_File(); //ファイルを開いて読み込む
+
+	loop_count = 0;
 	is_hostility_flag = false;
 }
 
-Player::~Player(){
+Player::~Player() {
 
-}
-
-/* スポーンしたプレイヤーを配置
-   @param set_x x座標
-   @param set_y y座標
-*/
-void Player::Arrange(int set_x, int set_y) {
-	player_data->x = set_x;
-	player_data->y = set_y;
-
-	is_exist = true;
-
-	hit_point = DEFAULT_PLAYER_HIT_POINT; //Define定数使用
-}
-
-void Player::Update() { //TODO: 簡潔にするために処理を別の場所へ
-	if (player_key_controller->Player_Move_Up()) { //上方向への移動 
-		player_data->y -= ACTOR_MOVEMENT;
-	}
-
-	if (player_key_controller->Player_Move_Right()) { //右方向への移動
-		player_data->x += ACTOR_MOVEMENT;
-	}
-
-	if (player_key_controller->Player_Move_Down()) { //下方向への移動
-		player_data->y += ACTOR_MOVEMENT;
-	}
-
-	if (player_key_controller->Player_Move_Left()) { //左方向への移動
-		player_data->x -= ACTOR_MOVEMENT;
-	}
 }
 
 void Player::Set_Position(int set_x, int set_y) {
@@ -50,10 +23,18 @@ void Player::Get_Position(int *set_x, int* set_y, DIRECTION* set_direction) {
 
 }
 
+void Player::Render(int call_ID, int set_x, int set_y) {
+	//IDに合わせて画像を描画する
+	for (std::vector<SETTING_PLAYER_DATA>::const_iterator setting_player = player_data.set_player_data.cbegin();
+		setting_player != player_data.set_player_data.cend();
+		++setting_player, ++loop_count) {
+		if (setting_player->ID == call_ID) { //Define定数使用
+			DrawExtendGraph(set_x,
+							set_y,
+							set_x + setting_player->width,
+							set_y + setting_player->height,
+							setting_player->graphic_handle, TRUE);
+		}
+	}
+}
 
-//////////////////////////////////////////ヘッダー参照
-void Player::Render_Hit_Point() {}
-
-void Player::Render_Stmach() {}
-
-void Player::Render_Experiece_Point() {}

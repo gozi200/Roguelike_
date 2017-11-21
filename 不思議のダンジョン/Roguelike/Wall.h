@@ -31,6 +31,6 @@ public:
 	@param x •`‰æ‚·‚éêŠ‚Ìx²
 	@param y •`‰æ‚·‚éêŠ‚Ìy²
 	*/
-	void Draw_Wall(int call_ID, int x, int y);
+	void Render(int call_ID, int x, int y);
 
 };

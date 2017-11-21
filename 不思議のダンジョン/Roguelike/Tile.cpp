@@ -1,16 +1,18 @@
 #include "Tile.h"
 
 Tile::Tile() {
-	Tile_data.Set_File_Pass("CSV/Stage/Tile/Tile.csv"); //CSVファイルから情報を読み込む
-	Tile_data.Open_File(); //ファイルを開いて読み込む
+	tile_data.Set_File_Pass("CSV/Stage/Tile/Tile.csv"); //CSVファイルから情報を読み込む
+	tile_data.Open_File(); //ファイルを開いて読み込む
+
+	loop_count = 0; //初期化
 }
 
 Tile::~Tile() {}
 
-void Tile::Draw_Tile(int call_ID, int set_x, int set_y) {
+void Tile::Render(int call_ID, int set_x, int set_y) {
 	//IDに合わせて画像を描画する
-	for (std::vector<SETTING_TILE_DATA>::const_iterator setting_tile = Tile_data.set_tile_data.cbegin();
-		setting_tile != Tile_data.set_tile_data.cend();
+	for (std::vector<SETTING_TILE_DATA>::const_iterator setting_tile = tile_data.set_tile_data.cbegin();
+		setting_tile != tile_data.set_tile_data.cend();
 		++setting_tile, ++loop_count) {
 		if (setting_tile->ID == call_ID) { //Define定数使用
 			DrawExtendGraph(set_x,

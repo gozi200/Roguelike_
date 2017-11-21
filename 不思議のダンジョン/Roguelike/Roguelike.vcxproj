@@ -189,6 +189,7 @@
     <ClInclude Include="Construction_Graphic.h" />
     <ClInclude Include="Enemy_Graphic.h" />
     <ClInclude Include="Food_Graphic.h" />
+    <ClInclude Include="Object_Status_Base.h" />
     <ClInclude Include="Partner_Data.h" />
     <ClInclude Include="Food_Data.h" />
     <ClInclude Include="Construction_Data.h" />

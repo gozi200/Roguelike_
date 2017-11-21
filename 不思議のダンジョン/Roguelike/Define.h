@@ -20,6 +20,53 @@ const double PI = 3.14159265358979323846; //円周率
 
 #pragma endregion
 
+#pragma region ダンジョンの各要素の呼び出し用ID
+
+#pragma region 床のID
+
+const int UP_STAIRS = 1;
+
+const int DOWN_STAIRS = 2;
+
+const int TILE_GRASS = 3;
+
+const int TILE_CAVE = 4;
+
+#pragma endregion
+
+
+#pragma region 壁のID
+
+const int WALL_GRASS = 1;
+const int CORNER_WALL_GRASS = 2;
+
+const int WALL_CAVE = 3;
+const int CORNER_WALL_CAVE = 4;
+
+#pragma endregion
+
+#pragma endregion
+
+
+#pragma region アクターの各要素の呼び出しID
+
+#pragma region プレイヤーのID
+
+const int ARTRIA = 1;
+
+#pragma endregion
+
+
+#pragma endregion
+
+
+#pragma region アイテムの各要素の呼び出しID
+
+
+
+#pragma endregion
+
+
 #pragma region アクターに関する定数
 const int ACTOR_SIZE_X = 90; //キャラクターのサイズ(横)
 
@@ -65,6 +112,9 @@ const int TILE_SIZE = 30; //TODO: 最終は９０で合わせる
 
 #pragma endregion
 
+
+#pragma region 区画関連の定義
+
 //区画情報構造体 関数化------------------------------------------------
 typedef struct tagDUNGEON_RECTANGLE {
 
@@ -80,34 +130,6 @@ typedef struct tagDUNGEON_RECTANGLE {
 #define RECTANGLE_WIDTH(r) ((r).right-(r).left) //RECTの高さを計算
 
 #define RECTANGLE_HEIGHT(r) ((r).bottom-(r).top) //RECTの幅を計算
-
-#pragma endregion
-
-#pragma region 各要素の呼び出し用ID
-
-#pragma region 床のID
-
-const int UP_STAIRS = 1;
-
-const int DOWN_STAIRS = 2;
-
-const int TILE_GRASS = 3;
-
-const int TILE_CAVE = 4;
-
-#pragma endregion
-
-
-#pragma region 壁のID
-
-const int WALL_GRASS = 1;
-const int CORNER_WALL_GRASS = 2;
-
-const int WALL_CAVE = 3;
-const int CORNER_WALL_CAVE = 4;
-
-#pragma endregion
-
 
 #pragma endregion
 

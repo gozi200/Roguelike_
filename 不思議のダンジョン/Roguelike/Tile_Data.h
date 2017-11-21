@@ -19,8 +19,8 @@
 struct SETTING_TILE_DATA {
 	int ID;				//ナンバー
 	std::string name;	//いる？
-	int x;				//x軸座標
-	int y;				//y軸座標
+	//int x;				//x軸座標 いらない？
+	//int y;				//y軸座標
 	int width;			//画像の横幅
 	int height;			//画像の縦幅
 	int graphic_handle; //画像データを格納する
@@ -36,6 +36,8 @@ public:
 	std::string file_pass;
 
 	std::vector<SETTING_TILE_DATA> set_tile_data;
+
+	int loop_count;
 
 /*---------
 メンバ関数

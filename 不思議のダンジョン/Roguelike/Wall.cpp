@@ -7,7 +7,7 @@ Wall::Wall() {
 
 Wall::~Wall() {}
 
-void Wall::Draw_Wall(int call_ID, int set_x, int set_y) {
+void Wall::Render(int call_ID, int set_x, int set_y) {
 	//ID‚É‡‚í‚¹‚Ä‰æ‘œ‚ğ•`‰æ‚·‚é
 	for (std::vector<SETTING_WALL_DATA>::const_iterator setting_wall = wall_data.set_wall_data.cbegin();
 		setting_wall != wall_data.set_wall_data.cend();

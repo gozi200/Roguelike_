@@ -5,12 +5,14 @@ Game_Gui::Game_Gui() {
 	tile = new Tile;
 	wall = new Wall; 
 	dungeon01->Make(&player, floor);
+	player_ = new Player;
 }
 
 //デストラクタ
 Game_Gui::~Game_Gui() {
 	delete tile;
 	delete wall;
+	delete player_;
 }
 
 int Game_Gui::Run() {
@@ -37,9 +39,8 @@ void Game_Gui::Render() {
 	player.Get_Position(&mx, &my);
 
 	//プレイヤーの位置を画面の中央へ
-	cx = static_cast<int>(DUNGEON_WIDTH / 2) - ACTOR_SIZE_X / 2; //頂点の関係で位置を少しずらす
-	cy = static_cast<int>(DUNGEON_HEIGHT / 2) - ACTOR_SIZE_Y / 2 + 35; //同上
-
+	cx = static_cast<int>(WINDOW_X / 2) - ACTOR_SIZE_X; 
+	cy = static_cast<int>(WINDOW_Y / 2) - ACTOR_SIZE_Y / 2; //頂点の関係で位置を少しずらす
 
 	//--------------
 	//地面の描画
@@ -73,12 +74,12 @@ void Game_Gui::Render() {
 
 				//下に壁がないときは、かど用の壁を描画
 				if (tile_down && tile_down->is_wall == false) {
-					wall->Draw_Wall(CORNER_WALL_GRASS, dx, dy); //Define定数使用
+					wall->Render(CORNER_WALL_GRASS, dx, dy); //Define定数使用
 				}
 
 				//それ以外の普通の壁を描画
 				else {
-					wall->Draw_Wall(WALL_GRASS, dx, dy); //Define定数使用
+					wall->Render(WALL_GRASS, dx, dy); //Define定数使用
 				}
 				continue; //壁であるなら配置するものがないのでループに戻る
 			}
@@ -88,12 +89,12 @@ void Game_Gui::Render() {
 
 			//昇り階段か
 			if (tile_judge->is_up_stairs) {
-				tile->Draw_Tile(UP_STAIRS, dx, dy); //Define定数使用
+				tile->Render(UP_STAIRS, dx, dy); //Define定数使用
 			}
 
 			//下り階段か
 			else if (tile_judge->is_down_stairs) {
-				tile->Draw_Tile(DOWN_STAIRS, dx, dy); //Define定数使用
+				tile->Render(DOWN_STAIRS, dx, dy); //Define定数使用
 			}
 
 			////アイテムが落ちているか
@@ -103,7 +104,7 @@ void Game_Gui::Render() {
 
 			//それ以外は床
 			else {
-				tile->Draw_Tile(TILE_GRASS, dx, dy); //Define定数使用
+				tile->Render(TILE_GRASS, dx, dy); //Define定数使用
 
 				//TODO:設定している画面外は壁を挿入
 			}
@@ -140,7 +141,7 @@ void Game_Gui::Render() {
 
 			//プレイヤーがいるか
 			if (mx == x && my == y) {
-				//プレイヤーを挿入
+				player_->Render(ARTRIA, dx, dy);
 			}
 
 			//その座標のエネミー情報を取得
