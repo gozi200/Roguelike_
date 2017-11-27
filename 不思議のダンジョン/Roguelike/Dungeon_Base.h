@@ -1,39 +1,57 @@
 #pragma once
 
 #include"Item.h"
+#include"Actor.h"
 #include"Enemy.h"
-#include"Player.h"
 #include"Define.h"
 #include"Random.h"
 #include"Vector2D.h"
-#include"Enemy_Manager.h"
+#include"Enemy_01.h"
 #include"Tile_Judge.h"
+#include"Enemy_Data.h"
+#include"Actor_Status.h"
+#include"Enemy_Manager.h"
 
-/*///////////////////////////
+static Item ITEM_DATA_BASE[] {
+	{ITEMTYPE_USEITEM, "外科手術セット","回復", {HP_CURE, 50}},
+	{ITEMTYPE_USEITEM, "聖者の贈り物", "回復", {HP_CURE, 100}},
+	{ITEMTYPE_USEITEM, "白銀の果実", "食べ物", {HUNGRY_CURE, 50}},
+	{ITEMTYPE_WEAPON, "エクスカリバー", "武器", {50}},
+	{ITEMTYPE_SHIELD, "ギャラハッドの盾", "盾", {50}},
+	{ITEMTYPE_ACCESSORIE, "聖杯", "概念礼装", {0,10}},
+};
+
+static SETTING_ENEMY_DATA;
+
+/*----------------------------
 ダンジョン作成の元となるクラス
-///////////////////////////*/
+----------------------------*/
 
 class Dungeon_Base {
-/*////////
+/*---------
 メンバ変数
-*/////////
+---------*/
 public:
-	DUNEON_RECTANGLE dungeon_rectangle[MAX_RECTANGLE]; //rectangleは矩形の意味 ここでは区画情報のこと
+	Actor* player; //プレイヤー
 
 	Random random;
 
-	int rectangle_count; //区画数
+	Enemy_Data enemy_data;
+
+	Enemy_Manager* enemy_manager;
+
+	Tile_Judge* tile_judge; //タイルが床なのか何なのかを判断
+
+	Enemy* m_enemy[MAX_ENEMY]; //エネミーへのポインタ ポインタとの重複を避ける
+	
+	DUNEON_RECTANGLE dungeon_rectangle[MAX_RECTANGLE]; //rectangleは矩形の意味 ここでは区画情報のこと
 
 	int width; //ダンジョンの幅 
 	
 	int height; //ダンジョンの高さ
 
-	Tile_Judge* tile_judge;// = new Tile_Judge; //タイルが床なのか何なのかを判断
-
-	Player* player; //プレイヤー
-
-	Enemy_Manager* m_enemy[MAX_ENEMY]; //エネミーへのポインタ ポインタとの重複を避ける
-
+	int rectangle_count; //区画数
+	
 	int enemy_count; //登録されているエネミーの数
 
 	int up_stairs_x;
@@ -44,9 +62,9 @@ public:
 
 	int down_stairs_y;
 
-/*////////
+/*--------
 メンバ関数
-*/////////
+---------*/
 public:
 	//コンストラクタ
 	Dungeon_Base();
@@ -67,25 +85,25 @@ public:
 	int Get_Room_Count();
 
 	//指定場所が移動可能か判断(trueなら移動可能)
-	bool is_Move(int x, int y);
+	bool Is_Move(int x, int y);
 
 	//指定矩形を壁か道にする(right,bottomのマスは塗らない)
 	void Fill_Rectangle(int left, int top, int right, int bottom, bool is_wall);
 
 	//指定の横マスを壁か道にする
-	void Fill_H_Line(int left, int right, int y, bool is_wall); //Hってなに？
+	void Fill_Horizontal_Line(int left, int right, int y, bool is_wall); //Hってなに？
 
 	//指定の縦マスを壁か道にする
-	void Fill_V_Line(int top, int bottom, int x, bool is_wall); //同上
+	void Fill_Vertical_Line(int top, int bottom, int x, bool is_wall); //同上
 
 	//指定した部屋内の適当な座標を取得
 	void Random_Room_Point(int index, int *px, int *py);
 
 	//指定した座標Aから、座標Bは移動できる周囲の８マスであればtrueを返す
-	bool Chekc_Move(int ax, int ay, int bx, int by);
+	bool Check_Move(int ax, int ay, int bx, int by);
 
 	//エネミーを部屋に配置
-	void Enemy_Array(int floor);
+	void Create_Enemy(int floor);
 
 	//エネミーを全て削除する
 	void Delete_Enemy();
@@ -94,10 +112,10 @@ public:
 	int Get_Enemy_Count();
 
 	//指定座標にエネミーがいるか
-	Enemy* Get_Point_Enemy(int x, int y);
+	Actor* Get_Point_Enemy(int x, int y);
 
 	//指定インデックスのエネミー情報を得る
-	Enemy* Get_Mob_From_Index(int index);
+	Actor* Get_Mob_From_Index(int index);
 
 	//指定座標にアイテムを落とす
 	void Drop_Item(int x, int y, Item* item);
@@ -109,15 +127,15 @@ public:
 	int Get_Room_Index(int x, int y);
 
 	//攻撃処理
-	int Attack(Player* player, Player* target);
+	int Attack(Actor* player, Actor* target);
 
 	//IDからエネミークラスを作成
-	bool Make_Enemy(int ai, Enemy* enemy);
+	bool Make_Enemy(int ai, Enemy** enemy);
 
-	////エネミーのベーステーブルからパラメータをセット
-	//void Set_Enemy_Parameter(Enemy* enemy, Enemy_Database* enemy_data);
+	//エネミーのデータベースからパラメータをセット
+	void Set_Enemy_Parameter(Enemy* enemy, SETTING_ENEMY_DATA* enemy_data);
 
 private:
 	//階層にあったエネミーを生成取得
-	Enemy_Manager* Get_Enemy(int floor);
+	Enemy* Get_Enemy(int floor);
 };

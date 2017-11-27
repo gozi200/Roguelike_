@@ -12,7 +12,7 @@ Partner_Data::Partner_Data(const std::string & openFilePath) : file_pass(openFil
 	std::string line;
 
 	while (std::getline(ifs, line)) {
-		auto values = Convenient_Function::Split(line, ",");
+		auto values = Split::Split_(line, ",");
 
 		partner_data.ID = std::stoi(values[0]);
 		partner_data.name = values[1];

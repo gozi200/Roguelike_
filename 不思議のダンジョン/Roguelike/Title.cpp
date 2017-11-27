@@ -2,8 +2,6 @@
 #include"DxLib.h"
 #include"Game_Scene.h"
 
-#include"Ally.h"
-
 void Title::Update() {
 
 	if (CheckHitKey(KEY_INPUT_UP)) {

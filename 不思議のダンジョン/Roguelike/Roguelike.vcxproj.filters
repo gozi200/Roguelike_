@@ -109,9 +109,6 @@
     <Filter Include="ヘッダーファイル\Function">
       <UniqueIdentifier>{e95fde3f-7fb4-4572-ace7-4837ceefe07b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Function">
-      <UniqueIdentifier>{5e2cba20-efd0-4865-a6ce-7b943a4f8539}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダーファイル\CSV\Euqipment\Seal">
       <UniqueIdentifier>{5e4c30e2-ca59-4203-8324-ef69f8f721f1}</UniqueIdentifier>
     </Filter>
@@ -213,14 +210,8 @@
     <ClCompile Include="Title.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Tutorial_Stage.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>ソース ファイル\Object\Actor\Ally\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>ソース ファイル\Object\Actor\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Player_Key_Controller.cpp">
       <Filter>ソース ファイル\Object\Actor\Ally\Player</Filter>
@@ -230,15 +221,6 @@
     </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>ソース ファイル\Object\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Actor.cpp">
-      <Filter>ソース ファイル\Object\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="Actor_Manager.cpp">
-      <Filter>ソース ファイル\Object\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="Ally.cpp">
-      <Filter>ソース ファイル\Object\Actor\Ally</Filter>
     </ClCompile>
     <ClCompile Include="Vector2D.cpp">
       <Filter>ソース ファイル\System</Filter>
@@ -272,9 +254,6 @@
     </ClCompile>
     <ClCompile Include="Random.cpp">
       <Filter>ソース ファイル\System</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Manager.cpp">
-      <Filter>ソース ファイル\Object\Actor\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Accessorie_Data.cpp">
       <Filter>ソース ファイル\CSV\Equipment</Filter>
@@ -348,26 +327,38 @@
     <ClCompile Include="Weapon_Graphic.cpp">
       <Filter>ソース ファイル\Graphic_Handle\Equipment</Filter>
     </ClCompile>
-    <ClCompile Include="Convenient_Function.cpp">
-      <Filter>ソース ファイル\Function</Filter>
-    </ClCompile>
-    <ClCompile Include="Wall_Function.cpp">
-      <Filter>ソース ファイル\Function</Filter>
-    </ClCompile>
     <ClCompile Include="Game_Gui.cpp">
       <Filter>ソース ファイル\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Ally_Status.cpp">
-      <Filter>ソース ファイル\Object\Actor\Ally</Filter>
-    </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>ソース ファイル\Object</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>ソース ファイル\Object\Dungeon\Tile</Filter>
     </ClCompile>
     <ClCompile Include="Wall.cpp">
       <Filter>ソース ファイル\Object\Dungeon\Wall</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>ソース ファイル\Object\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor_Status.cpp">
+      <Filter>ソース ファイル\Object\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Split.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Data_Input.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_Move.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>ソース ファイル\Object\Actor\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Manager.cpp">
+      <Filter>ソース ファイル\Object\Actor\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_01.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -380,14 +371,8 @@
     <ClInclude Include="Title.h">
       <Filter>ヘッダーファイル\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Tutorial_Stage.h">
-      <Filter>ヘッダーファイル\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>ヘッダーファイル\Object\Actor\Ally\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>ヘッダーファイル\Object\Actor\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Player_Key_Contloroller.h">
       <Filter>ヘッダーファイル\Object\Actor\Ally\Player</Filter>
@@ -406,15 +391,6 @@
     </ClInclude>
     <ClInclude Include="Partner.h">
       <Filter>ヘッダーファイル\Object\Actor\Ally\Partner</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor.h">
-      <Filter>ヘッダーファイル\Object\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor_Manager.h">
-      <Filter>ヘッダーファイル\Object\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="Ally.h">
-      <Filter>ヘッダーファイル\Object\Actor\Ally</Filter>
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>ヘッダーファイル\System</Filter>
@@ -466,12 +442,6 @@
     </ClInclude>
     <ClInclude Include="Item_Type.h">
       <Filter>ヘッダーファイル\Object\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Manager.h">
-      <Filter>ヘッダーファイル\Object\Actor\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Move_Direction_Check.h">
-      <Filter>ヘッダーファイル\Object\Actor</Filter>
     </ClInclude>
     <ClInclude Include="Food_Data.h">
       <Filter>ヘッダーファイル\CSV\Item</Filter>
@@ -539,9 +509,6 @@
     <ClInclude Include="Trap_Graphic.h">
       <Filter>ヘッダーファイル\Graphic_Handle\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="Convenient_Function.h">
-      <Filter>ヘッダーファイル\Function</Filter>
-    </ClInclude>
     <ClInclude Include="Wall_Function.h">
       <Filter>ヘッダーファイル\Function</Filter>
     </ClInclude>
@@ -566,12 +533,6 @@
     <ClInclude Include="Game_Gui.h">
       <Filter>ヘッダーファイル\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Ally_Status.h">
-      <Filter>ヘッダーファイル\Object\Actor\Ally</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>ヘッダーファイル\Object</Filter>
-    </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>ヘッダーファイル\Object\Dungeon\Tile</Filter>
     </ClInclude>
@@ -580,6 +541,33 @@
     </ClInclude>
     <ClInclude Include="Object_Status_Base.h">
       <Filter>ヘッダーファイル\CSV</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>ヘッダーファイル\Object\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor_Status.h">
+      <Filter>ヘッダーファイル\Object\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Split.h">
+      <Filter>ヘッダーファイル\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Data_Input.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_Move.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Manager.h">
+      <Filter>ヘッダーファイル\Object\Actor\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>ヘッダーファイル\Object\Actor\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_01.h">
+      <Filter>ヘッダーファイル\Object\Actor\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Structure.h">
+      <Filter>ヘッダーファイル\System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

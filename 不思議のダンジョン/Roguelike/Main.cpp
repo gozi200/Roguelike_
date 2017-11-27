@@ -70,3 +70,14 @@ if (CheckHitKey(KEY_INPUT_DELETE) == 1) break;
 
 	return 0; //ソフトの終了
 }
+
+////プレイヤーのインスタンス化(例)
+//Actor_Factory* actor_factory = new Actor_Factory();
+//Vector2D vec;
+//vec.x = 0;
+//vec.y = 0;
+//actor_factory->Create_Actor("player");
+//delete actor_factory;
+
+//メモ　Dungeon_Base = Dun;
+//	   charamob = enemy;

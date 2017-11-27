@@ -8,7 +8,7 @@ Dungeon01::~Dungeon01() {
 
 }
 
-void Dungeon01::Make(Player* set_player, int set_floor) {
+void Dungeon01::Make(Actor* set_player, int set_floor) {
 	rectangle_count = 0; //区画の数をリセット
 
 	player = set_player;
@@ -135,35 +135,39 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 }
 
 void Dungeon01::Create_Room() {
-	int w, h, cw, ch, sw, sh, rw, rh, rx, ry; //TODO: 名前をつける w = width, h = height, x = 横座標, y = 縦座標か 
+	int width, height,						//区画の幅と高さ
+		charactor_width, charactor_height,  //キャラクターの幅と高さ
+		sw, sh,								//?
+		room_width, room_height,			//部屋の幅と高さ(壁込)
+		room_x, room_y;						//部屋の大きさ(壁抜き)
 
 	for (int i = 0; i < rectangle_count; ++i) {
 		RECT* rectangle = &dungeon_rectangle[i].rect; //区画情報
 		RECT* room = &dungeon_rectangle[i].room; //↓で作る部屋情報
 
 		//矩形の大きさを計算
-		w = RECTANGLE_WIDTH(*rectangle) - 3;
-		h = RECTANGLE_HEIGHT(*rectangle) - 3;
+		width = RECTANGLE_WIDTH(*rectangle) - 3;
+		height = RECTANGLE_HEIGHT(*rectangle) - 3;
 
 		//区画に入る最小部屋の余裕を求める
-		cw = w - MIN_ROOM_SIZE;
-		ch = h - MIN_ROOM_SIZE;
+		charactor_width = width - MIN_ROOM_SIZE;
+		charactor_height = height - MIN_ROOM_SIZE;
 
 		//部屋の大きさを決定する
-		sw = random.Dungeon_Random(cw);
-		sh = random.Dungeon_Random(ch);
-		rw = w - sw;
-		rh = h - sh;
+		sw = random.Dungeon_Random(charactor_width);
+		sh = random.Dungeon_Random(charactor_height);
+		room_width = width - sw;
+		room_height = height - sh;
 
 		//部屋の位置を決定する
-		rx = random.Dungeon_Random(sw) + 2;
-		ry = random.Dungeon_Random(sh) + 2;
+		room_x = random.Dungeon_Random(sw) + 2;
+		room_y = random.Dungeon_Random(sh) + 2;
 
 		//求めた結果から部屋の情報を設定
-		room->left = rectangle->left + rx;
-		room->top = rectangle->top + ry;
-		room->right = room->left + rw;
-		room->bottom = room->top + rh;
+		room->left = rectangle->left + room_x;
+		room->top = rectangle->top + room_y;
+		room->right = room->left + room_width;
+		room->bottom = room->top + room_height;
 
 		//部屋を作る
 		Fill_Rectangle( //ダンジョンの大きさ(width,heightの外に取ってしまっている。)
@@ -206,9 +210,9 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 	room_A = &dungeon_rectangle[set_room_A].room;
 	room_B = &dungeon_rectangle[set_room_B].room;
 
-	/*////////////////////////////////////////////////////////////////
+	/*----------------------------------------------------------------
 	区画同士が、上下か左右のどちらでつながっているかで処理を分け、道をつなぐ
-	///////////////////////////////////////////////////////////////*/
+	-----------------------------------------------------------------*/
 
 	//上下で繋がっているかの確認
 	if (rect_A->bottom == rect_B->top || rect_A->top == rect_B->bottom) {
@@ -240,7 +244,7 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 		}
 
 		//道同士を繋げる横道を作る
-		Fill_H_Line(x1, x2, y, false);
+		Fill_Horizontal_Line(x1, x2, y, false);
 	}
 
 	//左右でつながっているか
@@ -271,6 +275,6 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 		}
 
 		//道同士を繋げる縦道を作る
-		Fill_V_Line(y1, y2, x, false);
+		Fill_Vertical_Line(y1, y2, x, false);
 	}
 }

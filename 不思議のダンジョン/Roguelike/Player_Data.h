@@ -5,7 +5,7 @@
 #include"Define.h"
 #include"Player_Graphic.h"
 #include"Object_Status_Base.h"
-#include"Convenient_Function.h"
+#include"Split.h"
 
 #include<vector>
 #include<string>

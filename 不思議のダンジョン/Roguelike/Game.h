@@ -1,27 +1,34 @@
 #pragma once
 
-#include"Player.h"
+#include"Define.h"
+#include"Actor.h"
 #include"Enemy.h"
+//#include"Player.h"
 #include"Dungeon01.h"
 #include"Dungeon_Base.h"
+#include"Actor_Status.h"
 
 class Game {
 /*////
 定数
 */////
-	enum ACTION {
-		ACTION_MOVE, //移動処理
-		ACTION_STEP, //階段移動確認
-		ACTION_MAX, //GAmeクラスで宣言させているACTIONの最大値
-	};
+	//enum ACTION {
+	//	ACTION_MOVE, //移動処理
+	//	ACTION_STEP, //階段移動確認
+	//	ACTION_MAX, //GAmeクラスで宣言させているACTIONの最大値
+	//};
 
 /*////////
 メンバ変数
 */////////
 public:
-	Player player; //プレイヤーのデータ
 	Dungeon_Base* dungeon_base;
 	Dungeon01* dungeon01;
+	Actor player;
+
+	Enemy* enemy_;
+
+	Actor_Status actor_status;
 
 	int floor; //現在の階層
 
@@ -63,5 +70,13 @@ private:
 
 	//移動処理
 	bool Action_Step();
+
+
+	//privateでおｋ？
+	bool Move_Check_Enemy(int x, int y);
+
+	bool Move_Check_Command();
+
+	void Enemy_Move();
 
 };

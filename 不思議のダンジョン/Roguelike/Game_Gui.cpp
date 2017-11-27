@@ -4,7 +4,7 @@
 Game_Gui::Game_Gui() {
 	tile = new Tile;
 	wall = new Wall;
-	enemy = new Enemy;
+	enemy_manager = new Enemy_Manager;
 	player_ = new Player;
 	dungeon01->Make(&player, floor);
 }
@@ -13,7 +13,7 @@ Game_Gui::Game_Gui() {
 Game_Gui::~Game_Gui() {
 	delete tile;
 	delete wall;
-	delete enemy;
+	delete enemy_manager;
 	delete player_;
 }
 
@@ -41,8 +41,8 @@ void Game_Gui::Render() {
 	player.Get_Position(&mx, &my);
 
 	//プレイヤーの位置を画面の中央へ
-	cx = (mx - 10) * 30; //頂点の関係で位置を少しずらす
-	cy = (my - 7) * 30; 
+	cx = DUNGEON_WIDTH / 2 - 350; //とりあえず
+	cy = DUNGEON_HEIGHT / 2; 
 
 	//--------------
 	//地面の描画
@@ -71,7 +71,7 @@ void Game_Gui::Render() {
 			tile_judge = dungeon_base->Get_Tile(x, y);
 
 			//壁かどうか
-			if (tile_judge->is_wall) { //TODO: たまに例外を吐く 乱数の関係か
+			if (tile_judge->is_wall) {
 				const Tile_Judge *tile_down = dungeon_base->Get_Tile(x, y + 1);
 
 				//下に壁がないときは、かど用の壁を描画
@@ -127,8 +127,8 @@ void Game_Gui::Render() {
 		dy += 120;
 
 		for (x = 0; x < dungeon_base->width; ++x) {
-			const Tile_Judge *tile_judge;
-			Enemy_Manager* enemy_manager;
+			const Tile_Judge* tile_judge;
+			Enemy* Enemy;
 
 			dx = x * TILE_SIZE - cx;
 
@@ -149,7 +149,7 @@ void Game_Gui::Render() {
 			enemy_manager = (Enemy_Manager*)dungeon_base->Get_Point_Enemy(x, y);
 
 			if (enemy_manager) {
-				enemy->Render(TEST_1, dx + 50, dy + 50); //TODO: テスト中
+				//enemyを描画
 			}
 		}
 	}

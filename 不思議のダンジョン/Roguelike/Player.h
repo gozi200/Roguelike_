@@ -1,6 +1,6 @@
 #pragma once
 
-#include"Ally.h"
+#include"Actor.h"
 #include"DxLib.h"
 #include"Define.h"
 #include"Vector2D.h"
@@ -12,7 +12,7 @@ Allyクラスを継承
 自機を管理するクラス
 -------------------*/
 
-class Player : public Ally {
+class Player : Actor{
 /*--------
 メンバ変数
 ---------*/

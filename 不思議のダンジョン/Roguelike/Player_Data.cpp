@@ -30,7 +30,7 @@ bool Player_Data::Open_File() {
 
 //それぞれの要素にcsvデータと画像データを読み込む
 	while (std::getline(ifs, line)) {
-		auto values = Convenient_Function::Split(line, ",");
+		auto values = Split::Split_(line, ",");
 		SETTING_PLAYER_DATA player_data;
 
 		player_data.ID				 = std::stoi(values[0]);  //ナンバー

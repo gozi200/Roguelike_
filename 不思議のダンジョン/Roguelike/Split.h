@@ -5,8 +5,8 @@
 #include<cstdlib>
 #include<fstream>
 
-class Convenient_Function {
+class Split {
 public:
 	//CSVファイルの','をデリミタとして改行する為の関数
-	static std::vector<std::string> Split(const std::string & str, const std::string & delim);
+	static std::vector<std::string> Split_(const std::string & str, const std::string & delim);
 };

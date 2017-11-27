@@ -3,7 +3,7 @@
 #include"DxLib.h"
 #include"Define.h"
 #include"Construction_Graphic.h"
-#include"Convenient_Function.h"
+#include"Split.h"
 
 #include<vector>
 #include<string>
@@ -13,7 +13,7 @@
 
 //床に持たせる情報を設定する
 struct SETTING_CONSTRUCTION_DATA {
-	int ID; //ナンバー　TODO: いる？
+	int ID; //ナンバー
 	std::string name;
 	int x; //x軸座標
 	int y; //y軸座標
@@ -51,7 +51,4 @@ public:
 
 	//ファイルを開く
 	bool Open_File();
-
-	//画像を読み込む
-	void Load_Graph();
 };

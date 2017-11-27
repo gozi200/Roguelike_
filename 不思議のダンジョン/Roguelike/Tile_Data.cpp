@@ -14,7 +14,7 @@ void Tile_Data::Set_File_Pass(const std::string & open_file_pass) {
 	file_pass = open_file_pass;
 }
 
-//指定されたパスにあるファイルを開き、読み込む　TODO: Load_Fileとか作る？
+//指定されたパスにあるファイルを開き、読み込む
 bool Tile_Data::Open_File() {
 	auto ifs = std::ifstream();
 	ifs.open(file_pass);
@@ -33,7 +33,7 @@ bool Tile_Data::Open_File() {
 	//それぞれの要素にcsvデータと画像データを読み込む
 	while (!std::getline(ifs, line).eof()) {
 		SETTING_TILE_DATA tile_data;
-		auto values = Convenient_Function::Split(line, ","); //','で区切って読み込む
+		auto values = Split::Split_(line, ","); //','で区切って読み込む
 		tile_data.ID = std::stoi(values[0]); 
 		tile_data.name = values[1];
 

@@ -3,7 +3,7 @@
 #include"DxLib.h"
 #include"Define.h"
 #include"Wall_Graphic.h"
-#include"Convenient_Function.h"
+#include"Split.h"
 
 #include<vector>
 #include<string>
@@ -17,7 +17,7 @@
 
 struct SETTING_WALL_DATA {
 	int ID;				//ナンバー
-	std::string name;	//いる？
+	std::string name;	//名前
 	int x;				//x軸座標
 	int y;				//y軸座標
 	int width;			//画像の横幅

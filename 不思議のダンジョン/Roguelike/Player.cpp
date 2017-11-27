@@ -1,11 +1,10 @@
 #include"Player.h"
 
-Player::Player() { 
+Player::Player() {
 	player_data.Set_File_Pass("CSV/Actor/Player/Player.csv"); //CSVファイルから情報を読み込む
 	player_data.Open_File(); //ファイルを開いて読み込む
 
 	loop_count = 0;
-	is_hostility_flag = false;
 }
 
 Player::~Player() {

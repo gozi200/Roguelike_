@@ -31,7 +31,7 @@ bool Wall_Data::Open_File() {
 	int count = 0;
 	while (!std::getline(ifs, line).eof()) {
 		SETTING_WALL_DATA wall_data;
-		auto values = Convenient_Function::Split(line, ","); //','で区切って読み込む
+		auto values = Split::Split_(line, ","); //','で区切って読み込む
 	
 		wall_data.ID			 = std::stoi(values[0]); //ナンバー
 		wall_data.name			 = values[1];			 //名前

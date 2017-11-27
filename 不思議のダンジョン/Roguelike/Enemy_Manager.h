@@ -1,27 +1,37 @@
 #pragma once
 
-#include"Enemy.h"
+#include"Actor.h"
+#include"DxLib.h"
+#include"Define.h"
+#include"Vector2D.h"
+#include"Data_Input.h"
 
-class Dungeon_Base; //インクルードの衝突を避ける
+/*----------------
+Actorクラスを継承
 
-class Enemy_Manager : public Enemy {
-/*---------
+敵を管理するクラス
+-----------------*/
+
+class Enemy_Manager : Actor{
+/*--------
 メンバ変数
 ---------*/
-
-/*---------
-メンバ関数	
-----------*/
 public:
-	Enemy_Manager(){}
+Data_Input data_input;
 
-	virtual ~Enemy_Manager(){}
+int loop_count;
 
-	//行動する
-	virtual void Move(Dungeon_Base* dungeon_base) = 0;
+/*--------
+メンバ関数
+--------*/
+public:
+	//エネミーのコンストラクタ
+	Enemy_Manager();
 
-	//新しい座標への移動を行う
-	//先にプレイヤーがいたら攻撃を行い、壁や、ほかのエネミーがいたら何もしない
-	bool Is_Move_Action(Dungeon_Base* dungeon_base, int mx, int my);
+	//プレイヤーのデストラクタ
+	~Enemy_Manager();
 
+	//位置の設定、取得
+	void Set_Position(int x, int y);
+	void Get_Position(int* px, int* py, DIRECTION* direction = NULL);
 };

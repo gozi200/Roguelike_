@@ -3,7 +3,7 @@
 #include"DxLib.h"
 #include"Define.h"
 #include"Food_Graphic.h"
-#include"Convenient_Function.h"
+#include"Split.h"
 
 #include<vector>
 #include<string>

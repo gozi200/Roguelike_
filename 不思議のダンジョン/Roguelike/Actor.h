@@ -1,58 +1,46 @@
 #pragma once
 
-#include"Object.h"
 #include"Define.h"
-#include"Actor_State.h"
+#include"Actor_Status.h"
 
-/*////////////////////////
-Objectを継承
-
-Actor全体を管理するクラス
-////////////////////////*/
-
-class Actor : public Object {
-/*////////
+class Actor {
+/*-------
 メンバ変数
-*////////
-protected:
-	int level;
-
-	int hit_point;
-
-	int state; //現在の状態
-
-	int attack; //素の攻撃力 これに武器の攻撃力を反映
-
-	int defense; //素の防御力 これに防具の防御力を反映
-
-	int Energy; //１ターンに行動できる数
-
-	int Speed; //1ターンに移動できる数
-
-	int change_state;
-
-	char* name;
-
+--------*/
 public:
+	Actor_Status actor_status;
 
-/*////////
+	char* name; //キャラクターの名前
+
+	bool is_dead_Frag; //生存フラグ
+
+	int next_count; //ターンのカウントに使用
+
+
+/*--------
 メンバ関数
-*/////////
+---------*/
 public:
 	//コンストラクタ
 	Actor();
 	
 	//デストラクタ
-	~Actor() {};
+	virtual ~Actor();
 
-	void Render_Charactor(); //いる？
+	//名前の設定
+	void Set_Name(char* name);
+	char* Get_Name();
 
-	void Change_State();
+	//位置の設定、取得
+	void Set_Position(int x, int y);
+	void Get_Position(int* x, int* y, DIRECTION* dir = NULL);
 
-#pragma region State_Paturn
+	//生存確認
+	bool Is_Dead();
 
-	bool isWait();
-	bool isAttack();
+	//保持ターン数をリセット
+	int reset();
 
-#pragma endregion
+	//攻撃
+	int Attack(Actor* target);
 };

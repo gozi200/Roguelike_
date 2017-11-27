@@ -1,7 +1,7 @@
-#include"Convenient_Function.h"
+#include"Split.h"
 
 //ƒfƒŠƒ~ƒ^‚ğİ’è‚·‚é
-std::vector<std::string> Convenient_Function::Split(const std::string & str, const std::string & delim) {
+std::vector<std::string> Split::Split_(const std::string & str, const std::string & delim) {
 	std::vector<std::string> ret;
 
 	std::string::size_type pos = 0;

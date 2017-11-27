@@ -1,43 +1,35 @@
 #pragma once
 
 #include"Actor.h"
-#include"DxLib.h"
-#include"Define.h"
-#include"Vector2D.h"
-#include"Enemy_Data.h"
 
-/*----------------
-Actorクラスを継承
-
-敵を管理するクラス
------------------*/
+class Dungeon_Base; //インクルードの衝突を避ける
 
 class Enemy : public Actor {
-/*--------
+/*---------
 メンバ変数
 ---------*/
-Enemy_Data enemy_data;
 
-int loop_count;
-
-/*--------
-メンバ関数
---------*/
+/*---------
+メンバ関数	
+----------*/
 public:
-	//エネミーのコンストラクタ
 	Enemy();
 
-	//プレイヤーのデストラクタ
-	~Enemy();
+	virtual ~Enemy();
 
-	//位置の設定、取得
-	void Set_Position(int x, int y);
-	void Get_Position(int* px, int* py, DIRECTION* direction = NULL);
+	//行動する
+	virtual void Move(Dungeon_Base* dungeon_base) = 0;
 
-	/*プレイヤーの画像を描画する
-	 @param call_ID IDに合った画像を呼ぶ
-	 @param x 描画する場所のx軸
-	 @param y 描画する場所のy軸
-	 */
+	//新しい座標への移動を行う
+	//先にプレイヤーがいたら攻撃を行い、壁や、ほかのエネミーがいたら何もしない
+	bool Move_Action(Dungeon_Base* dungeon_base, int mx, int my);
+
+	/*エネミーの画像を描画する
+	@param call_ID IDに合った画像を呼ぶ
+	@param x 描画する場所のx軸
+	@param y 描画する場所のy軸
+	*/
 	void Render(int call_ID, int x, int y);
+
+	int Turn(Dungeon_Base* dungeon_base, int count);
 };

@@ -5,14 +5,12 @@
 #include"Game.h"
 #include"DxLib.h"
 
-#include"Enemy.h"
 #include"Player.h"
-
 #include"Define.h"
 #include"Tile_Data.h"
 #include"Wall_Data.h"
 #include"Tile_Judge.h"
-#include"Enemy_Manager.h"
+#include"Enemy.h"
 
 #include<vector>
 
@@ -26,11 +24,11 @@ class Game_Gui : public Game {
 public:
 	 Tile* tile;
 	 Wall* wall;
-	 Enemy* enemy;
 	 Player* player_;
+	 Enemy_Manager* enemy_manager;
 
 	 int x, y; //画面
-	 int mx, my; //マップ
+	 int mx, my; //マップ?
 	 int cx, cy; //キャラ
 	 int dx, dy; //ダンジョン
 	 int loop_count = 0; //ループ回数を数える

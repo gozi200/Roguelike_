@@ -30,23 +30,28 @@ bool Enemy_Data::Open_File() {
 
 				 //それぞれの要素にcsvデータと画像データを読み込む
 	while (std::getline(ifs, line)) {
-		auto values = Convenient_Function::Split(line, ",");
+		auto values = Split::Split_(line, ",");
 		SETTING_ENEMY_DATA enemy_data;
 
-		enemy_data.ID			  = std::stoi(values[0]); //ナンバー
-		enemy_data.name			  = values[1];			  //名前
+		enemy_data.ID				= std::stoi(values[0]);  //ナンバー
+		enemy_data.name				= const_cast <char*>(values[1].c_str());  //名前
+															  
+		enemy_data.level			= std::stoi(values[2]);  //レベル
+		enemy_data.hit_point		= std::stoi(values[3]);  //ヒットポイント(0で死亡)
+		enemy_data.attack			= std::stoi(values[4]);  //攻撃力(レベルに比例して上昇)
+		enemy_data.defence			= std::stoi(values[5]);  //防御力(レベルに比例して上昇)
+		enemy_data.activity			= std::stoi(values[6]);  //行動力(ここでは１ターンに行動できる数)
+		enemy_data.turn_count		= std::stoi(values[7]);  //経過ターンをカウント
+		enemy_data.experience_point = std::stoi(values[8]);  //経験値(ここでは倒されたときにプレイヤー側に与える数値)
+		enemy_data.first_floor		= std::stoi(values[9]);  //出現開始階層
+		enemy_data.last_floor		= std::stoi(values[10]); //出現終了階層
+		enemy_data.agility			= std::stoi(values[11]); //敏捷性(ここでは回避率のこと)
+		enemy_data.drop_item_ID		= std::stoi(values[12]); //ドロップするアイテム
+															  
+		enemy_data.width			= std::stoi(values[13]); //表示される幅
+		enemy_data.height			= std::stoi(values[14]); //表示される高さ
 		
-		enemy_data.level		  = std::stoi(values[2]); //レベル
-		enemy_data.hit_point	  = std::stoi(values[3]); //ヒットポイント(0で死亡)
-		enemy_data.attack		  = std::stoi(values[4]); //攻撃力(レベルに比例して上昇)
-		enemy_data.defence		  = std::stoi(values[5]); //防御力(レベルに比例して上昇)
-		enemy_data.activity		  = std::stoi(values[6]); //行動力(ここでは１ターンに行動できる数)
-		enemy_data.turn_count	  = std::stoi(values[7]); //経過ターンをカウント
-		
-		enemy_data.width		  = std::stoi(values[8]); //表示される幅
-		enemy_data.height		  = std::stoi(values[9]); //表示される高さ
-		
-		auto graphic_handle		  = LoadGraph(enemy_graphic.enemy_graphic[loop_count++]);
+		auto graphic_handle = LoadGraph("Picture/Actor/Enemy/Enemy_Test.png");
 		enemy_data.graphic_handle = graphic_handle;
 		
 		set_enemy_data.push_back(enemy_data); //１行ごとに配列に追加していく

@@ -1,6 +1,6 @@
 #pragma once
 
-#include"Player.h"
+#include"Actor.h"
 #include"Random.h"
 #include"Define.h"
 #include"Dungeon_Base.h"
@@ -10,12 +10,7 @@ class Dungeon01 : public Dungeon_Base {
 メンバ変数
 */////////
 public:
-	Player* player;
 	Random random;
-
-	//int a, b, ab, p;
-	//int x, y;
-	//int i;
 
 /*////////
 メンバ関数
@@ -27,7 +22,7 @@ public:
 	//デストラクタ
 	~Dungeon01();
 
-	void Make(Player* player, int floor);
+	void Make(Actor* player, int floor);
 
 	/*区画を作る
 	 @param left 左辺

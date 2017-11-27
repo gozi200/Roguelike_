@@ -1,36 +1,39 @@
-#include"DxLib.h"
-#include"Define.h"
-#include"Actor.h"
+#include "Actor.h"
 
-#include"Wait_State.h"
-
-
-
-Actor::Actor()/* : state(nullptr)*/ {
-//	Change_State(new Wait_State(this));
-//}
-//
-//
-//
-//void Actor::Update() {
-//	state->
+Actor::Actor() {
+	is_dead_Frag = false;
 }
 
-void Actor::Render_Charactor() { //いる？
-//	if (is_exist) {
-//		DrawExtendGraph(x, y, x + 300, y + 300, graphic_handle, TRUE);
-//	}
+Actor::~Actor() {
 }
 
-#pragma region State_Paturn
+void Actor::Set_Name(char* set_name) { //NEXT
+	
+}
 
-bool Actor::isWait() {
-	//if(stateがWaitのとき){}
+
+void Actor::Set_Position(int set_x, int set_y) {
+
+}
+
+void Actor::Get_Position(int* set_x, int* set_y, DIRECTION* set_dir) {
+	set_x = &actor_status.x;
+	set_y = &actor_status.y;
+}
+
+bool Actor::Is_Dead() { //NEXT
 	return false;
 }
 
-bool Actor::isAttack() {
-	return false;
+int Actor::reset()　{　//NEXT
+	return 0;
 }
 
-#pragma endregion
+int Actor::Attack(Actor * target) {
+	int damage;
+	int rnd; //これ何？
+
+	rnd = actor_status.Get_Attack() / 5 - target->actor_status.Get_Agility; //p138
+
+	return 0;
+}

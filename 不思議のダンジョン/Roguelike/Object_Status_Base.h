@@ -12,6 +12,7 @@ struct Object_Status_Base {
 	int power;					//ちから (素の攻撃力。ここに武器の攻撃力、レベルで変動する攻撃力を計算)
 	int attack;					//攻撃力
 	int defence;				//防御力
+	int agility;				//敏捷性(ここでは回避率)
 	int hit_point;				//ヒットポイント(0で死亡)
 	int activity;				//行動力(ここでは１ターンに行動できる数)
 	int turn_count;				//経過ターンをカウント
