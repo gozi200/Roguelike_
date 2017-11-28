@@ -1,6 +1,7 @@
 #pragma once
 
 #include"Define.h"
+#include"Random.h"
 #include"Actor_Status.h"
 
 class Actor {
@@ -8,11 +9,13 @@ class Actor {
 メンバ変数
 --------*/
 public:
+	Random random;
+
 	Actor_Status actor_status;
 
 	char* name; //キャラクターの名前
 
-	bool is_dead_Frag; //生存フラグ
+	bool is_dead_frag; //生存フラグ
 
 	int next_count; //ターンのカウントに使用
 

@@ -3,7 +3,7 @@
 
 #include"Define.h"
 
-class Random {
+static class Random {
 public:
 /*////////
 ƒƒ“ƒo•Ï”

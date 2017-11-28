@@ -22,7 +22,7 @@ void Actor_Status::Get_Position(int * px, int * py, DIRECTION * dir)
 
 void Actor_Status::Set_Parameter(SETTING_ENEMY_DATA* set_record, Item* set_drop_item) {
 	//プレイヤーと共通している物のみ？
-	ID				 =  set_record->ID;				 //ナンバー
+	ID				 = set_record->ID;				 //ナンバー
 	name			 = set_record->name;			 //名前
 	x				 = set_record->x;				 //横の座標
 	y				 = set_record->y;				 //縦の座標
@@ -77,15 +77,29 @@ int Actor_Status::Add_Hunger_Point(int set_hunger_point) {
 }
 
 int Actor_Status::Get_Attack() {
-	return 0;
+	int set_atk;
+	
+	//基本攻撃力を代入
+	set_atk = attack;
+	return set_atk;
 }
 
 int Actor_Status::Get_Defence() {
-	return 0;
+	int set_def;
+
+	//基本防御力を代入
+	set_def = defence;
+
+	return set_def;
 }
 
 int Actor_Status::Get_Activity() {
-	return 0;
+	int set_activity;
+
+	//行動力を代入
+	set_activity = activity;
+
+	return set_activity;
 }
 
 void Actor_Status::Turn() { //NEXT
