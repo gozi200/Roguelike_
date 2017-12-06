@@ -31,5 +31,7 @@ public:
 	*/
 	void Render(int call_ID, int x, int y);
 
+	int Reset();
+
 	int Turn(Dungeon_Base* dungeon_base, int count);
 };

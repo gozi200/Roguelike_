@@ -10,7 +10,7 @@ class Enemy_01 : public Enemy {
 public:
 	int x, y; //À•W
 	Random* random;
-	DIRECTION direciton;
+	eDIRECTION direciton;
 
 /*--------
 ƒƒ“ƒoŠÖ”

@@ -4,7 +4,6 @@
 #include"Wall.h"
 #include"Game.h"
 #include"DxLib.h"
-
 #include"Player.h"
 #include"Define.h"
 #include"Tile_Data.h"
@@ -25,7 +24,6 @@ public:
 	 Tile* tile;
 	 Wall* wall;
 	 Player* player_;
-	 Enemy_Manager* enemy_manager;
 
 	 int x, y; //‰æ–Ê
 	 int mx, my; //ƒ}ƒbƒv?

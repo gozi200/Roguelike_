@@ -27,6 +27,7 @@ struct SETTING_ENEMY_DATA {
 	int defence;				//防御力
 	int agility;				//敏捷性(ここでは回避率)
 	int hit_point;				//ヒットポイント(0で死亡)
+	int max_hit_point;			//ヒットポイントの最大値
 	int activity;				//行動力(ここでは１ターンに行動できる数)
 	int turn_count;				//経過ターンをカウント
 	int experience_point;		//経験値(一定値ごとにレベルが上がる)
@@ -34,12 +35,13 @@ struct SETTING_ENEMY_DATA {
 	int graphic_handle;			//画像のハンドル
 	int paturn;					//行動パターン
 	int evolution;				//進化形態
-	int drop_item;				//死亡時に確率で落とすアイテム
 	int first_floor;			//出現開始階層
 	int last_floor;				//出現終了階層
 	int drop_item_ID;			//ドロップするアイテムのID
 	int width;					//表示される幅
 	int height;					//表示される高さ
+
+	Item drop_item;				//死亡時に確率で落とすアイテム
 };
 
 class Enemy_Data {

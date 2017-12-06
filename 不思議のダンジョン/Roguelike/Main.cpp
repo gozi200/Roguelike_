@@ -3,9 +3,8 @@
 #include"Define.h"
 #include"Scene_Manager.h"
 
-
 //キーの入力状態を更新する
-int Update_Key(char* key) {
+static int Update_Key(char* key) {
 	char tmpKey[KEY_NUMBER]; //現在のキーの入力状態を収納
 
 	//全てのキーの入力状態を得る

@@ -40,5 +40,7 @@ public:
 
 	void Create_Road(int room_A, int room_B);
 
+	void Turn_End(int floor);
+
 private:
 };

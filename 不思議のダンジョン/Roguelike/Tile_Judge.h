@@ -1,5 +1,7 @@
 #pragma once
 
+#include"Item.h"
+
 class Tile_Judge {
 public:
 	//番号で判断する？
@@ -10,7 +12,10 @@ public:
 
 	bool is_down_stairs = false; //下り階段ならtrue
 
-	//bool is_drop_item = false; //アイテムが落ちているか
+	bool is_Mini_Map_On = false; //ミニマップの表示
+
+	Item* drop_item;
+
 
 	Tile_Judge() {};
 

@@ -33,7 +33,7 @@ public:
 
 	//位置の設定、取得
 	void Set_Position(int x, int y);
-	void Get_Position(int* px, int* py, DIRECTION* direction = NULL);
+	void Get_Position(int* px, int* py, eDIRECTION* direction = NULL);
 
 	/*プレイヤーの画像を描画する
 	 @param call_ID IDに合った画像を呼ぶ

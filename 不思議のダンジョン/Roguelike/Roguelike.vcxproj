@@ -126,7 +126,6 @@
     <ClCompile Include="Enemy_01.cpp" />
     <ClCompile Include="Player_Move.cpp" />
     <ClCompile Include="Construction_Graphic.cpp" />
-    <ClCompile Include="Data_Input.cpp" />
     <ClCompile Include="Enemy_Graphic.cpp" />
     <ClCompile Include="Food_Graphic.cpp" />
     <ClCompile Include="Partner_Data.cpp" />
@@ -142,7 +141,6 @@
     <ClCompile Include="Game_Scene.cpp" />
     <ClCompile Include="Key_Update.cpp" />
     <ClCompile Include="Key_Controller.cpp" />
-    <ClCompile Include="Enemy_Manager.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Partner.cpp" />
@@ -185,7 +183,6 @@
     <ClInclude Include="Enemy_01.h" />
     <ClInclude Include="Player_Move.h" />
     <ClInclude Include="Construction_Graphic.h" />
-    <ClInclude Include="Data_Input.h" />
     <ClInclude Include="Enemy_Graphic.h" />
     <ClInclude Include="Food_Graphic.h" />
     <ClInclude Include="Object_Status_Base.h" />
@@ -197,13 +194,11 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="Dungeon01.h" />
     <ClInclude Include="Dungeon_Base.h" />
-    <ClInclude Include="Enemy_Manager.h" />
     <ClInclude Include="Enemy_Data.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Game_Gui.h" />
     <ClInclude Include="Game_Scene.h" />
-    <ClInclude Include="Item_Type.h" />
     <ClInclude Include="Partner_Graphic.h" />
     <ClInclude Include="Player_Data.h" />
     <ClInclude Include="Player_Graphic.h" />

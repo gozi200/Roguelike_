@@ -2,7 +2,7 @@
 #include"Define.h"
 #include"Item.h"
 
-char * Item::Get_Name()
+char* Item::Get_Name()
 {
 	return nullptr;
 }

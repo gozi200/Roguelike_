@@ -15,7 +15,7 @@ void Player::Set_Position(int set_x, int set_y) {
 
 }
 
-void Player::Get_Position(int *set_x, int* set_y, DIRECTION* set_direction) {
+void Player::Get_Position(int *set_x, int* set_y, eDIRECTION* set_direction) {
 
 }
 

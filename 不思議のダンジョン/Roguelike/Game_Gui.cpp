@@ -4,16 +4,15 @@
 Game_Gui::Game_Gui() {
 	tile = new Tile;
 	wall = new Wall;
-	enemy_manager = new Enemy_Manager;
 	player_ = new Player;
 	dungeon01->Make(&player, floor);
+	dungeon_base->Create_Enemy(floor); //test
 }
 
 //デストラクタ
 Game_Gui::~Game_Gui() {
 	delete tile;
 	delete wall;
-	delete enemy_manager;
 	delete player_;
 }
 
@@ -47,7 +46,6 @@ void Game_Gui::Render() {
 	//--------------
 	//地面の描画
 	//--------------
-
 	//ダンジョンの大さを測る(y軸)
 	for (y = 0; y < dungeon_base->height; ++y) {
 		dy = y * TILE_SIZE - cy; //タイルの縦幅分、縦のタイル同士で距離を取る
@@ -85,9 +83,6 @@ void Game_Gui::Render() {
 				}
 				continue; //壁であるなら配置するものがないのでループに戻る
 			}
-			else {
-				int a = 0;
-			}
 
 			//昇り階段か
 			if (tile_judge->is_up_stairs) {
@@ -99,15 +94,14 @@ void Game_Gui::Render() {
 				tile->Render(DOWN_STAIRS, dx, dy); //Define定数使用
 			}
 
-			////アイテムが落ちているか
-			//else if (tile_judge->is_drop_item) {
-			//	//アイテム画像挿入
-			//}
+			//アイテムが落ちているか
+			else if (tile_judge->drop_item) {
+				//アイテム画像挿入
+			}
 
-			//それ以外は床
-			else {
+			//それ以外は床 
+			else { //Amended ここに入らない 全部アイテムになってる？
 				tile->Render(TILE_GRASS, dx, dy); //Define定数使用
-
 				//TODO:設定している画面外は壁を挿入
 			}
 		}
@@ -128,7 +122,7 @@ void Game_Gui::Render() {
 
 		for (x = 0; x < dungeon_base->width; ++x) {
 			const Tile_Judge* tile_judge;
-			Enemy* Enemy;
+			Enemy* enemy;
 
 			dx = x * TILE_SIZE - cx;
 
@@ -146,12 +140,17 @@ void Game_Gui::Render() {
 			}
 
 			//その座標のエネミー情報を取得
-			enemy_manager = (Enemy_Manager*)dungeon_base->Get_Point_Enemy(x, y);
+			enemy = (Enemy*)dungeon_base->Get_Point_Enemy(x, y);
 
-			if (enemy_manager) {
-				//enemyを描画
+			if (enemy) {
+				DrawExtendGraph(x, 
+								y, 
+								x + enemy->actor_status.width, 
+								y + enemy->actor_status.height, 
+								enemy->actor_status.graphic_handle, TRUE);
+				//エネミーの描画
 			}
-		}
+		} 
 	}
 }
 

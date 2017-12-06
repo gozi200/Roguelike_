@@ -10,15 +10,14 @@
 #include"Tile_Judge.h"
 #include"Enemy_Data.h"
 #include"Actor_Status.h"
-#include"Enemy_Manager.h"
 
 static Item ITEM_DATA_BASE[] {
-	{ITEMTYPE_USEITEM, "外科手術セット","回復", {HP_CURE, 50}},
-	{ITEMTYPE_USEITEM, "聖者の贈り物", "回復", {HP_CURE, 100}},
-	{ITEMTYPE_USEITEM, "白銀の果実", "食べ物", {HUNGRY_CURE, 50}},
-	{ITEMTYPE_WEAPON, "エクスカリバー", "武器", {50}},
-	{ITEMTYPE_SHIELD, "ギャラハッドの盾", "盾", {50}},
-	{ITEMTYPE_ACCESSORIE, "聖杯", "概念礼装", {0,10}},
+	{ITEM_TYPE_USEITEM,    "外科手術セット"   ,"回復"     ,{HP_CURE, 50}},
+	{ITEM_TYPE_USEITEM,    "聖者の贈り物"     ,"回復"     ,{HP_CURE, 100}},
+	{ITEM_TYPE_USEITEM,    "白銀の果実"       ,"食べ物"   ,{HUNGER_CURE, 50}},
+	{ITEM_TYPE_WEAPON,     "エクスカリバー"   ,"武器"     ,{50}},
+	{ITEM_TYPE_SHIELD,     "ギャラハッドの盾" ,"盾"       ,{50}},
+	{ITEM_TYPE_ACCESSORIE, "聖杯"            ,"概念礼装" ,{0,10}},
 };
 
 static SETTING_ENEMY_DATA;
@@ -38,8 +37,6 @@ public:
 
 	Enemy_Data enemy_data;
 
-	Enemy_Manager* enemy_manager;
-
 	Tile_Judge* tile_judge; //タイルが床なのか何なのかを判断
 
 	Enemy* m_enemy[MAX_ENEMY]; //エネミーへのポインタ ポインタとの重複を避ける
@@ -54,13 +51,15 @@ public:
 	
 	int enemy_count; //登録されているエネミーの数
 
-	int up_stairs_x;
+	int turn_count; //経過ターンを数える
 
-	int up_stairs_y;
+	int up_stairs_x; //昇り階段のある座標(横)
 
-	int down_stairs_x;
+	int up_stairs_y; //昇り階段のある座標(縦)
 
-	int down_stairs_y;
+	int down_stairs_x; //下り階段のある座標(横)
+
+	int down_stairs_y; //下り階段のある座標(縦)
 
 /*--------
 メンバ関数
@@ -83,6 +82,9 @@ public:
 
 	//部屋の数を取得
 	int Get_Room_Count();
+
+	//部屋の数を取得
+	int Get_Romm_Count();
 
 	//指定場所が移動可能か判断(trueなら移動可能)
 	bool Is_Move(int x, int y);
@@ -123,17 +125,23 @@ public:
 	//指定座標に落ちているアイテムを削除
 	void Remove_Item(int x, int y, Item * item);
 
-	//指定位置の部屋インデックスを返す(道または壁なら-1を返す)
-	int Get_Room_Index(int x, int y);
-
 	//攻撃処理
 	int Attack(Actor* player, Actor* target);
 
 	//IDからエネミークラスを作成
 	bool Make_Enemy(int ai, Enemy** enemy);
 
+	//ランダムにエネミーを配置
+	void Random_Create_Enemy(int floor);
+
 	//エネミーのデータベースからパラメータをセット
 	void Set_Enemy_Parameter(Enemy* enemy, SETTING_ENEMY_DATA* enemy_data);
+
+	//指定位置の部屋インデックスを返す(道、壁なら-1を返す)
+	int Get_Room_Index(int x, int y);
+
+	//指定位置の矩形インデックスを返す(道、壁なら-1を返す)
+	int Get_Rectangle_Index(int x, int y);
 
 private:
 	//階層にあったエネミーを生成取得

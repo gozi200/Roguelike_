@@ -8,35 +8,6 @@ Dungeon01::~Dungeon01() {
 
 }
 
-void Dungeon01::Make(Actor* set_player, int set_floor) {
-	rectangle_count = 0; //区画の数をリセット
-
-	player = set_player;
-
-	//初期化(一旦すべて壁にする)
-	for (int y = 0; y < height; ++y) {
-		for (int x = 0; x < width; ++x) {
-			Get_Tile(x, y)->is_wall = true;
-		}
-	}
-
-	//区画を作る
-	//初めに全体を１つの区画とする
-	Create_Rectangle(0, 0, width - 1, height - 1);
-
-	//↑で定めた区画を細分化していく
-	Split_Rectangle(random.Dungeon_Random(2) ? true : false);
-
-	//部屋を作る
-	Create_Room();
-
-	//部屋同士をつなげる
-	Connect_Room();
-
-	//各部屋にエネミーを配置
-	//Enemy_Array(floor);
-}
-
 DUNEON_RECTANGLE* Dungeon01::Create_Rectangle(int set_left, int set_top, int set_right, int set_bottom) {
 	DUNEON_RECTANGLE* new_rectangle;
 
@@ -96,7 +67,7 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 	}
 
 	else {
-		//縦に分割する
+		//縦に分割------------------------------------------------------------------------
 
 		//区分を分割できるかチェック
 		if (RECTANGLE_HEIGHT(*rectangle) < (MIN_ROOM_SIZE + 3) * 2 + 1) {
@@ -132,6 +103,8 @@ void Dungeon01::Split_Rectangle(bool set_is_vertical) {
 
 	//childの部屋をさらに分割する
 	Split_Rectangle(!set_is_vertical);
+
+	//-----------------------------------------------------------------------------------
 }
 
 void Dungeon01::Create_Room() {
@@ -146,17 +119,17 @@ void Dungeon01::Create_Room() {
 		RECT* room = &dungeon_rectangle[i].room; //↓で作る部屋情報
 
 		//矩形の大きさを計算
-		width = RECTANGLE_WIDTH(*rectangle) - 3;
+		width  = RECTANGLE_WIDTH(*rectangle)  - 3;
 		height = RECTANGLE_HEIGHT(*rectangle) - 3;
 
 		//区画に入る最小部屋の余裕を求める
-		charactor_width = width - MIN_ROOM_SIZE;
+		charactor_width  = width  - MIN_ROOM_SIZE;
 		charactor_height = height - MIN_ROOM_SIZE;
 
 		//部屋の大きさを決定する
 		sw = random.Dungeon_Random(charactor_width);
 		sh = random.Dungeon_Random(charactor_height);
-		room_width = width - sw;
+		room_width  = width  - sw;
 		room_height = height - sh;
 
 		//部屋の位置を決定する
@@ -164,13 +137,13 @@ void Dungeon01::Create_Room() {
 		room_y = random.Dungeon_Random(sh) + 2;
 
 		//求めた結果から部屋の情報を設定
-		room->left = rectangle->left + room_x;
-		room->top = rectangle->top + room_y;
-		room->right = room->left + room_width;
-		room->bottom = room->top + room_height;
+		room->left	 = rectangle->left + room_x;
+		room->top	 = rectangle->top  + room_y;
+		room->right  = room->left	   + room_width;
+		room->bottom = room->top	   + room_height;
 
 		//部屋を作る
-		Fill_Rectangle( //ダンジョンの大きさ(width,heightの外に取ってしまっている。)
+		Fill_Rectangle(
 			room->left,
 			room->top,
 			room->right,
@@ -222,9 +195,10 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 		x2 = random.Dungeon_Random(RECTANGLE_WIDTH(*room_B)) + room_B->left;
 
 		if (rect_A->top > rect_B->top) {
-			/* B
-			   A
-			   の並びの時
+			/* 
+			B
+			A
+			の並びの時
 			*/
 			y = rect_A->top;
 			//AB間の横道を繋ぐ道を作る
@@ -233,9 +207,10 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 		}
 
 		else {
-			/* A
-			   B
-			   の並びの時
+			/*
+			A
+			B
+			の並びの時
 			*/
 			y = rect_B->top;
 			//AB間の横道を繋ぐ道を作る
@@ -255,8 +230,9 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 		y2 = random.Dungeon_Random(room_B->bottom - room_B->top) + room_B->top;
 
 		if (rect_A->left > rect_B->left) {
-			/*BA
-			  の並びのとき
+			/*
+			BA
+			の並びのとき
 			*/
 			x = rect_A->left;
 			//AB間の縦道を繋ぐ道を作る
@@ -265,8 +241,9 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 		}
 
 		else {
-			/*AB
-			  の並びの時
+			/*
+			AB
+			の並びの時
 			*/
 			x = rect_B->left;
 			//AB間の縦道を繋ぐ道を作る
@@ -277,4 +254,43 @@ void Dungeon01::Create_Road(int set_room_A, int set_room_B) {
 		//道同士を繋げる縦道を作る
 		Fill_Vertical_Line(y1, y2, x, false);
 	}
+}
+
+//ダンジョンを作る
+void Dungeon01::Make(Actor* set_player, int floor) {
+	rectangle_count = 0; //区画の数をリセット
+
+	player = set_player;
+
+	//初期化(一旦すべて壁にする)
+	for (int y = 0; y < height; ++y) {
+		for (int x = 0; x < width; ++x) {
+			Get_Tile(x, y)->is_wall = true;
+		}
+	}
+
+	//区画を作る
+	//初めに全体を１つの区画とする
+	Create_Rectangle(0, 0, width - 1, height - 1);
+
+	//↑で定めた区画を細分化していく
+	Split_Rectangle(random.Dungeon_Random(2) ? true : false);
+
+	//部屋を作る
+	Create_Room();
+
+	//部屋同士をつなげる
+	Connect_Room();
+
+	//各部屋にエネミーを配置
+	Create_Enemy(floor);
+}
+
+void Dungeon01::Turn_End(int floor)
+{
+	++turn_count;
+
+	// プレイヤーが20ターン経過するごとにモンスターを沸かせる
+	if ((turn_count % 20) == 0)
+		Random_Create_Enemy(floor);
 }

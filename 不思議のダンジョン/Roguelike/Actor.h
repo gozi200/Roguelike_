@@ -36,13 +36,10 @@ public:
 
 	//位置の設定、取得
 	void Set_Position(int x, int y);
-	void Get_Position(int* x, int* y, DIRECTION* dir = NULL);
+	void Get_Position(int* x, int* y, eDIRECTION* dir = NULL);
 
 	//生存確認
 	bool Is_Dead();
-
-	//保持ターン数をリセット
-	int reset();
 
 	//攻撃
 	int Attack(Actor* target);

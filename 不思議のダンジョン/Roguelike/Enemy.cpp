@@ -9,6 +9,20 @@ Enemy::Enemy() {
 Enemy::~Enemy() {
 }
 
+//ターン数を進める
+int Enemy::Turn(Dungeon_Base* dungeon_base, int count) {
+	next_count -= count;
+
+	if (next_count <= 0) {
+		next_count += actor_status.activity;
+		Move(dungeon_base);
+	}
+
+	//次の行動ターン数を返す(0以下なら継続して行動可能)
+	return next_count;
+}
+
+
 bool Enemy::Move_Action(Dungeon_Base* dungeon_base, int mx, int my) {
 	int x, y;
 
@@ -30,12 +44,11 @@ bool Enemy::Move_Action(Dungeon_Base* dungeon_base, int mx, int my) {
 		//プレイヤーに攻撃する
 		damage = dungeon_base->Attack(this, dungeon_base->player);
 
-		//メッセージ追加
-		//hogeはfugaに攻撃!piyoはhogehogeダメージ
+		//文字の表示　SEND
 
 		//主人公が死んだか
 		if (dungeon_base->player->actor_status.Is_Dead()) {
-			//hogeはfuga	にやられた
+			//文字の表示　SEND
 		}
 	}
 
@@ -52,23 +65,19 @@ bool Enemy::Move_Action(Dungeon_Base* dungeon_base, int mx, int my) {
 	return false;
 }
 
-void Enemy::Render(int set_graphic_handle, int set_x, int set_y) {//NEXT
-	//IDに合わせて画像を描画する
-	//DrawExtendGraph(set_x,
-	//					set_y,
-	//					set_x + //画像の幅width,
-	//					set_y + //画像の高さheight,
-	//					//画像ハンドルgraphic_handle, TRUE);
+int Enemy::Reset()
+{
+	actor_status.turn_count = 0;
+	return actor_status.turn_count;
 }
 
-int Enemy::Turn(Dungeon_Base* dungeon_base, int count) {
-	next_count -= count;
 
-	if (next_count <= 0) {
-		next_count += actor_status.activity;
-		Move(dungeon_base);
-	}
-	
-	//次の行動ターン数を返す(0以下なら継続して行動可能)
-	return next_count;
+void Enemy::Render(int set_graphic_handle, int set_x, int set_y) {//NEXT
+	DrawExtendGraph(
+		set_x,
+		set_y,
+		set_x + actor_status.width,
+		set_y + actor_status.height,
+		set_graphic_handle, TRUE);
+	//エネミーの描画
 }

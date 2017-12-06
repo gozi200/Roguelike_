@@ -133,21 +133,6 @@
     <Filter Include="ソース ファイル\Object\Actor\Ally\Partner">
       <UniqueIdentifier>{9976395f-1a4e-4c26-8603-3dac92910ad9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Object\Item">
-      <UniqueIdentifier>{ac5de146-0a79-47e1-95c6-f37bf44d93cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Object\Item\Equipment">
-      <UniqueIdentifier>{3b683abd-f197-4026-9d45-c590ae5a4d8b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Object\Item\Equipment\Weapon">
-      <UniqueIdentifier>{13e0f8cb-4765-419e-9e17-25a477e7c02b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Object\Item\Equipment\Shield">
-      <UniqueIdentifier>{f3cb3cdb-ca5f-44a9-9491-3a3285d4866b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Object\Item\Equipment\Accessorie">
-      <UniqueIdentifier>{955d7cc0-966e-41aa-b4c1-c83c18ca0191}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダーファイル\Object">
       <UniqueIdentifier>{ab6e912e-a78b-49a4-bcd2-93ca365577c4}</UniqueIdentifier>
     </Filter>
@@ -199,6 +184,21 @@
     <Filter Include="ソース ファイル\Object\Dungeon\Wall">
       <UniqueIdentifier>{aa88c2fd-ecc0-4f5f-9857-a6a05390b4eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Object\Dungeon\Wall\Item">
+      <UniqueIdentifier>{ac5de146-0a79-47e1-95c6-f37bf44d93cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Dungeon\Wall\Item\Equipment">
+      <UniqueIdentifier>{3b683abd-f197-4026-9d45-c590ae5a4d8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Dungeon\Wall\Item\Equipment\Weapon">
+      <UniqueIdentifier>{13e0f8cb-4765-419e-9e17-25a477e7c02b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Dungeon\Wall\Item\Equipment\Shield">
+      <UniqueIdentifier>{f3cb3cdb-ca5f-44a9-9491-3a3285d4866b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Dungeon\Wall\Item\Equipment\Accessorie">
+      <UniqueIdentifier>{955d7cc0-966e-41aa-b4c1-c83c18ca0191}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -220,7 +220,7 @@
       <Filter>ソース ファイル\Object\Actor\Ally\Partner</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
-      <Filter>ソース ファイル\Object\Item</Filter>
+      <Filter>ソース ファイル\Object\Dungeon\Wall\Item</Filter>
     </ClCompile>
     <ClCompile Include="Vector2D.cpp">
       <Filter>ソース ファイル\System</Filter>
@@ -238,16 +238,16 @@
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
     <ClCompile Include="Weapon.cpp">
-      <Filter>ソース ファイル\Object\Item\Equipment\Weapon</Filter>
+      <Filter>ソース ファイル\Object\Dungeon\Wall\Item\Equipment\Weapon</Filter>
     </ClCompile>
     <ClCompile Include="Key_Update.cpp">
       <Filter>ソース ファイル\System</Filter>
     </ClCompile>
     <ClCompile Include="Shield.cpp">
-      <Filter>ソース ファイル\Object\Item\Equipment\Shield</Filter>
+      <Filter>ソース ファイル\Object\Dungeon\Wall\Item\Equipment\Shield</Filter>
     </ClCompile>
     <ClCompile Include="Accessorie.cpp">
-      <Filter>ソース ファイル\Object\Item\Equipment\Accessorie</Filter>
+      <Filter>ソース ファイル\Object\Dungeon\Wall\Item\Equipment\Accessorie</Filter>
     </ClCompile>
     <ClCompile Include="Dungeon01.cpp">
       <Filter>ソース ファイル\Dungeon_Base</Filter>
@@ -345,16 +345,10 @@
     <ClCompile Include="Split.cpp">
       <Filter>ソース ファイル\System</Filter>
     </ClCompile>
-    <ClCompile Include="Data_Input.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Player_Move.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>ソース ファイル\Object\Actor\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Manager.cpp">
       <Filter>ソース ファイル\Object\Actor\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_01.cpp">
@@ -439,9 +433,6 @@
     </ClInclude>
     <ClInclude Include="Dungeon01.h">
       <Filter>ヘッダーファイル\Map_Making\Dungeon</Filter>
-    </ClInclude>
-    <ClInclude Include="Item_Type.h">
-      <Filter>ヘッダーファイル\Object\Item</Filter>
     </ClInclude>
     <ClInclude Include="Food_Data.h">
       <Filter>ヘッダーファイル\CSV\Item</Filter>
@@ -551,14 +542,8 @@
     <ClInclude Include="Split.h">
       <Filter>ヘッダーファイル\Function</Filter>
     </ClInclude>
-    <ClInclude Include="Data_Input.h">
-      <Filter>ヘッダーファイル\System</Filter>
-    </ClInclude>
     <ClInclude Include="Player_Move.h">
       <Filter>ヘッダーファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Manager.h">
-      <Filter>ヘッダーファイル\Object\Actor\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>ヘッダーファイル\Object\Actor\Enemy</Filter>
