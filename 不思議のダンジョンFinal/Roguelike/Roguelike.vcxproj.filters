@@ -5,18 +5,116 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="リソース ファイル">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor">
+      <UniqueIdentifier>{3a8155b1-1615-43a2-8721-071fe47cda2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object">
+      <UniqueIdentifier>{4904042c-0933-4166-b736-5cdcd5dfc87f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Tile">
+      <UniqueIdentifier>{f8ab8229-fcef-46fa-b8b1-d59fbe66fe17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System">
+      <UniqueIdentifier>{d8e841b4-6be1-49bb-96c0-129c87e0faf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{86b32282-0ce4-444b-bf13-421844c58a36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor">
+      <UniqueIdentifier>{ab167f92-f451-4eb8-afec-e21027c73d42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Object">
+      <UniqueIdentifier>{650662c6-cf42-4d8d-b113-74c862367bdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Object\Tile">
+      <UniqueIdentifier>{4877a0ec-4e6a-4d63-b61d-80bc3791968e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\System">
+      <UniqueIdentifier>{1422b358-06f3-4533-8dbe-30e7abbb560b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Scene">
+      <UniqueIdentifier>{00305fa2-282c-45fc-954f-c22ee7afcaa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game">
+      <UniqueIdentifier>{219fb07d-04a8-4705-abf9-c9bd26baa1a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Game">
+      <UniqueIdentifier>{9c9b6678-9f81-4dff-bc0a-2c01744fcd6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Dungeon">
+      <UniqueIdentifier>{3c7b65fa-c376-478f-a92b-b4cf59c6828e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Dungeon">
+      <UniqueIdentifier>{7aa6f4c8-4a4d-4a8f-9300-77cb14aac66d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>ソース ファイル\Object\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile_Graphic.cpp">
+      <Filter>ソース ファイル\Object\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="Split.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Set_File.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_Scene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_Sycle.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Create_Dungeon.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Define.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Split.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>ヘッダーファイル\Object\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile_Graphic.h">
+      <Filter>ヘッダーファイル\Object\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>ヘッダーファイル\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_Scene.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Set_File.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_Sycle.h">
+      <Filter>ヘッダーファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Create_Dungeon.h">
+      <Filter>ヘッダーファイル\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
