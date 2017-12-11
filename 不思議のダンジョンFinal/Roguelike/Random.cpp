@@ -1,4 +1,4 @@
-#include"Random.h"
+#include"random.h"
 
 // コンストラクタ
 Random::Random() : engine(10) {

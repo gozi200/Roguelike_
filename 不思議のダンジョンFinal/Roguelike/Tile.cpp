@@ -2,25 +2,28 @@
 
 // コンストラクタ
 Tile::Tile() {
-	tile_graphic.Load(); // 画像データを読み込む
-	Set_Parametor();     // パラメータのセット
+	set = std::make_shared<Set_File>();
+	tile_graphic = std::make_shared<Tile_Graphic>();	
 
+	tile_graphic->Load(); // 画像データを読み込む
+	Set_Parametor();      // パラメータのセット
 }
 
 // デストラクタ
 Tile::~Tile() {
-
 }
 
 // csvで読み込んだ情報を構造体に格納していく
 void Tile::Set_Parametor() {
 	auto ifs = std::ifstream();
-	ifs.open(open.Set_File_Pass(file_pass, "csv/Stage/Tile/Tile.csv")); // csvファイルの場所を与え呼び出す
+	ifs.open(set->Set_File_Pass(file_pass, "csv/Stage/Tile/Tile.csv")); // csvファイルの場所を与え呼び出す
 
 	std::string line;
 	std::getline(ifs, line); // csvファイルの使わない行を読み飛ばす
 	std::getline(ifs, line); // 同上
 	ifs.clear();             // 読み飛ばしたデータを破棄する
+
+	loop_count = 0;
 
 	// それぞれの要素にCSVデータと画像データを読み込む
 	while (!std::getline(ifs, line).eof()) { //ここを修正
@@ -34,7 +37,7 @@ void Tile::Set_Parametor() {
 		tile_data.height = std::stoi(values[3]); // 画像のサイズ(高さ)
 
 		// 画像のパスを格納
-		auto graphic_handle = LoadGraph(tile_graphic.graphics[loop_count++]);
+		auto graphic_handle = LoadGraph(tile_graphic->graphics[loop_count++]);
 		tile_data.graphic_handle = graphic_handle;
 
 		tile_datas.push_back(tile_data); //１行ごとに配列に追加していく

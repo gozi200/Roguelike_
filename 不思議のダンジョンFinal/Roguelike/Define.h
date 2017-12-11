@@ -10,7 +10,11 @@
 
 const int WINDOW_X = 1170; //画面サイズ(横) 
 
-const int WINDOW_Y = 720; //画面サイズ(縦)
+const int WINDOW_Y = 720;  //画面サイズ(縦)
+
+const float HALF_WINDOW_X = WINDOW_X / 2; // 真ん中
+
+const float HALF_WINDOW_Y = WINDOW_Y / 2; // 真ん中
 
 #pragma endregion
 
@@ -154,11 +158,9 @@ const int ITEM_MAX = 500; //アイテムが同時に出現できる数　ひとまず
 
 #pragma region ダンジョンに関する定数
 
-const int DUNGEON_WIDTH = 25; //ダンジョンの横マスの数 //最終は50
+const int DUNGEON_WIDTH  = 25; //ダンジョンの横マスの数 //最終は50
 
 const int DUNGEON_HEIGHT = 25; //ダンジョンの縦マスの数
-
-const int RECTANGLE      = 50; //ひとまずの値 矩形、長方形 使ってない
 
 const int MAX_RECTANGLE  = 10; //区画の最大値
 
@@ -221,10 +223,6 @@ const int TILE_NUMBER = 2; //床の種類(草原、洞窟など)
 #pragma region その他
 
 const int KEY_NUMBER = 256; //全てのキー
-
-const float HALF_WINDOW_X = WINDOW_X / 2;
-
-const float HALF_WINDOW_Y = WINDOW_Y / 2;
 
 #pragma endregion
 

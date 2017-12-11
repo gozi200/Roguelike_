@@ -43,17 +43,17 @@
     <Filter Include="ヘッダーファイル\Scene">
       <UniqueIdentifier>{00305fa2-282c-45fc-954f-c22ee7afcaa9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Game">
-      <UniqueIdentifier>{219fb07d-04a8-4705-abf9-c9bd26baa1a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダーファイル\Game">
-      <UniqueIdentifier>{9c9b6678-9f81-4dff-bc0a-2c01744fcd6f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダーファイル\Dungeon">
       <UniqueIdentifier>{3c7b65fa-c376-478f-a92b-b4cf59c6828e}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Dungeon">
       <UniqueIdentifier>{7aa6f4c8-4a4d-4a8f-9300-77cb14aac66d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Object\Wall">
+      <UniqueIdentifier>{516c7883-8ba9-44ce-87a5-86a8fbb0cff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Wall">
+      <UniqueIdentifier>{1a7611dc-8175-49cd-a3d6-0e44b727430b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,14 +75,26 @@
     <ClCompile Include="Game_Scene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Game_Sycle.cpp">
-      <Filter>ソース ファイル\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Random.cpp">
       <Filter>ソース ファイル\System</Filter>
     </ClCompile>
     <ClCompile Include="Create_Dungeon.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Dungeon_Manager.cpp">
+      <Filter>ソース ファイル\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Dungeon_Sycle.cpp">
+      <Filter>ソース ファイル\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Dungeon_GUI.cpp">
+      <Filter>ソース ファイル\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>ソース ファイル\Object\Wall</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall_Graphic.cpp">
+      <Filter>ソース ファイル\Object\Wall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,14 +119,29 @@
     <ClInclude Include="Set_File.h">
       <Filter>ヘッダーファイル\System</Filter>
     </ClInclude>
-    <ClInclude Include="Game_Sycle.h">
-      <Filter>ヘッダーファイル\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Create_Dungeon.h">
       <Filter>ヘッダーファイル\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Random.h">
       <Filter>ヘッダーファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile_Judge.h">
+      <Filter>ヘッダーファイル\Object\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="Dungeon_Manager.h">
+      <Filter>ヘッダーファイル\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>ヘッダーファイル\Object\Wall</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall_Graphic.h">
+      <Filter>ヘッダーファイル\Object\Wall</Filter>
+    </ClInclude>
+    <ClInclude Include="Dungeon_Sycle.h">
+      <Filter>ヘッダーファイル\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Dungeon_GUI.h">
+      <Filter>ヘッダーファイル\Dungeon</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

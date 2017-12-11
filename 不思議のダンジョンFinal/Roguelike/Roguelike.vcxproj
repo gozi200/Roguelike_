@@ -120,26 +120,35 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Create_Dungeon.cpp" />
+    <ClCompile Include="Dungeon_GUI.cpp" />
+    <ClCompile Include="Dungeon_Manager.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
-    <ClCompile Include="Game_Sycle.cpp" />
+    <ClCompile Include="Dungeon_Sycle.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Split.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Set_File.cpp" />
     <ClCompile Include="Tile_Graphic.cpp" />
+    <ClCompile Include="Wall.cpp" />
+    <ClCompile Include="Wall_Graphic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Create_Dungeon.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Dungeon_GUI.h" />
+    <ClInclude Include="Dungeon_Manager.h" />
     <ClInclude Include="Game_Scene.h" />
-    <ClInclude Include="Game_Sycle.h" />
+    <ClInclude Include="Dungeon_Sycle.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Split.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Set_File.h" />
     <ClInclude Include="Tile_Graphic.h" />
+    <ClInclude Include="Tile_Judge.h" />
+    <ClInclude Include="Wall.h" />
+    <ClInclude Include="Wall_Graphic.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

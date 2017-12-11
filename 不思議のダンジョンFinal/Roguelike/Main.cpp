@@ -79,6 +79,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 //delete actor_factory;
 
 
+/*
+ÉÅÉÇ: Dungeon_Base = Dungeon_Manager
+	  Game         = Create_Dungeon
+
+*/
 
 
 /*-----------------------

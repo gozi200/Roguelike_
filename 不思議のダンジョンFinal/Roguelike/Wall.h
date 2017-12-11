@@ -3,17 +3,16 @@
 #include"Split.h"
 #include"Define.h"
 #include"Set_File.h"
-#include"Tile_Graphic.h"
+#include"Wall_Graphic.h"
 
 #include<vector>
 #include<string>
 #include<fstream>
 #include<cstdlib>
 #include<algorithm>
-#include<memory>
 
 // 床に持たせる情報を設定する
-struct TILE_DATA {
+struct WALL_DATA {
 	int ID;             // ナンバー
 	std::string name;   // 名前
 	int width;          // 画像の横幅
@@ -24,10 +23,10 @@ struct TILE_DATA {
 /*-------------
 床のを扱うクラス
 --------------*/
-class Tile {
+class Wall {
 private:
-	std::shared_ptr<Set_File> set;
-	std::shared_ptr<Tile_Graphic> tile_graphic;
+	Set_File* open;             // csvファイルを開くためのクラス
+	Wall_Graphic* wall_graphic; // リソースからグラフィックデータを呼ぶクラス
 
 	int ID;             // ナンバー
 	std::string name;   // 名前
@@ -36,25 +35,25 @@ private:
 	int graphic_handle; // 画像データを格納する
 
 	int loop_count;     // ループ回数に応じて加算
-	
+
 	std::string file_pass;              //ファイルのパス
-	std::vector <TILE_DATA> tile_datas; //タイルの種類ごとに格納
+	std::vector <WALL_DATA> wall_datas; //タイルの種類ごとに格納
 
 public:
 	// コンストラクタ
-	Tile();
+	Wall();
 
 	//デストラクタ
-	~Tile();
+	~Wall();
 
 	//csvで読み込んだ情報を格納していく
 	void Set_Parametor();
 
 public:
 	/*引数のIDと同じIDの画像を、引数の座標へ描画する
-	  @param x       横座標
-	  @param y       縦座標
-	  @param call_ID 呼び出しID
+	@param x       横座標
+	@param y       縦座標
+	@param call_ID 呼び出しID
 	*/
 	void Render(int x, int y, int call_ID);
 };
