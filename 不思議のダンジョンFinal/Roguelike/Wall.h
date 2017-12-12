@@ -2,7 +2,7 @@
 
 #include"Split.h"
 #include"Define.h"
-#include"Set_File.h"
+#include"Map_Tile.h"
 #include"Wall_Graphic.h"
 
 #include<vector>
@@ -10,34 +10,22 @@
 #include<fstream>
 #include<cstdlib>
 #include<algorithm>
+#include<memory>
 
-// 床に持たせる情報を設定する
-struct WALL_DATA {
-	int ID;             // ナンバー
-	std::string name;   // 名前
-	int width;          // 画像の横幅
-	int height;         // 画像の縦幅
-	int graphic_handle; // 画像データを格納する
+/*-----------------------
+壁に持たせる情報を設定する
+-----------------------*/
+struct WALL_DATA : public MAP_TILE_TADA {
+
 };
 
 /*-------------
 床のを扱うクラス
 --------------*/
-class Wall {
+class Wall : public Map_Tile {
 private:
-	Set_File* open;             // csvファイルを開くためのクラス
-	Wall_Graphic* wall_graphic; // リソースからグラフィックデータを呼ぶクラス
-
-	int ID;             // ナンバー
-	std::string name;   // 名前
-	int width;          // 画像の横幅
-	int height;         // 画像の縦幅
-	int graphic_handle; // 画像データを格納する
-
-	int loop_count;     // ループ回数に応じて加算
-
-	std::string file_pass;              //ファイルのパス
 	std::vector <WALL_DATA> wall_datas; //タイルの種類ごとに格納
+	std::shared_ptr<Wall_Graphic> wall_graphic; // リソースからグラフィックデータを呼ぶクラス
 
 public:
 	// コンストラクタ

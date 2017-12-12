@@ -3,42 +3,28 @@
 #include"Split.h"
 #include"Define.h"
 #include"Set_File.h"
+#include"Map_Tile.h"
 #include"Tile_Graphic.h"
 
 #include<vector>
 #include<string>
 #include<fstream>
-#include<cstdlib>
-#include<algorithm>
 #include<memory>
 
-// 床に持たせる情報を設定する
-struct TILE_DATA {
-	int ID;             // ナンバー
-	std::string name;   // 名前
-	int width;          // 画像の横幅
-	int height;         // 画像の縦幅
-	int graphic_handle; // 画像データを格納する
+/*----------------------
+床に持たせる情報を設定する
+-----------------------*/
+struct TILE_DATA  : public MAP_TILE_TADA {
 };
 
 /*-------------
-床のを扱うクラス
+床の扱うクラス
 --------------*/
-class Tile {
+class Tile : public Map_Tile{
 private:
-	std::shared_ptr<Set_File> set;
 	std::shared_ptr<Tile_Graphic> tile_graphic;
 
-	int ID;             // ナンバー
-	std::string name;   // 名前
-	int width;          // 画像の横幅
-	int height;         // 画像の縦幅
-	int graphic_handle; // 画像データを格納する
-
-	int loop_count;     // ループ回数に応じて加算
-	
-	std::string file_pass;              //ファイルのパス
-	std::vector <TILE_DATA> tile_datas; //タイルの種類ごとに格納
+	std::vector<TILE_DATA> tile_datas; //タイルの種類ごとに格納
 
 public:
 	// コンストラクタ

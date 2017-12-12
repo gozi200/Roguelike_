@@ -123,13 +123,13 @@ void Create_Dungeon::Create_Room() {
 		height = RECTANGLE_HEIGHT(*rectangle) - 3;
 
 		// 区画に入る最小部屋の余裕を求める
-		charactor_width = width - MIN_ROOM_SIZE;
+		charactor_width  = width  - MIN_ROOM_SIZE;
 		charactor_height = height - MIN_ROOM_SIZE;
 
 		// 部屋の大きさを決定する
 		sw = random->Dungeon_Random(charactor_width);
 		sh = random->Dungeon_Random(charactor_height);
-		room_width = width - sw;
+		room_width  = width  - sw;
 		room_height = height - sh;
 
 		// 部屋の位置を決定する
@@ -137,10 +137,10 @@ void Create_Dungeon::Create_Room() {
 		room_y = random->Dungeon_Random(sh) + 2;
 
 		// 求めた結果から部屋の情報を設定
-		room->left = rectangle->left + room_x;
-		room->top = rectangle->top + room_y;
-		room->right = room->left + room_width;
-		room->bottom = room->top + room_height;
+		room->left   = rectangle->left + room_x;
+		room->top    = rectangle->top  + room_y;
+		room->right  = room->left      + room_width;
+		room->bottom = room->top       + room_height;
 
 		// 部屋を作る
 		Fill_Rectangle(
@@ -158,14 +158,14 @@ void Create_Dungeon::Create_Room() {
 			upstairs_y = y;
 		}
 
-		// 最後に作られた部屋の中にランダムに階段を設置
-		if (i == rectangle_count - 1) {
-			int x, y;
-			Random_Room_Point(i, &x, &y);
-			Get_Tile(x, y)->is_downstairs = true;
-			downstairs_x = x;
-			downstairs_y = y;
-		}
+		//// 最後に作られた部屋の中にランダムに階段を設置
+		//if (i == rectangle_count - 1) {
+		//	int x, y;
+		//	Random_Room_Point(i, &x, &y);
+		//	Get_Tile(x, y)->is_downstairs = true;
+		//	downstairs_x = x;
+		//	downstairs_y = y;
+		//}
 	}
 }
 
@@ -178,8 +178,8 @@ void Create_Dungeon::Connect_Room() {
 
 // 道を作る
 void Create_Dungeon::Create_Road(int set_room_A, int set_room_B) {
-	RECT* rect_A, *rect_B; // マクロ使用
-	RECT* room_A, *room_B; // マクロ使用
+	RECT* rect_A, *rect_B;
+	RECT* room_A, *room_B;
 
 	rect_A = &dungeon_rectangle[set_room_A].rect;
 	rect_B = &dungeon_rectangle[set_room_B].rect;
@@ -209,7 +209,6 @@ void Create_Dungeon::Create_Road(int set_room_A, int set_room_B) {
 			Fill_Rectangle(x1, y + 1, x1 + 1, room_A->top, false);
 			Fill_Rectangle(x2, room_B->bottom, x2 + 1, y, false);
 		}
-
 		else {
 			/*
 			  A
@@ -244,7 +243,6 @@ void Create_Dungeon::Create_Road(int set_room_A, int set_room_B) {
 			Fill_Rectangle(room_B->right, y2, x, y2 + 1, false);
 			Fill_Rectangle(x + 1, y1, room_A->left, y1 + 1, false);
 		}
-
 		else {
 			/*
 			  AB
@@ -263,23 +261,20 @@ void Create_Dungeon::Create_Road(int set_room_A, int set_room_B) {
 
 // 部屋の範囲+部屋の連結部のみ壁フラグをfalseに
 void Create_Dungeon::Fill_Rectangle(int left, int top, int right, int bottom, bool is_wall) {
-	if (left > right)
-	{
+	if (left > right) {
 		int tmp = left;
-		left = right;
-		right = tmp;
-	}
-	if (top > bottom)
-	{
-		int tmp = top;
-		top = bottom;
-		bottom = tmp;
+		left    = right;
+		right   = tmp;
 	}
 
-	for (y = top; y<bottom; y++)
-	{
-		for (x = left; x<right; x++)
-		{
+	if (top > bottom) {
+		int tmp = top;
+		top     = bottom;
+		bottom  = tmp;
+	}
+
+	for (y = top; y < bottom; ++y) {
+		for (x = left; x < right; ++x) {
 			Get_Tile(x, y)->is_wall = is_wall;
 		}
 	}
@@ -289,8 +284,8 @@ void Create_Dungeon::Fill_Rectangle(int left, int top, int right, int bottom, bo
 void Create_Dungeon::Fill_Horizontal_Line(int left, int right, int y, bool is_wall) {
 	if (left > right) {
 		int tmp = left;
-		left = right;
-		right = tmp;
+		left    = right;
+		right   = tmp;
 	}
 
 	for (x = left; x <= right; x++) {
@@ -302,8 +297,8 @@ void Create_Dungeon::Fill_Horizontal_Line(int left, int right, int y, bool is_wa
 void Create_Dungeon::Fill_Vertical_Line(int top, int bottom, int x, bool is_wall) {
 	if (top > bottom) {
 		int tmp = top;
-		top = bottom;
-		bottom = tmp;
+		top     = bottom;
+		bottom  = tmp;
 	}
 
 	for (y = top; y <= bottom; y++) {

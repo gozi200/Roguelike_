@@ -64,7 +64,7 @@ void Dungeon_Manager::Random_Room_Point(int index, int * x, int * y) {
 	RECT* room = &dungeon_rectangle[index].room;
 
 	*x = room->left + random->Dungeon_Random(RECTANGLE_WIDTH(*room));
-	*y = room->top + random->Dungeon_Random(RECTANGLE_HEIGHT(*room));
+	*y = room->top  + random->Dungeon_Random(RECTANGLE_HEIGHT(*room));
 }
 
 //指定位置の部屋インデックスを返す(道、壁なら-1を返す)

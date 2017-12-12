@@ -1,7 +1,5 @@
 #include"Tile_Graphic.h"
 
-
-
 Tile_Graphic::Tile_Graphic() {
 
 }

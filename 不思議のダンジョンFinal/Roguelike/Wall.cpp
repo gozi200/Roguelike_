@@ -2,8 +2,8 @@
 
 // コンストラクタ
 Wall::Wall() {
-	open = new Set_File();
-	wall_graphic = new Wall_Graphic();
+	set = std::make_shared<Set_File>();
+	wall_graphic = std::make_shared<Wall_Graphic>();
 
 	wall_graphic->Load(); // 画像データを読み込む
 	Set_Parametor();      // パラメータのセット
@@ -11,14 +11,12 @@ Wall::Wall() {
 
 // デストラクタ
 Wall::~Wall() {
-	delete open;
-	delete wall_graphic;
 }
 
 // csvで読み込んだ情報を構造体に格納していく
 void Wall::Set_Parametor() {
 	auto ifs = std::ifstream();
-	ifs.open(open->Set_File_Pass(file_pass, "csv/Stage/Wall/Wall.csv")); // csvファイルの場所を与え呼び出す
+	ifs.open(set->Set_File_Pass(file_pass, "csv/Stage/Wall/Wall.csv")); // csvファイルの場所を与え呼び出す
 
 	std::string line;
 	std::getline(ifs, line); // csvファイルの使わない行を読み飛ばす

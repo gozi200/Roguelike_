@@ -119,12 +119,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Create_Dungeon.cpp" />
     <ClCompile Include="Dungeon_GUI.cpp" />
     <ClCompile Include="Dungeon_Manager.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
     <ClCompile Include="Dungeon_Sycle.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Player_Graphic.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Split.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -139,14 +144,21 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="Dungeon_GUI.h" />
     <ClInclude Include="Dungeon_Manager.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Enemy_Manager.h" />
     <ClInclude Include="Game_Scene.h" />
     <ClInclude Include="Dungeon_Sycle.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Player_Graphic.h" />
+    <ClInclude Include="Player_Manager.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Split.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Set_File.h" />
     <ClInclude Include="Tile_Graphic.h" />
     <ClInclude Include="Tile_Judge.h" />
+    <ClInclude Include="Map_Tile.h" />
     <ClInclude Include="Wall.h" />
     <ClInclude Include="Wall_Graphic.h" />
   </ItemGroup>

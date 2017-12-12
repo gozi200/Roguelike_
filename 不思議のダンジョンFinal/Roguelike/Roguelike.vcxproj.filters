@@ -55,6 +55,24 @@
     <Filter Include="ソース ファイル\Object\Wall">
       <UniqueIdentifier>{1a7611dc-8175-49cd-a3d6-0e44b727430b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダーファイル\Item">
+      <UniqueIdentifier>{28a5cbf6-8d9e-4671-843b-4987edf94b1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor\Player">
+      <UniqueIdentifier>{212dcd91-612b-418f-b968-a849c4fb6162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor\Enemy">
+      <UniqueIdentifier>{fc962d5b-cd79-4171-b546-38b091783682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Item">
+      <UniqueIdentifier>{c7e64007-c62b-4d0d-a8fb-b80227ffc0f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor\Player">
+      <UniqueIdentifier>{be8404c4-169f-409d-95c6-1c9606f14898}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Actor\Enemy">
+      <UniqueIdentifier>{ae74a7cc-0f71-4f48-afba-ced92caf3dd8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -95,6 +113,21 @@
     </ClCompile>
     <ClCompile Include="Wall_Graphic.cpp">
       <Filter>ソース ファイル\Object\Wall</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>ソース ファイル\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>ソース ファイル\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>ソース ファイル\Actor\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル\Actor\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_Graphic.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +175,27 @@
     </ClInclude>
     <ClInclude Include="Dungeon_GUI.h">
       <Filter>ヘッダーファイル\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>ヘッダーファイル\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>ヘッダーファイル\Actor\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ヘッダーファイル\Actor\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_Manager.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Manager.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_Graphic.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Map_Tile.h">
+      <Filter>ヘッダーファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
