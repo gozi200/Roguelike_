@@ -36,31 +36,6 @@ public:
 	// デストラクタ
 	~Enemy();
 
-	// 座標のセット
-	void Set_Position(int x, int y) override;
-
-	// 座標の取得
-	void Get_Position(int* x, int* y, eDIRECTION* direction = NULL) override;
-
-	// hit_pointの増減
-	int Variation_HP(int value) override;
-
 	// ターンの終了
 	void Turn_End() override;
-
-	// 最大のHPの取得
-	int Get_Max_HP() override;
-
-	// 攻撃力の取得
-	int Get_Attack() override;
-
-	// 防御力の取得
-	int Get_Defence() override;
-
-	// 回避率を取得
-	int Get_Agility() override;
-
-	// 死亡判定
-	bool Is_Dead() override;
-
 };

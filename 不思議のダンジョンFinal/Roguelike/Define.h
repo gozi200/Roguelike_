@@ -57,7 +57,7 @@ const int CORNER_WALL_CAVE  = 3;
 
 #pragma region プレイヤーのID
 
-const int ARTRIA = 1;
+const int OKITA = 1;
 
 #pragma endregion
 
@@ -156,7 +156,7 @@ const int MAX_ENEMY = 500; // エネミーの量 ひとまず
 
 #pragma region 移動に関する定数
 
-const int CHARACTOR_DIRECTION = 8; // キャラクターの向く方向 上下左右＋斜めの８方向
+const int character_DIRECTION = 8; // キャラクターの向く方向 上下左右＋斜めの８方向
 
 #pragma endregion
 

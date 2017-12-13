@@ -111,7 +111,7 @@ void Create_Dungeon::Create_Room() {
 		width, height,                     // 区画の幅と高さ
 		room_x, room_y,                    // 部屋の大きさ(壁の分は抜き)
 		room_width, room_height,           // 部屋の幅と高さ(壁の分も込み)
-		charactor_width, charactor_height; // キャラクターの幅と高さ
+		character_width, character_height; // キャラクターの幅と高さ
 
 	//区画の分だけ部屋を作る
 	for (int i = 0; i < rectangle_count; ++i) {
@@ -123,12 +123,12 @@ void Create_Dungeon::Create_Room() {
 		height = RECTANGLE_HEIGHT(*rectangle) - 3;
 
 		// 区画に入る最小部屋の余裕を求める
-		charactor_width  = width  - MIN_ROOM_SIZE;
-		charactor_height = height - MIN_ROOM_SIZE;
+		character_width  = width  - MIN_ROOM_SIZE;
+		character_height = height - MIN_ROOM_SIZE;
 
 		// 部屋の大きさを決定する
-		sw = random->Dungeon_Random(charactor_width);
-		sh = random->Dungeon_Random(charactor_height);
+		sw = random->Dungeon_Random(character_width);
+		sh = random->Dungeon_Random(character_height);
 		room_width  = width  - sw;
 		room_height = height - sh;
 

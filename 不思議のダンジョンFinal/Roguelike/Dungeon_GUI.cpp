@@ -4,9 +4,11 @@
 Dungeon_GUI::Dungeon_GUI() {
 	tile = std::make_shared<Tile>();
 	wall = std::make_shared<Wall>();
+	player_manager = std::make_shared<Player_Manager>();
 	dungeon_manager = new Dungeon_Manager();
 
 	Create_Floor(); //TODO: ダンジョンに移動したとき、階層移動の時に呼ばれるようにする。
+	player_manager->Player_Arrange();
 }
 
 // デストラクタ
@@ -21,15 +23,15 @@ void Dungeon_GUI::Render() {
 	// TODO:　プレイヤーの座標を取得
 
 	// プレイヤーの位置を画面の中央へ
-	charactor_x = DUNGEON_WIDTH / 2 - 350;
-	charactor_y = DUNGEON_HEIGHT / 2;
+	character_x = DUNGEON_WIDTH / 2 - 350;
+	character_y = DUNGEON_HEIGHT / 2;
 
 	/*---------
 	地面の描画
 	---------*/
 	// ダンジョンの大きさをはかる(縦軸)
 	for (y = 0; y < dungeon_manager->height; ++y) {
-		dungeon_y = y * TILE_SIZE - charactor_y;
+		dungeon_y = y * TILE_SIZE - character_y;
 
 		// 画面外は無視
 		if (dungeon_y <= -TILE_SIZE / 2 || dungeon_y >= WINDOW_Y) {
@@ -40,7 +42,7 @@ void Dungeon_GUI::Render() {
 		for (x = 0; x < dungeon_manager->width; ++x) {
 			const Tile_Judge* tile_judge;
 
-			dungeon_x = x * TILE_SIZE - charactor_x;
+			dungeon_x = x * TILE_SIZE - character_x;
 
 			// 画面は無視
 			if (dungeon_x <= -TILE_SIZE / 2 || dungeon_x >= WINDOW_X) {

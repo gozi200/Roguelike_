@@ -58,9 +58,6 @@
     <Filter Include="ヘッダーファイル\Item">
       <UniqueIdentifier>{28a5cbf6-8d9e-4671-843b-4987edf94b1c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダーファイル\Actor\Player">
-      <UniqueIdentifier>{212dcd91-612b-418f-b968-a849c4fb6162}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダーファイル\Actor\Enemy">
       <UniqueIdentifier>{fc962d5b-cd79-4171-b546-38b091783682}</UniqueIdentifier>
     </Filter>
@@ -72,6 +69,12 @@
     </Filter>
     <Filter Include="ソース ファイル\Actor\Enemy">
       <UniqueIdentifier>{ae74a7cc-0f71-4f48-afba-ced92caf3dd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor\Ally">
+      <UniqueIdentifier>{727eabcf-ff99-467e-a0c5-04e94a89555f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Actor\Ally\Player">
+      <UniqueIdentifier>{212dcd91-612b-418f-b968-a849c4fb6162}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +132,12 @@
     <ClCompile Include="Player_Graphic.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Player_Manager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Ally.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -183,19 +192,22 @@
       <Filter>ヘッダーファイル\Actor\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>ヘッダーファイル\Actor\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Player_Manager.h">
-      <Filter>ヘッダーファイル</Filter>
+      <Filter>ヘッダーファイル\Actor\Ally\Player</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Manager.h">
-      <Filter>ヘッダーファイル</Filter>
+      <Filter>ヘッダーファイル\Actor\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Player_Graphic.h">
-      <Filter>ヘッダーファイル</Filter>
+      <Filter>ヘッダーファイル\Actor\Ally\Player</Filter>
     </ClInclude>
     <ClInclude Include="Map_Tile.h">
-      <Filter>ヘッダーファイル</Filter>
+      <Filter>ヘッダーファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_Manager.h">
+      <Filter>ヘッダーファイル\Actor\Ally\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Ally.h">
+      <Filter>ヘッダーファイル\Actor\Ally</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

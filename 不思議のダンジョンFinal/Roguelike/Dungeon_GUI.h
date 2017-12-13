@@ -2,6 +2,7 @@
 
 #include"Tile.h"
 #include"Wall.h"
+#include"Player_Manager.h"
 #include"Create_Dungeon.h"
 #include"Dungeon_Manager.h"
 
@@ -14,6 +15,7 @@
 
 class Dungeon_GUI : public Create_Dungeon {
 private:
+	std::shared_ptr<Player_Manager> player_manager;
 	std::shared_ptr<Tile> tile;
 	std::shared_ptr<Wall> wall;
 
@@ -21,8 +23,8 @@ private:
 		y;             // 画面全体の座標(縦)
 	int map_x,         // マップの座標(横)
 		map_y;         // マップの座標(縦)
-	int charactor_x,   // キャラクターの座標(縦)
-		charactor_y;   // キャラクターの座標(横)
+	int character_x,   // キャラクターの座標(縦)
+		character_y;   // キャラクターの座標(横)
 	int dungeon_x,     // ダンジョンの座標(縦)
 		dungeon_y;     // ダンジョンの座標(横)
 
