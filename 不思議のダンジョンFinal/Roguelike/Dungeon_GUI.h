@@ -6,6 +6,8 @@
 #include"Create_Dungeon.h"
 #include"Dungeon_Manager.h"
 
+#include"Player.h"
+
 #include<string>
 #include<memory>
 
@@ -18,6 +20,8 @@ private:
 	std::shared_ptr<Player_Manager> player_manager;
 	std::shared_ptr<Tile> tile;
 	std::shared_ptr<Wall> wall;
+
+	std::shared_ptr<Player> player;
 
 	int x,             // 画面全体の座標(横)
 		y;             // 画面全体の座標(縦)

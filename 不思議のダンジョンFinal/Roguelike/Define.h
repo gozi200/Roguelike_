@@ -174,7 +174,7 @@ const int DUNGEON_WIDTH  = 25; // ダンジョンの横マスの数 // 最終は50
 
 const int DUNGEON_HEIGHT = 25; // ダンジョンの縦マスの数
 
-const int MAX_RECTANGLE  = 10; // 区画の最大値
+const int MAX_RECTANGLE  = 10; // 区画の最大数
 
 const int MIN_ROOM_SIZE  = 4; // 最小の部屋のサイズ
 

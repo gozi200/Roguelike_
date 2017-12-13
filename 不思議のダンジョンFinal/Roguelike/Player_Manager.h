@@ -1,6 +1,8 @@
 #pragma once
 
 #include"Player.h"
+#include"Random.h"
+#include"Create_Dungeon.h"
 #include"Dungeon_Manager.h"
 
 #include<memory>
@@ -9,12 +11,14 @@ class Player_Manager {
 /*--------
 ƒƒ“ƒo•Ï”
 --------*/
-private:
+public:
 	int map_x, map_y,
 		character_x, character_y,
 		dungeon_y, dungeon_x;
 
+	Random random;
 	std::shared_ptr<Player> player;
+	std::shared_ptr<Create_Dungeon> create_dungeon;
 	std::shared_ptr<Dungeon_Manager> dungeon_manager;
 
 /*-------

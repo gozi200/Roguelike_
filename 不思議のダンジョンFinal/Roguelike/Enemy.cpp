@@ -12,7 +12,7 @@ Enemy::~Enemy() {
 
 // ターンの終了
 void Enemy::Turn_End() {
-	++turn_count;
+	Get_Turn_Count(1);
 
 	if (Is_Dead()) {
 		//TODO: アイテムを落とす

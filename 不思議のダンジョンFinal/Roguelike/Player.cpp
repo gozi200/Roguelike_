@@ -4,9 +4,12 @@
 Player::Player() {
 	set = std::make_shared<Set_File>();
 	player_graphic = std::make_shared<Player_Graphic>();
+	dungeon_manager = std::make_shared<Dungeon_Manager>();
+
+	spawn_point_x = 0;
+	spawn_point_y = 0;
 
 	player_graphic->Load(); // 画像データを読み込む
-	Set_Parametor();        // パラメータのセット
 }
 
 // デストラクタ
@@ -14,7 +17,20 @@ Player::~Player() {
 	
 }
 
+DUNEON_RECTANGLE* Player::Player_Set_Position() {
+	dungeon_manager->Random_Room_Point(
+		random.Dungeon_Random(dungeon_manager->rectangle_count),
+		&spawn_point_x,
+		&spawn_point_y);
+
+	Set_Position(spawn_point_x, spawn_point_y);
+
+	return 0;
+}
+
 void Player::Set_Parametor() {
+	Player_Set_Position();
+
 	auto ifs = std::ifstream();
 	ifs.open(set->Set_File_Pass(file_pass, "csv/Actor/Player/Player.csv")); // csvファイルの場所を与え呼び出す
 
@@ -22,8 +38,6 @@ void Player::Set_Parametor() {
 	std::getline(ifs, line); // csvファイルの使わない行を読み飛ばす
 	std::getline(ifs, line); // 同上
 	ifs.clear();             // 読み飛ばしたデータを破棄する
-
-	loop_count = 0;
 
 	// それぞれの要素にCSVデータと画像データを読み込む
 	while (!std::getline(ifs, line).eof()) {
@@ -33,24 +47,31 @@ void Player::Set_Parametor() {
 
 		player_data.ID                 = std::stoi(values[0]);  // ID
 		player_data.name               = values[1];			    // 名前
-		player_data.level              = std::stoi(values[2]);  // レベル
-		player_data.attack             = std::stoi(values[3]);  // 攻撃力
-		player_data.defence            = std::stoi(values[4]);  // 防御力
-		player_data.hit_point          = std::stoi(values[5]);  // 体力
-		player_data.max_hit_point      = std::stoi(values[6]);  // 体力の最大値
-		player_data.activity           = std::stoi(values[7]);  // 行動力(1ターンに動ける回数)
-		player_data.experience_point   = std::stoi(values[8]);  // 経験値
-		player_data.turn_count         = std::stoi(values[9]);  // 経過ターン
-		player_data.power              = std::stoi(values[10]); // 力(攻撃力へのボーナス)
-		player_data.max_power          = std::stoi(values[11]); // 力の最大値
-		player_data.hunger_point       = std::stoi(values[12]); // 満腹度
-		player_data.noble_phantasm     = std::stoi(values[13]); // 宝具を撃つためのポイント
-		player_data.max_noble_phantasm = std::stoi(values[14]); // 宝具を撃つためのポイントの最大値
-		player_data.width              = std::stoi(values[15]); // 画像の幅
-		player_data.height             = std::stoi(values[16]); // 画像の高さ
+		player_data.calss              = std::stoi(values[2]);  // クラス
+		player_data.level              = std::stoi(values[3]);  // レベル
+		player_data.attack             = std::stoi(values[4]);  // 攻撃力
+		player_data.defence            = std::stoi(values[5]);  // 防御力
+		player_data.hit_point          = std::stoi(values[6]);  // 体力
+		player_data.max_hit_point      = std::stoi(values[7]);  // 体力の最大値
+		player_data.activity           = std::stoi(values[8]);  // 行動力(1ターンに動ける回数)
+		player_data.experience_point   = std::stoi(values[9]);  // 経験値
+		player_data.turn_count         = std::stoi(values[10]); // 経過ターン
+		player_data.power              = std::stoi(values[11]); // 力(攻撃力へのボーナス)
+		player_data.max_power          = std::stoi(values[12]); // 力の最大値
+		player_data.hunger_point       = std::stoi(values[13]); // 満腹度
+		player_data.command_card       = std::stoi(values[14]); // コマンドカード枚数
+		player_data.arts_card          = std::stoi(values[15]); // アーツカードの枚数
+		player_data.quick_card         = std::stoi(values[16]); // クイックカードの枚数
+		player_data.budter_card        = std::stoi(values[17]); // バスターカードの枚数
+		player_data.star               = std::stoi(values[18]); // クリティカルスター保持数
+		player_data.star_occur         = std::stoi(values[19]); // スター発生率
+		player_data.noble_phantasm     = std::stoi(values[20]); // 宝具を撃つためのポイント
+		player_data.max_noble_phantasm = std::stoi(values[21]); // 宝具を撃つためのポイントの最大値
+		player_data.width              = std::stoi(values[22]); // 画像の幅
+		player_data.height             = std::stoi(values[23]); // 画像の高さ
 
 		// 画像のパスを格納
-		auto graphic_handle = LoadGraph(player_graphic->graphics[loop_count++]);
+		auto graphic_handle = LoadGraph(player_graphic->graphics[Get_Loop_Counter(1)]);
 		player_data.graphic_handle = graphic_handle;
 
 		player_datas.push_back(player_data); //１行ごとに配列に追加していく
@@ -72,12 +93,17 @@ void Player::Variation_Hunger_Point(int value) {
 	}
 }
 
+int Player::Get_Hunger_Percent()
+{
+	return (hunger_point * 100) / FILL_HUNGER_POINT;
+}
+
 // ターンの終了
 void Player::Turn_End() {
-	++turn_count;
+	Get_Turn_Count(1);
 
 	//TODO: 現在の最大HPに比例して回復量を上げる。現状は５ターンに１回復
-	if (turn_count % 5 == 0) {
+	if (Get_Turn_Count(0) % 5 == 0) {
 		Variation_HP(1);
 	}
 

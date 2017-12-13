@@ -2,21 +2,29 @@
 
 // コンストラクタ
 Game_Scene::Game_Scene() {
-	dungeon_sycle = new Dungeon_Sycle();
-
+	player = new Player();
 	dungeon_GUI = new Dungeon_GUI();
+	create_dungeon = new Create_Dungeon();
+
+	Initialize();
 }
 
 // デストラクタ
 Game_Scene::~Game_Scene() {
-	delete dungeon_sycle;
+	delete player;
 	delete dungeon_GUI;
 	delete create_dungeon;
 }
 
+void Game_Scene::Initialize() {
+	dungeon_GUI->Create_Floor(); //TODO: ダンジョンに移動したとき、階層移動の時に呼ばれるようにする。
+	
+	player->Set_Parametor();     // パラメータのセット
+}
+
 // 毎フレームごとに更新
 void Game_Scene::Update() {
-
+	
 }
 
 // 更新した内容を毎フレームごとに描画

@@ -60,7 +60,7 @@ int Dungeon_Manager::Get_Room_Count() {
 }
 
 // Žw’è‚µ‚½•”‰®“à‚Ì“K“–‚ÈÀ•W‚ðŽæ“¾
-void Dungeon_Manager::Random_Room_Point(int index, int * x, int * y) {
+void Dungeon_Manager::Random_Room_Point(int index, int* x, int* y) {
 	RECT* room = &dungeon_rectangle[index].room;
 
 	*x = room->left + random->Dungeon_Random(RECTANGLE_WIDTH(*room));

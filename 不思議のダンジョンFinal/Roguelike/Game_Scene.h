@@ -5,6 +5,7 @@
 #include"Dungeon_Sycle.h"
 #include"Dungeon_GUI.h"
 
+#include"Player.h" // Amended
 #include"Create_Dungeon.h"
 
 /*-------------------------
@@ -16,9 +17,8 @@ class Game_Scene {
 メンバ変数
 --------*/
 private:
+	Player* player;
 	Dungeon_GUI* dungeon_GUI;
-	Dungeon_Sycle* dungeon_sycle;
-
 	Create_Dungeon* create_dungeon;
 
 /*--------
@@ -30,6 +30,9 @@ public:
 	
 	// デストラクタ
 	~Game_Scene();
+
+	// 初期化
+	void Initialize();
 
 	// 毎フレームごとに更新
 	void Update();

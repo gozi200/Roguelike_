@@ -154,18 +154,7 @@ void Create_Dungeon::Create_Room() {
 			int x, y;
 			Random_Room_Point(i, &x, &y);
 			Get_Tile(x, y)->is_upstairs = true;
-			upstairs_x = x;
-			upstairs_y = y;
 		}
-
-		//// ÅŒã‚Éì‚ç‚ê‚½•”‰®‚Ì’†‚Éƒ‰ƒ“ƒ_ƒ€‚ÉŠK’i‚ðÝ’u
-		//if (i == rectangle_count - 1) {
-		//	int x, y;
-		//	Random_Room_Point(i, &x, &y);
-		//	Get_Tile(x, y)->is_downstairs = true;
-		//	downstairs_x = x;
-		//	downstairs_y = y;
-		//}
 	}
 }
 

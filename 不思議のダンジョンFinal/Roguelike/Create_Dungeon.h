@@ -15,18 +15,13 @@ class Create_Dungeon : public Dungeon_Manager {
 メンバ変数
 --------*/
 public:
-	Dungeon_Manager* dungeon_manager;
+	Dungeon_Manager* dungeon_manager; // TODO: スマートポインタにするとCreate_Dungeonの最終行でエラー
 
 
 	int x, // 座標(横)
 		y; // 座標(縦)
 
 	int a, b, ab, p;
-
-	int upstairs_x;	  // 昇り階段の座標(横)
-	int upstairs_y;	  // 昇り階段の座標(縦)
-	int downstairs_x; // 下り階段の座標(横)
-	int downstairs_y; // 下り階段の座標(縦)
 
 /*-------
 メンバ関数

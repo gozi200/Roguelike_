@@ -14,6 +14,7 @@ struct ACTOR_DATA {
 	int ID;				  // ナンバー
 	std::string  name;    // 名前
 						  
+	int calss;            // クラス
 	int level;			  // レベル
 	int attack;			  // 攻撃力
 	int defence;		  // 防御力
@@ -35,14 +36,17 @@ class Actor {
 /*--------
 メンバ変数
 --------*/
-protected:
+public:
+	int x;                // 横の座標
+	int y;                // 縦の座標
+	int level;            // レベル
+
+	std::string file_pass; 
+	std::shared_ptr<Set_File> set;
+private:
 	int ID;               // ナンバー
 	std::string* name;    // 名前
 
-	int x;                // 横の座標
-	int y;                // 縦の座標
-
-	int level;            // レベル
 	int power;            // ちから (攻撃力に加算するボーナス)
 	int max_power;        // 力の最大値
 	int attack;           // 攻撃力 (素の攻撃力。ここに武器の攻撃力、
@@ -57,10 +61,8 @@ protected:
 	int width;            // 表示される幅
 	int height;           // 表示される高さ
 
-	int loop_count;
+	int loop_counter;     // カウンター
 
-	std::shared_ptr<Set_File> set;
-	std::string file_pass; //ファイルのパス
 
 /*--------
 メンバ関数
@@ -68,6 +70,10 @@ protected:
 public:
 	// コンストラクタ
 	Actor();
+
+protected:
+	// デストラクタ
+	~Actor();
 
 	// 座標のセット
 	virtual void Set_Position(int x, int y);
@@ -79,26 +85,28 @@ public:
 	virtual int Variation_HP(int value);
 
 	// 最大のHPの取得
-	virtual int Get_Max_HP();
+	virtual int Get_Max_HP(int set_max_HP);
 
 	// 攻撃力の取得
-	virtual int Get_Attack();
+	virtual int Get_Attack(int set_ATK);
 
 	// 防御力の取得
-	virtual int Get_Defence();
+	virtual int Get_Defence(int set_DEF);
+
+	// カウンターを回す
+	virtual int Get_Loop_Counter(int set_counter);
+
+	// ターンカウントを回す
+	virtual int Get_Turn_Count(int set_turn_count);
 
 	// 死亡判定
 	virtual bool Is_Dead();
 
-protected:
-	// デストラクタ
-	~Actor();
+	// ターンの終了
+	virtual void Turn_End();
 
 	//ステータスをセット
 	virtual void Set_Parametor() = 0;
-
-	// ターンの終了
-	virtual void Turn_End() = 0;
 
 	// 描画
 	virtual void Render(int x, int y, int call_ID) = 0;

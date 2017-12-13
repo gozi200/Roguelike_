@@ -4,18 +4,15 @@
 Dungeon_GUI::Dungeon_GUI() {
 	tile = std::make_shared<Tile>();
 	wall = std::make_shared<Wall>();
-	player_manager = std::make_shared<Player_Manager>();
 	dungeon_manager = new Dungeon_Manager();
+	player_manager = std::make_shared<Player_Manager>();
 
-	Create_Floor(); //TODO: ダンジョンに移動したとき、階層移動の時に呼ばれるようにする。
-	player_manager->Player_Arrange();
+	player = std::make_shared<Player>();
 }
 
 // デストラクタ
 Dungeon_GUI::~Dungeon_GUI() {
-	//delete tile;
-	//delete wall;
-	//delete dungeon_manager;
+
 }
 
 // 描画
@@ -23,8 +20,8 @@ void Dungeon_GUI::Render() {
 	// TODO:　プレイヤーの座標を取得
 
 	// プレイヤーの位置を画面の中央へ
-	character_x = DUNGEON_WIDTH / 2 - 350;
-	character_y = DUNGEON_HEIGHT / 2;
+	//player_manager->character_x = DUNGEON_WIDTH / 2 - 350;
+	//player_manager->character_y = DUNGEON_HEIGHT / 2;
 
 	/*---------
 	地面の描画
@@ -71,10 +68,7 @@ void Dungeon_GUI::Render() {
 			if (tile_judge->is_upstairs) {
 				tile->Render(UP_STAIRS, dungeon_x, dungeon_y); // Define定数使用
 			}
-			//// 下り階段か
-			//else if (tile_judge->is_downstairs) {
-			//	tile->Render(DOWN_STAIRS, dungeon_x, dungeon_y); 現状では下り階段はいらない
-			//}
+			
 			//それ以外は床
 			else {
 				tile->Render(TILE_GRASS, dungeon_x, dungeon_y);
@@ -82,4 +76,5 @@ void Dungeon_GUI::Render() {
 			// TODO: 画面外は暗黒ではなく壁を挿入
 		}
 	}
+	player->Render(player->x, player->y, OKITA); //同上 TODO: Runのようなものを作る?
 }
