@@ -2,11 +2,8 @@
 
 #include"Tile.h"
 #include"Wall.h"
-#include"Player_Manager.h"
-#include"Create_Dungeon.h"
 #include"Dungeon_Manager.h"
-
-#include"Player.h"
+#include"Create_Dungeon_Map.h"
 
 #include<string>
 #include<memory>
@@ -15,13 +12,10 @@
 ダンジョンの画面を描画するクラス
 -----------------------------*/
 
-class Dungeon_GUI : public Create_Dungeon {
+class Dungeon_GUI : public Create_Dungeon_Map {
 private:
-	std::shared_ptr<Player_Manager> player_manager;
 	std::shared_ptr<Tile> tile;
 	std::shared_ptr<Wall> wall;
-
-	std::shared_ptr<Player> player;
 
 	int x,             // 画面全体の座標(横)
 		y;             // 画面全体の座標(縦)

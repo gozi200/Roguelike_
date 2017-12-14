@@ -10,14 +10,11 @@
 ダンジョンマップを生成するクラス : Dungeon_Managerを継承
 ----------------------------------------------------*/
 
-class Create_Dungeon : public Dungeon_Manager {
+class Create_Dungeon_Map : public Dungeon_Manager {
 /*--------
 メンバ変数
 --------*/
-public:
-	Dungeon_Manager* dungeon_manager; // TODO: スマートポインタにするとCreate_Dungeonの最終行でエラー
-
-
+private:
 	int x, // 座標(横)
 		y; // 座標(縦)
 
@@ -28,11 +25,15 @@ public:
 --------*/
 public:
 	//コンストラクタ 
-	Create_Dungeon();
+	Create_Dungeon_Map();
 	
 	// デストラクタ
-	~Create_Dungeon();
+	~Create_Dungeon_Map();
 
+	//１フロア分のダンジョンを生成する。ダンジョンへ移行、階層移動ごとに呼び出す
+	void Create_Floor();
+
+private:
 	/*区画を作る
 	  @param left   左辺
 	  @param top    上辺
@@ -66,9 +67,6 @@ public:
 
 	// 部屋と部屋の横道を繋ぐ
 	void Fill_Vertical_Line(int top, int bottom, int x, bool is_wall);
-
-	//１フロア分のダンジョンを生成する。ダンジョンへ移行、階層移動ごとに呼び出す
-	void Create_Floor();
 
 	// １フロア分のダンジョンの構成を設定する(区画の数、部屋の数など)
 	void Set_Dungeon();

@@ -92,7 +92,7 @@ void Ally::Add_Experience_Point(int add_EXP) {
 	// SEND
 
 	// レベルアップ？
-	if (EXP_DATA[level - 1] <= Get_Experience_Point(0)) {
+	if(EXP_DATA[level -1] <= Get_Experience_Point(0)) {
 		int new_Lv = Get_EXP_Level();
 
 		// 一度で何個か分あがっても大丈夫なように、上がった分処理を行う
@@ -120,7 +120,7 @@ void Ally::Add_Experience_Point(int add_EXP) {
 	}
 }
 
-int Actor::Get_Experience_Point(int set_EXP) {
+int Ally::Get_Experience_Point(int set_EXP) {
 	// 獲得経験値を代入
 	experience_point += set_EXP;
 

@@ -59,6 +59,18 @@ int Dungeon_Manager::Get_Room_Count() {
 	return rectangle_count; //１区画に部屋は一つなのでrectで代用
 }
 
+int Dungeon_Manager::Get_Width (int set_width) {
+	width += set_width;
+
+	return width;
+}
+
+int Dungeon_Manager::Get_Height(int set_height) {
+	height += set_height;
+
+	return height;
+}
+
 // 指定した部屋内の適当な座標を取得
 void Dungeon_Manager::Random_Room_Point(int index, int* x, int* y) {
 	RECT* room = &dungeon_rectangle[index].room;

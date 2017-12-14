@@ -3,13 +3,16 @@
 // コンストラクタ
 Player::Player() {
 	set = std::make_shared<Set_File>();
-	player_graphic = std::make_shared<Player_Graphic>();
+	player_graphic  = std::make_shared<Player_Graphic>();
 	dungeon_manager = std::make_shared<Dungeon_Manager>();
 
 	spawn_point_x = 0;
 	spawn_point_y = 0;
+	loop_counter  = 0;
 
 	player_graphic->Load(); // 画像データを読み込む
+
+	Set_Parametor();
 }
 
 // デストラクタ
@@ -17,15 +20,13 @@ Player::~Player() {
 	
 }
 
-DUNEON_RECTANGLE* Player::Player_Set_Position() {
+void Player::Player_Set_Position() {
 	dungeon_manager->Random_Room_Point(
 		random.Dungeon_Random(dungeon_manager->rectangle_count),
 		&spawn_point_x,
 		&spawn_point_y);
 
 	Set_Position(spawn_point_x, spawn_point_y);
-
-	return 0;
 }
 
 void Player::Set_Parametor() {
@@ -71,7 +72,7 @@ void Player::Set_Parametor() {
 		player_data.height             = std::stoi(values[23]); // 画像の高さ
 
 		// 画像のパスを格納
-		auto graphic_handle = LoadGraph(player_graphic->graphics[Get_Loop_Counter(1)]);
+		auto graphic_handle = LoadGraph(player_graphic->graphics[loop_counter++]);
 		player_data.graphic_handle = graphic_handle;
 
 		player_datas.push_back(player_data); //１行ごとに配列に追加していく
@@ -93,8 +94,7 @@ void Player::Variation_Hunger_Point(int value) {
 	}
 }
 
-int Player::Get_Hunger_Percent()
-{
+int Player::Get_Hunger_Percent() {
 	return (hunger_point * 100) / FILL_HUNGER_POINT;
 }
 

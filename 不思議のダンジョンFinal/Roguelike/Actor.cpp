@@ -2,7 +2,7 @@
 
 // コンストラクタ
 Actor::Actor() {
-	Get_Loop_Counter(0); // 初期化
+
 }
 
 // デストラクタ
@@ -73,13 +73,13 @@ int Actor::Get_Defence(int set_DEF) {
 	return defence;
 }
 
-// カウンターを回す
-int Actor::Get_Loop_Counter(int set_counter)
-{
-	loop_counter += set_counter;
-
-	return loop_counter;
-}
+//// カウンターを回す
+//int Actor::Get_Loop_Counter(int set_counter)
+//{
+//	loop_counter += set_counter;
+//
+//	return loop_counter;
+//}
 
 // ターンカウントを回す
 int Actor::Get_Turn_Count(int set_turn_count)

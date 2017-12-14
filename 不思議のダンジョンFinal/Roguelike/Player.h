@@ -28,15 +28,15 @@ class Player : public Ally {
 /*--------
 メンバ変数
 --------*/
-public:
+private:
 	std::shared_ptr<Player_Graphic> player_graphic;
 	std::shared_ptr<Dungeon_Manager> dungeon_manager;
+	std::vector<PLAYER_DATA> player_datas; // キャラ毎に格納
 	
 	int spawn_point_x;      // 生成の座標(横)
 	int spawn_point_y;      // 生成の座標(縦)
 	int hunger_point;       // 空腹ポイント
 
-	std::vector<PLAYER_DATA> player_datas; // キャラ毎に格納
 /*--------
 メンバ関数
 ---------*/
@@ -47,17 +47,15 @@ public:
 	// デストラクタ
 	~Player();
 
+private:
 	// 座標を取得
-	DUNEON_RECTANGLE* Player_Set_Position();
+	void Player_Set_Position();
 
 	// パラメータをセット
 	void Set_Parametor() override;
 
 	// ターンの終了
 	void Turn_End() override;
-
-	// 描画
-	void Render(int x, int y, int call_ID) override;
 
 	// おなかゲージの増減
 	void Variation_Hunger_Point(int value);
@@ -70,4 +68,8 @@ public:
 
 	// 空腹率を 0~100% で返す
 	int Get_Hunger_Percent();
+
+public:
+	// 描画
+	void Render(int x, int y, int call_ID) override;
 };

@@ -4,7 +4,7 @@
 Player_Manager::Player_Manager() {
 	player = std::make_shared<Player>();
 	dungeon_manager = std::make_shared<Dungeon_Manager>();
-	create_dungeon = std::make_shared<Create_Dungeon>();	
+	create_dungeon_map = std::make_shared<Create_Dungeon_Map>();	
 }
 
 // デストラクタ

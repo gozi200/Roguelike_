@@ -76,6 +76,9 @@
     <Filter Include="ヘッダーファイル\Actor\Ally\Player">
       <UniqueIdentifier>{212dcd91-612b-418f-b968-a849c4fb6162}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Actor\Ally">
+      <UniqueIdentifier>{523ef277-c72e-4fac-b233-beaa0c8995d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -98,9 +101,6 @@
     </ClCompile>
     <ClCompile Include="Random.cpp">
       <Filter>ソース ファイル\System</Filter>
-    </ClCompile>
-    <ClCompile Include="Create_Dungeon.cpp">
-      <Filter>ソース ファイル\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Dungeon_Manager.cpp">
       <Filter>ソース ファイル\Dungeon</Filter>
@@ -130,13 +130,16 @@
       <Filter>ソース ファイル\Actor\Player</Filter>
     </ClCompile>
     <ClCompile Include="Player_Graphic.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Actor\Player</Filter>
     </ClCompile>
     <ClCompile Include="Player_Manager.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Actor\Player</Filter>
     </ClCompile>
     <ClCompile Include="Ally.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Actor\Ally</Filter>
+    </ClCompile>
+    <ClCompile Include="Create_Dungeon_Map.cpp">
+      <Filter>ソース ファイル\Dungeon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,9 +163,6 @@
     </ClInclude>
     <ClInclude Include="Set_File.h">
       <Filter>ヘッダーファイル\System</Filter>
-    </ClInclude>
-    <ClInclude Include="Create_Dungeon.h">
-      <Filter>ヘッダーファイル\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Random.h">
       <Filter>ヘッダーファイル\System</Filter>
@@ -208,6 +208,9 @@
     </ClInclude>
     <ClInclude Include="Ally.h">
       <Filter>ヘッダーファイル\Actor\Ally</Filter>
+    </ClInclude>
+    <ClInclude Include="Create_Dungeon_Map.h">
+      <Filter>ヘッダーファイル\Dungeon</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

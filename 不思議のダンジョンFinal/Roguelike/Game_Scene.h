@@ -5,9 +5,6 @@
 #include"Dungeon_Sycle.h"
 #include"Dungeon_GUI.h"
 
-#include"Player.h" // Amended
-#include"Create_Dungeon.h"
-
 /*-------------------------
 ゲームシーンを管理するクラス
 -------------------------*/
@@ -17,9 +14,7 @@ class Game_Scene {
 メンバ変数
 --------*/
 private:
-	Player* player;
 	Dungeon_GUI* dungeon_GUI;
-	Create_Dungeon* create_dungeon;
 
 /*--------
 メンバ関数

@@ -40,9 +40,11 @@ public:
 	int x;                // 横の座標
 	int y;                // 縦の座標
 	int level;            // レベル
+	int loop_counter;     // カウンター
 
 	std::string file_pass; 
 	std::shared_ptr<Set_File> set;
+
 private:
 	int ID;               // ナンバー
 	std::string* name;    // 名前
@@ -55,14 +57,14 @@ private:
 	int max_hit_point;    // ヒットポイントの最大値
 	int activity;         // 行動力(ここでは１ターンに行動できる数)
 	int turn_count;       // 経過ターンをカウント
-	int experience_point; // 経験値(敵から与える、敵から貰える値)
 
 	int graphic_handle;   // 画像のハンドル
 	int width;            // 表示される幅
 	int height;           // 表示される高さ
 
-	int loop_counter;     // カウンター
-
+	
+protected:
+	int experience_point; // 経験値(敵から与える、敵から貰える値)
 
 /*--------
 メンバ関数
@@ -93,8 +95,8 @@ protected:
 	// 防御力の取得
 	virtual int Get_Defence(int set_DEF);
 
-	// カウンターを回す
-	virtual int Get_Loop_Counter(int set_counter);
+	//// カウンターを回す
+	//virtual int Get_Loop_Counter(int set_counter);
 
 	// ターンカウントを回す
 	virtual int Get_Turn_Count(int set_turn_count);

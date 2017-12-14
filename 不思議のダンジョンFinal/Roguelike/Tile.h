@@ -33,14 +33,14 @@ public:
 	//デストラクタ
 	~Tile();
 
-	//csvで読み込んだ情報を格納していく
-	void Set_Parametor();
-
-public:
 	/*引数のIDと同じIDの画像を、引数の座標へ描画する
 	  @param x       横座標
 	  @param y       縦座標
 	  @param call_ID 呼び出しID
 	*/
 	void Render(int x, int y, int call_ID);
+	
+private:
+	//csvで読み込んだ情報を格納していく
+	void Set_Parametor();
 };

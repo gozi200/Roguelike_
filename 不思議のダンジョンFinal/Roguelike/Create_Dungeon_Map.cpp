@@ -1,16 +1,15 @@
-#include "Create_Dungeon.h"
+#include "Create_Dungeon_Map.h"
 
 // コンストラクタ
-Create_Dungeon::Create_Dungeon() {
-	dungeon_manager = new Dungeon_Manager();
+Create_Dungeon_Map::Create_Dungeon_Map() {
 }
 
 // デストラクタ
-Create_Dungeon::~Create_Dungeon() {
+Create_Dungeon_Map::~Create_Dungeon_Map() {
 }
 
 // 区画を作る
-DUNEON_RECTANGLE* Create_Dungeon::Create_Rectangle(int left, int top, int right, int bottom) {
+DUNEON_RECTANGLE* Create_Dungeon_Map::Create_Rectangle(int left, int top, int right, int bottom) {
 	DUNEON_RECTANGLE* new_rectangle;
 
 	new_rectangle = &dungeon_rectangle[rectangle_count];
@@ -22,7 +21,7 @@ DUNEON_RECTANGLE* Create_Dungeon::Create_Rectangle(int left, int top, int right,
 }
 
 // 作った区画を分割する
-void Create_Dungeon::Split_Rectangle(bool is_vertical) {
+void Create_Dungeon_Map::Split_Rectangle(bool is_vertical) {
 	DUNEON_RECTANGLE* parent;
 	DUNEON_RECTANGLE* child;
 	RECT* rectangle;
@@ -106,7 +105,7 @@ void Create_Dungeon::Split_Rectangle(bool is_vertical) {
 }
 
 // 部屋を作る
-void Create_Dungeon::Create_Room() {
+void Create_Dungeon_Map::Create_Room() {
 	int	sw, sh,                            // TODO:?
 		width, height,                     // 区画の幅と高さ
 		room_x, room_y,                    // 部屋の大きさ(壁の分は抜き)
@@ -159,14 +158,14 @@ void Create_Dungeon::Create_Room() {
 }
 
 // 部屋同士を繋げる
-void Create_Dungeon::Connect_Room() {
+void Create_Dungeon_Map::Connect_Room() {
 	for (int i = 0; i < rectangle_count - 1; ++i) {
 		Create_Road(i, i + 1);
 	}
 }
 
 // 道を作る
-void Create_Dungeon::Create_Road(int set_room_A, int set_room_B) {
+void Create_Dungeon_Map::Create_Road(int set_room_A, int set_room_B) {
 	RECT* rect_A, *rect_B;
 	RECT* room_A, *room_B;
 
@@ -249,7 +248,7 @@ void Create_Dungeon::Create_Road(int set_room_A, int set_room_B) {
 }
 
 // 部屋の範囲+部屋の連結部のみ壁フラグをfalseに
-void Create_Dungeon::Fill_Rectangle(int left, int top, int right, int bottom, bool is_wall) {
+void Create_Dungeon_Map::Fill_Rectangle(int left, int top, int right, int bottom, bool is_wall) {
 	if (left > right) {
 		int tmp = left;
 		left    = right;
@@ -270,7 +269,7 @@ void Create_Dungeon::Fill_Rectangle(int left, int top, int right, int bottom, bo
 }
 
 // 部屋と部屋の縦道を繋ぐ
-void Create_Dungeon::Fill_Horizontal_Line(int left, int right, int y, bool is_wall) {
+void Create_Dungeon_Map::Fill_Horizontal_Line(int left, int right, int y, bool is_wall) {
 	if (left > right) {
 		int tmp = left;
 		left    = right;
@@ -283,7 +282,7 @@ void Create_Dungeon::Fill_Horizontal_Line(int left, int right, int y, bool is_wa
 }
 
 // 部屋と部屋の横道を繋ぐ
-void Create_Dungeon::Fill_Vertical_Line(int top, int bottom, int x, bool is_wall) {
+void Create_Dungeon_Map::Fill_Vertical_Line(int top, int bottom, int x, bool is_wall) {
 	if (top > bottom) {
 		int tmp = top;
 		top     = bottom;
@@ -296,18 +295,18 @@ void Create_Dungeon::Fill_Vertical_Line(int top, int bottom, int x, bool is_wall
 }
 
 // １フロア分のダンジョンの設定をする
-void Create_Dungeon::Set_Dungeon() {
+void Create_Dungeon_Map::Set_Dungeon() {
 	rectangle_count = 0;
 
 	// 初期化(マップ全てを壁にする)
-	for (int y = 0; y < height; ++y) {
-		for (int x = 0; x < width; ++x) {
+	for (int y = 0; y < Get_Height(0); ++y) {
+		for (int x = 0; x < Get_Width(0); ++x) {
 			Get_Tile(x, y)->is_wall = true;
 		}
 	}
 
 	// 区画を作る
-	Create_Rectangle(0, 0, width - 1, height - 1);
+	Create_Rectangle(0, 0, Get_Width(0) - 1, Get_Height(0) - 1);
 
 	// Create_Rectangleで定めた区画を細分化していく
 	Split_Rectangle(random->Dungeon_Random(2) ? true : false);
@@ -320,7 +319,7 @@ void Create_Dungeon::Set_Dungeon() {
 }
 
 // 1フロア分のダンジョンを生成する
-void Create_Dungeon::Create_Floor() {
+void Create_Dungeon_Map::Create_Floor() {
 	// TODO: 階層が進むときは、前の階を破壊	
 
 	// ダンジョンのメモリを確保
@@ -328,6 +327,4 @@ void Create_Dungeon::Create_Floor() {
 
 	// １フロア分のダンジョンの構成を設定る(区画の数、部屋の数など)
 	Set_Dungeon();
-
-	dungeon_manager = this; //設定したものを代入する
 }
