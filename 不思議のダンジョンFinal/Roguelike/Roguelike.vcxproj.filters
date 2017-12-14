@@ -108,9 +108,6 @@
     <ClCompile Include="Dungeon_Sycle.cpp">
       <Filter>ソース ファイル\Dungeon</Filter>
     </ClCompile>
-    <ClCompile Include="Dungeon_GUI.cpp">
-      <Filter>ソース ファイル\Dungeon</Filter>
-    </ClCompile>
     <ClCompile Include="Wall.cpp">
       <Filter>ソース ファイル\Object\Wall</Filter>
     </ClCompile>
@@ -139,6 +136,9 @@
       <Filter>ソース ファイル\Actor\Ally</Filter>
     </ClCompile>
     <ClCompile Include="Create_Dungeon_Map.cpp">
+      <Filter>ソース ファイル\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Make_Dungeon_Map.cpp">
       <Filter>ソース ファイル\Dungeon</Filter>
     </ClCompile>
   </ItemGroup>
@@ -182,9 +182,6 @@
     <ClInclude Include="Dungeon_Sycle.h">
       <Filter>ヘッダーファイル\Dungeon</Filter>
     </ClInclude>
-    <ClInclude Include="Dungeon_GUI.h">
-      <Filter>ヘッダーファイル\Dungeon</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>ヘッダーファイル\Item</Filter>
     </ClInclude>
@@ -210,6 +207,9 @@
       <Filter>ヘッダーファイル\Actor\Ally</Filter>
     </ClInclude>
     <ClInclude Include="Create_Dungeon_Map.h">
+      <Filter>ヘッダーファイル\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Make_Dungeon_Map.h">
       <Filter>ヘッダーファイル\Dungeon</Filter>
     </ClInclude>
   </ItemGroup>

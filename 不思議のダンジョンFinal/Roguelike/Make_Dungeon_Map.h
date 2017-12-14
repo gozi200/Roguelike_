@@ -8,11 +8,11 @@
 #include<string>
 #include<memory>
 
-/*----------------------------
-ダンジョンの画面を描画するクラス
------------------------------*/
+/*-------------------------------------
+ダンジョンのデータを参照し、画像を配置する
+--------------------------------------*/
 
-class Dungeon_GUI : public Create_Dungeon_Map {
+class Make_Dungeon_Map : public Create_Dungeon_Map {
 private:
 	std::shared_ptr<Tile> tile;
 	std::shared_ptr<Wall> wall;
@@ -33,10 +33,10 @@ private:
 ---------*/
 public:
 	// コンストラクタ
-	Dungeon_GUI();
+	Make_Dungeon_Map();
 
 	// デストラクタ
-	~Dungeon_GUI();
+	~Make_Dungeon_Map();
 
 	//画面の描画
 	void Render();

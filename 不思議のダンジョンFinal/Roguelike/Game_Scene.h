@@ -3,7 +3,7 @@
 #include"DxLib.h"
 #include"Define.h"
 #include"Dungeon_Sycle.h"
-#include"Dungeon_GUI.h"
+#include"Make_Dungeon_Map.h"
 
 /*-------------------------
 ゲームシーンを管理するクラス
@@ -14,7 +14,7 @@ class Game_Scene {
 メンバ変数
 --------*/
 private:
-	Dungeon_GUI* dungeon_GUI;
+	Make_Dungeon_Map* make_dungeon_map;
 
 /*--------
 メンバ関数

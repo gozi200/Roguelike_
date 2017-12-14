@@ -1,7 +1,7 @@
-#include "Dungeon_GUI.h"
+#include "Make_Dungeon_Map.h"
 
 // コンストラクタ
-Dungeon_GUI::Dungeon_GUI() {
+Make_Dungeon_Map::Make_Dungeon_Map() {
 	tile = std::make_shared<Tile>();
 	wall = std::make_shared<Wall>();
 //	dungeon_manager = new Dungeon_Manager();
@@ -11,12 +11,12 @@ Dungeon_GUI::Dungeon_GUI() {
 }
 
 // デストラクタ
-Dungeon_GUI::~Dungeon_GUI() {
+Make_Dungeon_Map::~Make_Dungeon_Map() {
 
 }
 
 // 描画
-void Dungeon_GUI::Render() {
+void Make_Dungeon_Map::Render() {
 	// TODO:　プレイヤーの座標を取得
 
 	// プレイヤーの位置を画面の中央へ
