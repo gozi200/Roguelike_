@@ -2,8 +2,9 @@
 
 #include"DxLib.h"
 #include"Define.h"
-#include"Dungeon_Sycle.h"
-#include"Make_Dungeon_Map.h"
+#include"Make_Dungeon.h"
+
+#include<memory>
 
 /*-------------------------
 ゲームシーンを管理するクラス
@@ -14,7 +15,7 @@ class Game_Scene {
 メンバ変数
 --------*/
 private:
-	Make_Dungeon_Map* make_dungeon_map;
+	std::shared_ptr<Make_Dungeon> make_dungeon;
 
 /*--------
 メンバ関数
@@ -25,9 +26,6 @@ public:
 	
 	// デストラクタ
 	~Game_Scene();
-
-	// 初期化
-	void Initialize();
 
 	// 毎フレームごとに更新
 	void Update();

@@ -22,8 +22,8 @@ DUNEON_RECTANGLE* Create_Dungeon_Map::Create_Rectangle(int left, int top, int ri
 
 // 作った区画を分割する
 void Create_Dungeon_Map::Split_Rectangle(bool is_vertical) {
-	DUNEON_RECTANGLE* parent;
 	DUNEON_RECTANGLE* child;
+	DUNEON_RECTANGLE* parent;
 	RECT* rectangle;
 
 	// 分ける区画情報を取得
@@ -38,6 +38,7 @@ void Create_Dungeon_Map::Split_Rectangle(bool is_vertical) {
 		if (RECTANGLE_WIDTH(*rectangle) < (MIN_ROOM_SIZE + 3) * 2 + 1) {
 			return; // 分割できないときは終了
 		}
+		int a, b, ab, p; // TODO: 変数名
 
 		// 左端のA点を求める
 		a = MIN_ROOM_SIZE + 3;
@@ -72,7 +73,7 @@ void Create_Dungeon_Map::Split_Rectangle(bool is_vertical) {
 			// 分割できないときは終了
 			return;
 		}
-
+		int a, b, ab, p; // TODO: 変数名
 		a = MIN_ROOM_SIZE + 3;
 		b = RECTANGLE_HEIGHT(*rectangle) - MIN_ROOM_SIZE - 4;
 		ab = b - a;
@@ -227,6 +228,7 @@ void Create_Dungeon_Map::Create_Road(int set_room_A, int set_room_B) {
 			  の並びのとき
 			*/
 			x = rect_A->left;
+
 			// AB間の縦道を繋ぐ道を作る
 			Fill_Rectangle(room_B->right, y2, x, y2 + 1, false);
 			Fill_Rectangle(x + 1, y1, room_A->left, y1 + 1, false);
@@ -237,6 +239,7 @@ void Create_Dungeon_Map::Create_Road(int set_room_A, int set_room_B) {
 			  の並びの時
 			*/
 			x = rect_B->left;
+
 			// AB間の縦道を繋ぐ道を作る
 			Fill_Rectangle(room_A->right, y1, x, y1 + 1, false);
 			Fill_Rectangle(x, y2, room_B->left, y2 + 1, false);
@@ -261,8 +264,8 @@ void Create_Dungeon_Map::Fill_Rectangle(int left, int top, int right, int bottom
 		bottom  = tmp;
 	}
 
-	for (y = top; y < bottom; ++y) {
-		for (x = left; x < right; ++x) {
+	for (int y = top; y < bottom; ++y) {
+		for (int x = left; x < right; ++x) {
 			Get_Tile(x, y)->is_wall = is_wall;
 		}
 	}
@@ -276,7 +279,7 @@ void Create_Dungeon_Map::Fill_Horizontal_Line(int left, int right, int y, bool i
 		right   = tmp;
 	}
 
-	for (x = left; x <= right; x++) {
+	for (int x = left; x <= right; x++) {
 		Get_Tile(x, y)->is_wall = is_wall;
 	}
 }
@@ -289,7 +292,7 @@ void Create_Dungeon_Map::Fill_Vertical_Line(int top, int bottom, int x, bool is_
 		bottom  = tmp;
 	}
 
-	for (y = top; y <= bottom; y++) {
+	for (int y = top; y <= bottom; y++) {
 		Get_Tile(x, y)->is_wall = is_wall;
 	}
 }
@@ -299,14 +302,14 @@ void Create_Dungeon_Map::Set_Dungeon() {
 	rectangle_count = 0;
 
 	// 初期化(マップ全てを壁にする)
-	for (int y = 0; y < Get_Height(0); ++y) {
-		for (int x = 0; x < Get_Width(0); ++x) {
+	for (int y = 0; y < Get_Height(); ++y) {
+		for (int x = 0; x < Get_Width(); ++x) {
 			Get_Tile(x, y)->is_wall = true;
 		}
 	}
 
 	// 区画を作る
-	Create_Rectangle(0, 0, Get_Width(0) - 1, Get_Height(0) - 1);
+	Create_Rectangle(0, 0, Get_Width() - 1, Get_Height() - 1);
 
 	// Create_Rectangleで定めた区画を細分化していく
 	Split_Rectangle(random->Dungeon_Random(2) ? true : false);

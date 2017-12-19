@@ -1,3 +1,4 @@
-ID,name,class,level,attack,defence,hit_point,max_hit_point,activity,experience_point,turn_count,powe,max_power,hunger_point,command_card,arts_card,quick_card,buster_card,star,star_occur,noble_phantasm,max_noble_phantasm,width,height
-int,char*,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int
-1,Okita,1,1,10,10,15,15,1,0,0,8,16,100,5,1,2,2,0,10,0,100,30,30
+番号,名前,クラス,再臨,レベル,体力,最大体力,ちから,力の最大値,行動回数,素の攻撃力,素の防御力,おなか,スキル,スター発生率,スター保持数,コマンドカード枚数,アーツの枚数,アーツの攻撃ヒット数,クイックの枚数,クイックの攻撃ヒット数,バスターの枚数,バスターの攻撃ヒット数,エクストラアタック,宝具,NP,NP最大値,攻撃時のNP効率,被ダメのNP効率,経験値,経過ターン,画像の幅,画像の高さ
+ID,name ,class,saint_graph,level,hit_point,max_hit_point,power,max_power,activity,attack,defence,hunger_point,skill,star_generator,keep_star,command_card,arts_card,arts_attack_count,quick_card,quick_attack_count,buster_card,buster_attack_count,extra_attack,noble_weapon,noble_phantasm,max_noble_phantasm,attack_rise_NP,defence_rise_NP,experience_point,turn_count,width,height
+int,string,int,int,int,int,int,int,int,int,int,int,int,,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int
+0,OKITA,1,1,1,15,15,8,16,1,10,10,100,1,10,0,5,1,2,2,5,2,1,1,1,0,100,10,10,0,0,30,30

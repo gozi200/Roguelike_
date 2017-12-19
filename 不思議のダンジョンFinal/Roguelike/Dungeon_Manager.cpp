@@ -59,14 +59,11 @@ int Dungeon_Manager::Get_Room_Count() {
 	return rectangle_count; //‚P‹æ‰æ‚É•”‰®‚Íˆê‚Â‚È‚Ì‚Årect‚Å‘ã—p
 }
 
-int Dungeon_Manager::Get_Width (int set_width) {
-	width += set_width;
-
+int Dungeon_Manager::Get_Width () {
 	return width;
 }
 
-int Dungeon_Manager::Get_Height(int set_height) {
-	height += set_height;
+int Dungeon_Manager::Get_Height() {
 
 	return height;
 }

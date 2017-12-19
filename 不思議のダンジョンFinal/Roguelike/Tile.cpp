@@ -21,6 +21,7 @@ void Tile::Set_Parametor() {
 	std::string line;
 	std::getline(ifs, line); // csvファイルの使わない行を読み飛ばす
 	std::getline(ifs, line); // 同上
+	std::getline(ifs, line);
 	ifs.clear();             // 読み飛ばしたデータを破棄する
 
 	loop_count = 0;

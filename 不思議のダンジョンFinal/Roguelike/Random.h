@@ -1,12 +1,11 @@
 #pragma once
 
-#include"Define.h"
-
 #include<random>
 
 /*------------------------------
 MT法を使用いて乱数を取得するクラス
 -------------------------------*/
+
 static class Random {
 public:
 /*--------

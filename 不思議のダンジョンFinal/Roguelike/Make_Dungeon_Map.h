@@ -5,9 +5,6 @@
 #include"Dungeon_Manager.h"
 #include"Create_Dungeon_Map.h"
 
-#include<string>
-#include<memory>
-
 /*-------------------------------------
 ダンジョンのデータを参照し、画像を配置する
 --------------------------------------*/
@@ -40,4 +37,6 @@ public:
 
 	//画面の描画
 	void Render();
+
+	void DebugOutput();
 };

@@ -15,10 +15,6 @@ class Create_Dungeon_Map : public Dungeon_Manager {
 メンバ変数
 --------*/
 private:
-	int x, // 座標(横)
-		y; // 座標(縦)
-
-	int a, b, ab, p;
 
 /*-------
 メンバ関数

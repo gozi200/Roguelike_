@@ -4,20 +4,27 @@
 #include"Actor.h"
 #include"Random.h"
 
-/*------------------------------
-プレイヤーに持たせる情報を設定する
-------------------------------*/
+
+/*-----------------------------------------
+プレイヤーとパートナーに持たせる情報を設定する
+------------------------------------------*/
 struct ALLY_DATA : public ACTOR_DATA {
-	int power;              // 力(攻撃力に上乗せされる)
-	int max_power;          // 力の最大値
-	int noble_phantasm;     // 宝具を撃つためのポイント
-	int max_noble_phantasm; // npの最大値
-	int command_card;       // コマンドカード
-	int arts_card;          // アーツカードの枚数
-	int quick_card;         // クイックカードの枚数
-	int budter_card;        // バスターカードの枚数
-	int star;               // クリティカルスターの保持数
-	int star_occur;         // スター発生率
+	int power;                // 力(攻撃力に上乗せされる)
+	int max_power;            // 力の最大値
+	int command_card;         // コマンドカード
+	int arts_card;            // アーツカードの枚数
+	int arts_attack_count;    // アーツカード選択時の攻撃回数
+	int quick_card;           // クイックカードの枚数
+	int quick_attack_count;   // アーツカード選択時の攻撃回数
+	int buster_card;          // バスターカードの枚数
+	int buster_attack_count;  // アーツカード選択時の攻撃回数
+	int extra_attack;         // エクストラアタック
+	int star_generater;       // スター発生率
+	int noble_weapom;         // 宝具 
+	int noble_phantasm;       // 宝具を撃つためのポイント
+	int max_noble_phantasm;   // npの最大値
+	int attack_rise_NP;       // 攻撃時のNP上昇率
+	int defence_rise_NP;      // 防御(被ダメ)時のNPの上昇率
 
 	//Item items[MAX_STOCK_ITEM]; //アイテムの持ち切れる数
 	//Item weapon;				//武器
@@ -35,15 +42,22 @@ class Ally : public Actor {
 protected:
 	Random random;
 
-	int power;              // 力(攻撃力に上乗せされる)
-	int max_power;          // 力の最大値
-	int noble_phantasm;     // 宝具を撃つためのポイント
-	int command_card;       // コマンドカード
-	int atrs_card;          // アーツカードの枚数
-	int quick_card;         // クイックカードの枚数
-	int buster_card;        // バスターカードの枚数
-	int max_noble_phantasm; // npの最大値
-	int star_occur;         // スター発生率
+	int power;               // 力(攻撃力に上乗せされる)
+	int max_power;           // 力の最大値
+	int star_occur;          // スター発生率
+	int command_card;        // コマンドカード
+	int atrs_card;           // アーツカードの枚数
+	int arts_attack_count;   // アーツカード選択時の攻撃回数
+	int quick_card;          // クイックカードの枚数
+	int quick_attack_count;  // クイックカード選択時の攻撃回数
+	int buster_card;         // バスターカードの枚数
+	int buster_attack_count; // バスターカード選択時の攻撃回数
+	int extra_attack;        // エクストラアタック
+	int attack_rise_NP;      // 攻撃時のNP上昇率
+	int defence_rise_NP;     // 防御(被ダメ)時のNPの上昇率
+	int noble_weapon;        // 宝具
+	int noble_phantasm;      // 宝具を撃つためのポイント
+	int max_noble_phantasm;  // npの最大値
 
 	//Item items[MAX_STOCK_ITEM]; //アイテムの持ち切れる数
 	//Item weapon;				//武器

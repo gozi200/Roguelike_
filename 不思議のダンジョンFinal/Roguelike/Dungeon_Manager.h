@@ -13,19 +13,19 @@ class Dungeon_Manager {
 メンバ変数
 ---------*/
 public:
-	int rectangle_count; // １フロアの区画の数
-
-	Random* random;         // 乱数生成に使用 
+	Random* random;                                    // 乱数生成に使用 
 
 	DUNEON_RECTANGLE dungeon_rectangle[MAX_RECTANGLE]; // 矩形
+
+	int rectangle_count;                               // １フロアの区画の数
 
 private:
 	Tile_Judge* tile_judge; // その座標の地面は何なのかを判断
 	 
-	int width;           // ダンジョンの幅
-	int height;          // ダンジョンの高さ
+	int width;              // ダンジョンの幅
+	int height;             // ダンジョンの高さ
 
-	int turn_count;      // 経過ターンを数える	
+	int turn_count;         // 経過ターンを数える	
 
 /*---------
 メンバ関数
@@ -47,10 +47,10 @@ public:
 	void Random_Room_Point(int index, int* px, int* py);
 
 	// ダンジョンの高さを取得
-	int Get_Height(int set_height);
+	int Get_Height();
 	
 	// ダンジョンの幅を取得
-	int Get_Width(int set_eidth);
+	int Get_Width();
 
 private:
 	// 区画の数を取得

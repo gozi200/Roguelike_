@@ -1,28 +1,22 @@
 #pragma once
 
-#include"Item.h"
 #include"Ally.h"
-#include"Split.h"
-#include"Define.h"
 #include"Player_Graphic.h"
-#include"Dungeon_Manager.h"
-
-#include<vector>
-#include<string>
-#include<fstream>
-#include<memory>
+#include"Make_Dungeon_Map.h"
 
 /*------------------------------
 プレイヤーに持たせる情報を設定する
 ------------------------------*/
 
 struct PLAYER_DATA : public ALLY_DATA {
+	int keep_star;    // クリティカルスターの保持数
 	int hunger_point; // 空腹ポイント
 };
 
-/*--------------------------------------
+/*----------------------
 プレイヤーを管理するクラス
----------------------------------------*/
+-----------------------*/
+class Make_Dungeon;
 
 class Player : public Ally {
 /*--------
@@ -30,12 +24,18 @@ class Player : public Ally {
 --------*/
 private:
 	std::shared_ptr<Player_Graphic> player_graphic;
-	std::shared_ptr<Dungeon_Manager> dungeon_manager;
-	std::vector<PLAYER_DATA> player_datas; // キャラ毎に格納
+	std::shared_ptr<Make_Dungeon_Map> dungeon_manager;
 	
-	int spawn_point_x;      // 生成の座標(横)
-	int spawn_point_y;      // 生成の座標(縦)
-	int hunger_point;       // 空腹ポイント
+	int* player_x;    // プレイヤーの座標(横)
+	int player_y;     // プレイヤーの座標(縦)
+	int keep_star;    // クリティカルスターの保持数
+	int hunger_point; // 空腹ポイント
+
+	std::vector<PLAYER_DATA> player_datas; // キャラ毎に格納
+
+public:
+	int spawn_point_x; // 生成の座標(横)
+	int spawn_point_y; // 生成の座標(縦)
 
 /*--------
 メンバ関数
@@ -44,15 +44,18 @@ public:
 	// コンストラクタ
 	Player();
 
+	Player(std::shared_ptr<Make_Dungeon_Map> manager);
+
 	// デストラクタ
 	~Player();
 
-private:
-	// 座標を取得
-	void Player_Set_Position();
-
 	// パラメータをセット
 	void Set_Parametor() override;
+	
+
+private:
+	// 座標を取得
+	void Set_Player_Position();
 
 	// ターンの終了
 	void Turn_End() override;

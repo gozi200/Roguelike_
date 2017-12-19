@@ -57,14 +57,14 @@ const int CORNER_WALL_CAVE  = 3;
 
 #pragma region プレイヤーのID
 
-const int OKITA = 1;
+const int OKITA = 0;
 
 #pragma endregion
 
 
 #pragma region エネミーのID
 
-const int TEST_1 = 1;
+const int TEST_1 = 0;
 
 #pragma endregion
 
@@ -81,15 +81,15 @@ const int TEST_1 = 1;
 
 #pragma region アクターに関する定数
 
-const int ACTOR_SIZE_X   = 90; // キャラクターのサイズ(横)
+const int ACTOR_SIZE_X   = 30; // キャラクターのサイズ(横)
 						 
-const int ACTOR_SIZE_Y   = 90; // キャラクターのサイズ(縦)
+const int ACTOR_SIZE_Y   = 30; // キャラクターのサイズ(縦)
 						 
 const int ALLY_NUMBER    = 2; // 味方が同時に出現できる数
 						 
 const int MAX_ACTOR      = 35; // Actorが同時に出現できる数
 						 
-const int COLLISION      = 90; // キャラの大きさ　ひとまず　↑のサイズでいい気がする
+const int COLLISION      = 30; // キャラの大きさ　ひとまず　↑のサイズでいい気がする
 
 const int ACTOR_MOVEMENT = 30; // 1マス分の移動量 タイルサイズに同じ
 
@@ -170,9 +170,9 @@ const int ITEM_MAX = 500; // アイテムが同時に出現できる数　ひとまず
 
 #pragma region ダンジョンに関する定数
 
-const int DUNGEON_WIDTH  = 25; // ダンジョンの横マスの数 // 最終は50
+const int DUNGEON_WIDTH  = 25/*58*/; // ダンジョンの横マスの数 // 最終は50
 
-const int DUNGEON_HEIGHT = 25; // ダンジョンの縦マスの数
+const int DUNGEON_HEIGHT = 25/*38*/; // ダンジョンの縦マスの数
 
 const int MAX_RECTANGLE  = 10; // 区画の最大数
 

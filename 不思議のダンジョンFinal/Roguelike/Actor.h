@@ -1,11 +1,13 @@
 #pragma once
 
-#include"DxLib.h"
-#include"Set_File.h"
+#include"Split.h"
 #include"Define.h"
+#include"Set_File.h"
 
+#include<vector>
 #include<memory>
 #include<string>
+#include<fstream>
 
 /*-------------------
 Enemy,Allyの親クラス
@@ -13,8 +15,9 @@ Enemy,Allyの親クラス
 struct ACTOR_DATA {
 	int ID;				  // ナンバー
 	std::string  name;    // 名前
-						  
+
 	int calss;            // クラス
+	int saint_graph;      // 再臨状態
 	int level;			  // レベル
 	int attack;			  // 攻撃力
 	int defence;		  // 防御力
@@ -22,8 +25,9 @@ struct ACTOR_DATA {
 	int max_hit_point;	  // ヒットポイントの最大値
 	int activity;		  // 行動力(ここでは１ターンに行動できる数)
 	int experience_point; // 経験値(敵から与える、敵から貰える値)
-	int turn_count;		  // 経過ターンをカウント
-						 
+	int turn_count;       // 経過ターンをカウント
+	int sukill;           // スキル
+
 	int graphic_handle;	  // 画像のハンドル
 	int width;			  // 表示される幅
 	int height;			  // 表示される高さ
@@ -56,6 +60,7 @@ private:
 	int hit_point;        // ヒットポイント(0以下で死亡)
 	int max_hit_point;    // ヒットポイントの最大値
 	int activity;         // 行動力(ここでは１ターンに行動できる数)
+	int skill;            // スキル
 	int turn_count;       // 経過ターンをカウント
 
 	int graphic_handle;   // 画像のハンドル
@@ -72,16 +77,15 @@ protected:
 public:
 	// コンストラクタ
 	Actor();
-
-protected:
-	// デストラクタ
-	~Actor();
-
+	
 	// 座標のセット
 	virtual void Set_Position(int x, int y);
 
 	// 座標の取得
 	virtual void Get_Position(int* x, int* y, eDIRECTION* direction = NULL);
+protected:
+	// デストラクタ
+	~Actor();
 
 	// hit_pointの増減
 	virtual int Variation_HP(int value);
